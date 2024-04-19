@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="styles/index.css"> 
   </head>
 
+  <?php
+    $login = isset($_SESSION['login']);
+    $dueno_local = isset($_SESSION['user']) && $_SESSION['user'] == 'dueno de local';
+    $admin = isset($_SESSION['user']) && $_SESSION['user'] == 'admin';
+  ?>
+
 <body>
 
   <nav class="navbar navbar-expand-lg border-bottom border-body" data-bs-theme="dark">
@@ -26,14 +32,14 @@
           </li>
 
           <!-- Loged in -->
-          <?php if (isset($_SESSION['login'])){ ?>
+          <?php if ($login){ ?>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/novedades.php">Novedades</a>
             </li>
           <?php } ?>
 
           <!-- Dueño -->
-          <?php if (isset($_SESSION['user']) && $_SESSION['user'] == 'dueno de local') { ?>
+          <?php if ($dueno_local) { ?>
 
             <li class="nav-item">
               <a class="nav-link active" href="/bajorosario-shopping/dueno_new_promo.php">New Promo</a>
@@ -44,7 +50,7 @@
           <?php } ?>
 
           <!-- Admin -->
-          <?php if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') { ?>
+          <?php if ($admin) { ?>
 
             <?php
               include 'b_promos_pendientes.php';
@@ -98,7 +104,7 @@
       </div>
 
       <!-- Loged in -->
-      <?php if (isset($_SESSION['login']) && $_SESSION['login']) { ?>
+      <?php if ($login) { ?>
 
         <form class="d-flex me-3" role="search" action="b_local_search.php" method="POST">
               <input class="form-control me-2" type="search" placeholder="Buscar locales..." aria-label="Search" name='local'>
