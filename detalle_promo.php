@@ -25,7 +25,7 @@
                     </div>
                     <!-- Local -->
                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                        <a href="/CRUD/local/<?php echo $row['cod_local']; ?>">
+                        <a href="/bajorosario-shopping/local/<?php echo $row['cod_local']; ?>">
                             Local: <?php echo $row['cod_local']?>
                         </a>
                     </h6>

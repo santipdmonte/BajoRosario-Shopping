@@ -42,7 +42,7 @@ if (isset($_POST['use_promo'])){
     include ('b_cliente_validar_cat.php');
     validar_categoria($cod_cliente);
 
-    header("Location: /CRUD/promocion/". $cod_promo);
+    header("Location: /bajorosario-shopping/promocion/". $cod_promo);
     exit();
 }
 

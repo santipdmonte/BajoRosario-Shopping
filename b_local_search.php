@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['search_local'])){
-    header('Location: /CRUD/local/' . $_POST['local']);
+    header('Location: /bajorosario-shopping/local/' . $_POST['local']);
     exit();
 }
 

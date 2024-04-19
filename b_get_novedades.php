@@ -7,7 +7,7 @@ include("b_db.php");
 if (isset($_SESSION['user'])){
     $tipo_usuario = $_SESSION['user'];
 } else {
-    header("Location: /CRUD/index.php");
+    header("Location: /bajorosario-shopping/index.php");
     exit();
 }
  

@@ -2,6 +2,6 @@
 
 session_start();
 session_destroy();
-header('Location: /CRUD/')
+header('Location: /bajorosario-shopping/')
 
 ?>
