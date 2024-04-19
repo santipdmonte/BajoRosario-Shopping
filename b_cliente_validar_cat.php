@@ -1,15 +1,18 @@
 <?php
 
 
-function validar_categoria($cod_cliente){
+// function validar_categoria($cod_cliente){
     include("b_db.php");
 
     $cod_cliente = 25;
 
+    $fecha_seis_meses_atras = date('Y-m-d', strtotime('-6 months'));
+    
     $query = "
         SELECT * 
         FROM uso_promociones 
-        WHERE cod_cliente = '$cod_cliente'";
+        WHERE cod_cliente = '$cod_cliente'
+            AND fecha_uso_promo >= '$fecha_seis_meses_atras'";
 
     $result = mysqli_query($conn, $query);
     $cant_promo_usadas = $result -> num_rows;
@@ -41,7 +44,7 @@ function validar_categoria($cod_cliente){
 
 
 
-}
+// }
 
 
 ?>
