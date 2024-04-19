@@ -4,7 +4,7 @@
 function validar_categoria($cod_cliente){
     include("b_db.php");
 
-    $cod_cliente = 25;
+    $cod_cliente = $_SESSION['cod_usuario'];
 
     $fecha_seis_meses_atras = date('Y-m-d', strtotime('-6 months'));
     
