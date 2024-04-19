@@ -17,18 +17,18 @@
 
   <nav class="navbar navbar-expand-lg border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/CRUD/">Bajito Rosario</a>
+      <a class="navbar-brand" href="/bajorosario-shopping/">Bajito Rosario</a>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/CRUD/">Promociones</a>
+            <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/">Promociones</a>
           </li>
 
           <!-- Loged in -->
           <?php if (isset($_SESSION['login'])){ ?>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/CRUD/novedades.php">Novedades</a>
+              <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/novedades.php">Novedades</a>
             </li>
           <?php } ?>
 
@@ -36,10 +36,10 @@
           <?php if (isset($_SESSION['user']) && $_SESSION['user'] == 'dueno de local') { ?>
 
             <li class="nav-item">
-              <a class="nav-link active" href="/CRUD/dueno_new_promo.php">New Promo</a>
+              <a class="nav-link active" href="/bajorosario-shopping/dueno_new_promo.php">New Promo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/CRUD/dueno_manage_promo.php">Manage Promos</a>
+              <a class="nav-link active" href="/bajorosario-shopping/dueno_manage_promo.php">Manage Promos</a>
             </li>
           <?php } ?>
 
@@ -68,7 +68,7 @@
 
               <ul class="dropdown-menu">
   
-                <li><a class="dropdown-item d-flex gap-2" href="/CRUD/admin_promo.php">Promociones
+                <li><a class="dropdown-item d-flex gap-2" href="/bajorosario-shopping/admin_promo.php">Promociones
                   <div>
                     <span class="badge text-bg-secondary nav-item">
                       <?php echo $promos_pendientes_aprobacion; ?>
@@ -76,7 +76,7 @@
                   </div>
                   </a>
                 </li>
-                <li><a class="dropdown-item d-flex gap-2" href="/CRUD/admin_duenos.php">Dueños
+                <li><a class="dropdown-item d-flex gap-2" href="/bajorosario-shopping/admin_duenos.php">Dueños
                   <div>
                     <span class="badge text-bg-secondary nav-item">
                       <?php echo $duenos_pendientes_aprobacion; ?>
@@ -84,9 +84,9 @@
                   </div>
                   </a>
                 </li>
-                <li><a class="dropdown-item" href="/CRUD/admin_novedades.php">Novedades</a></li>
-                <li><a class="dropdown-item" href="/CRUD/admin_locales.php">Locales</a></li>
-                <li><a class="dropdown-item" href="/CRUD/admin_cliente_categorias.php">Categorias Cliente</a></li>
+                <li><a class="dropdown-item" href="/bajorosario-shopping/admin_novedades.php">Novedades</a></li>
+                <li><a class="dropdown-item" href="/bajorosario-shopping/admin_locales.php">Locales</a></li>
+                <li><a class="dropdown-item" href="/bajorosario-shopping/admin_cliente_categorias.php">Categorias Cliente</a></li>
               </ul>
             </div>
             
@@ -115,15 +115,15 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Configuraciones</a></li>
-            <li><a class="dropdown-item text-danger" href="/CRUD/b_cerrar_sesion.php">Cerrar Sesion</a></li>
+            <li><a class="dropdown-item text-danger" href="/bajorosario-shopping/b_cerrar_sesion.php">Cerrar Sesion</a></li>
           </ul>
         </div>
 
       <?php } else {?>
         <!-- Loged out -->
         <div class="nav-item text-white d-flex gap-4">       
-            <a class="nav-link" href="/CRUD/registrar_usuario.php">Registrarte</a>
-            <a class="nav-link" href="/CRUD/inicio_sesion.php">Iniciar Sesión</a>       
+            <a class="nav-link" href="/bajorosario-shopping/registrar_usuario.php">Registrarte</a>
+            <a class="nav-link" href="/bajorosario-shopping/inicio_sesion.php">Iniciar Sesión</a>       
         </div>
       <?php } ?>
         
