@@ -1,0 +1,21 @@
+EG - Requerimientos
+
+1. Alta y Baja de promociones
+    a. Validar que sea dueno de negocio para el Alta
+    b. Validar que sea administrador para la baja 
+    c. Validar que sea su promocion para la baja
+    d. Validacion del alta de las promociones por parte del administrador
+
+2. Registrarse el usuario (Dueño de negocio / Cliente)
+    a. Alta de los clientes
+    b. Validar el registro del dueño de negocio
+    c. validar los email mediante validacion por email
+
+3. Alta y Baja de locales por parte del administrador
+
+4. Dueños deben aceptar o rechazar solicitudes de descuento generadas por clientes 
+(A las promociones ya subidas no se necesita aprobacion no???)
+
+5. Reportaje de Promociones, por promocion
+
+6. Validar la categoria del cliente al ingresar en cada promocion (ademas de validar en el inicio las promos que se le muestran)

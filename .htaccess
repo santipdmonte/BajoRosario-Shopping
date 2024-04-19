@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Redireccionar promocion/<cod_promo> a detalle_promo.php?cod_promo=<cod_promo>
+RewriteRule ^promocion/([^/]+)/?$ detalle_promo.php?cod_promo=$1 [L]
+
+# Redireccionar local/<cod_local> a detalle_local.php?cod_local=<cod_local>
+RewriteRule ^local/([^/]+)/?$ detalle_local.php?cod_local=$1 [L]

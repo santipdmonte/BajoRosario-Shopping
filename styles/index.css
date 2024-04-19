@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Geist';
+    src: url('fonts/subset-Geist-Regular.woff2') format('woff2'),
+        url('fonts/subset-Geist-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: optional;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('fonts/subset-Geist-Regular.woff2') format('woff2'),
+        url('fonts/subset-Geist-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: optional;
+}
+
+
+body{
+    font-family: 'Geist', sans-serif, system-ui; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    align-items: center; 
+    background-color: #252525
+}
+
+nav{
+    background-color: #252525;
+}
+
+.title{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1.5rem;
+    color: aliceblue;
+}
+
