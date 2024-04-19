@@ -1,7 +1,7 @@
 <?php
 
 
-// function validar_categoria($cod_cliente){
+function validar_categoria($cod_cliente){
     include("b_db.php");
 
     $cod_cliente = 25;
@@ -40,11 +40,8 @@
 
             mysqli_query($conn, $query);
 
-    echo $cat_final;
-
-
-
-// }
+    // echo $cat_final;
+}
 
 
 ?>
