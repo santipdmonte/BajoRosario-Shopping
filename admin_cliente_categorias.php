@@ -40,7 +40,7 @@
                     <td><?php echo ucfirst($row['categoria'])?></td>
                     <td>
                         <input type="hidden" name="cod_categorias[]" value="<?php echo $row['cod_categoria']?>">
-                        <input class="w-25" style="background-color: transparent;" type="text" name="promociones_minimas_<?php echo $row['cod_categoria']?>" value="<?php echo $row['promociones_minimas_adquiridas']?>">
+                        <input class="w-25 rounded ps-2" style="background-color: transparent; border: 1px solid white; color: white" type="text" name="promociones_minimas_<?php echo $row['cod_categoria']?>" value="<?php echo $row['promociones_minimas_adquiridas']?>">
                     </td>
                     <td>
                     </td>
