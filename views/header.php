@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="styles/index.css"> 
   </head>
 
+
+<body>
+  
   <?php
     $login = isset($_SESSION['login']);
     $dueno_local = isset($_SESSION['user']) && $_SESSION['user'] == 'dueno de local';
     $admin = isset($_SESSION['user']) && $_SESSION['user'] == 'admin';
   ?>
-
-<body>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
