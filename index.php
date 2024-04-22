@@ -4,6 +4,8 @@
 
 <!-- TODO: Mostar solo las promo a la fecha y validar el tipo de cliente -->
 
+<?php  include ('hero_section.html')?>
+
 <h2 class="title"> Promociones </h2>
 
 <div 
