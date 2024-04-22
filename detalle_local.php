@@ -14,14 +14,14 @@
     if ($result_local) { 
     ?>
 
-        <div class="text-white">
+        <div>
             <h1><?php echo $result_local['nombre_local']?></h1>
             <p><?php echo $result_local['ubicacion_local']?></p>
             <p><?php echo $result_local['rubro_local']?></p>
         </div>
 
         <div>
-            <h3 class="text-white">Promociones:</h3>
+            <h2 class="title">Promociones</h2>
             <div 
                 class="container p-4" 
                 style="
