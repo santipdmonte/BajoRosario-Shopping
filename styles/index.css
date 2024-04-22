@@ -22,17 +22,17 @@ body{
     max-width: 1200px; 
     margin: 0 auto; 
     align-items: center; 
-    background-color: #252525
+    /* background-color: #252525 */
 }
 
-nav{
+/* nav{
     background-color: #252525;
-}
+} */
 
 .title{
     font-size: 2rem;
     font-weight: bold;
     padding: 1.5rem;
-    color: aliceblue;
+    color: #252525;
 }
 

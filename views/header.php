@@ -16,17 +16,17 @@
 
 
 <body>
-  
+
   <?php
     $login = isset($_SESSION['login']);
     $dueno_local = isset($_SESSION['user']) && $_SESSION['user'] == 'dueno de local';
     $admin = isset($_SESSION['user']) && $_SESSION['user'] == 'admin';
   ?>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg shadow">
   <div class="container-fluid">
     <a href="/bajorosario-shopping/">
-      <img src="assets/img/logo.png" alt="Bajo Rosario Logo" style="width: 50px;">
+      <img src="/assets/img/logo.png" alt="Bajo Rosario Logo" style="width: 50px;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -111,7 +111,6 @@
 
         <form class="d-flex me-3" role="search" action="b_local_search.php" method="POST">
           <input class="form-control me-2" type="search" placeholder="Buscar locales..." aria-label="Search" name='local'>
-          <button class="btn btn-outline-success" type="submit" name="search_local">Buscar</button>
         </form>
 
         <ul class="navbar-nav mb-2 mb-lg-0">
