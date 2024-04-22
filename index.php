@@ -55,7 +55,7 @@
                     <form action="b_promo_uso.php" method="POST">
                         <input type="text" name="cod_promo" value="<?php echo $promo['cod_promo']?>" hidden>
                         <input type="text" name="cod_usuario" value="<?php echo $_SESSION['cod_usuario']?>" hidden>
-                        <button type="submit" class="btn btn-primary" name="use_promo">Obtener Promoción</button>
+                        <button type="submit" class="btn btn-primary w-100" name="use_promo">Obtener Promoción</button>
                     </form>
                 <?php }?>
 
