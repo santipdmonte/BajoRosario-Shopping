@@ -2,10 +2,13 @@
 
 <?php include("views/header.php")?>
 
-<!-- TODO: Mostar solo las promo a la fecha y validar el tipo de cliente -->
-
 <?php  include ('hero_section.html')?>
 
+<!-- TODO: Carusel de Marcas -->
+<section class="text-center p-5" >
+    <h3 class="bold text-xl fs-1" style="text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);">180+ TIENDAS</h3>
+    <p class="bold">El mejor shopping de Rosario</p>
+</section>
 
 <?php include('cards.php')?>
     
