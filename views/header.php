@@ -26,7 +26,7 @@
   <nav class="navbar navbar-expand-lg shadow">
   <div class="container-fluid">
     <a href="/bajorosario-shopping/">
-      <img src="/bajorosario-shopping/assets/img/logo.png" alt="Bajo Rosario Logo" style="width: 50px;">
+      <img src="/bajorosario-shopping/assets/img/logo.png" class="mx-2" alt="Bajo Rosario Logo" style="width: 50px;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
