@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+
+.sectionPromo {
+	margin:0;
+	overflow-x:hidden;
+}
+
+.races {
+	width:fit-content;
+	display:flex;
+	flex-wrap:nowrap;
+}
