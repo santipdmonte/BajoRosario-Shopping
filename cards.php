@@ -60,27 +60,9 @@
                     </div>
                 </div>
             </div>
-        <?php 
+        <?php } ?>     
 
-        // Si hay mas de 4 promociones, muestro un boton para ver mas
-        $contador++;
-        if ($contador >= 4) {
-            break;
-            ?>
-            <div class="flex text-center m-auto">
-                <a class="card btn bg-secondary shadow flex" style="width: 10rem; height: 10rem;">
-                    <h5>Ver mas <br>Promociones</h5>            
-                </a>
-            </div>
-        <?php } }?>
-
-        <div class="flex text-center m-auto">
-                <a class="card btn bg-secondary shadow flex" style="width: 10rem; height: 10rem;">
-                    <h5>Ver mas <br>Promociones</h5>            
-                </a>
-            </div>       
-
-        <div style="width: 20rem;">
+        <div class="d-md-block d-none" style="width: 20rem;">
         </div>
         
     </div>
