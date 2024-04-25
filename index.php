@@ -1,8 +1,6 @@
-<?php include("b_db.php"); ?>
+<?php include("src/views/header.php")?>
 
-<?php include("views/header.php")?>
-
-<?php  include ('hero_section.html')?>
+<?php  include ('src/views/hero_section.html')?>
 
 <!-- TODO: Carusel de Marcas -->
 <section class="text-center p-5" >
@@ -10,7 +8,6 @@
     <p class="bold">El mejor shopping de Rosario</p>
 </section>
 
-<?php include('cards.php')?>
+<?php include('src/views/cards.php')?>
     
-<?php include("views/footer.html")?>
-
+<?php include("src/views/footer.html")?>
