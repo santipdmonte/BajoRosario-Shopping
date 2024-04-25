@@ -38,7 +38,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/src/views/promociones.php">Promociones</a>
+            <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/promociones">Promociones</a>
         </li>
 
         <!-- Loged in -->
