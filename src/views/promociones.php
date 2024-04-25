@@ -6,20 +6,6 @@ include __DIR__ . "/header.php";
 
 <h2 class="title"> Promociones </h2>
 
-<?php
-    // Verificar si la variable de sesión está establecida para mostrar el toast
-    if (isset($_SESSION['deleted']) && $_SESSION['deleted']) {
-        // Si la promoción se ha guardado correctamente, muestra el mensaje
-        echo '<div class="alert alert-success" role="alert"> La promoción se elimino con éxito </div>';
-        unset($_SESSION['deleted']);
-    }
-    if (isset($_SESSION['failed']) && $_SESSION['failed']) {
-        // Si la promoción no se pudo guardar, muestra el mensaje
-        echo '<div class="alert alert-danger" role="alert"> Error al eliminar la promoción</div>';
-        unset($_SESSION['failed']);
-    }
-    ?>
-
 <div 
     class="container p-4" 
     style="
