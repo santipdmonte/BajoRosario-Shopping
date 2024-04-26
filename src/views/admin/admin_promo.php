@@ -32,7 +32,7 @@ include __DIR__ . "/../../../config/db.php";
     }
     ?>
 
-    <table class="table table-dark table-striped table-hover shadow">
+    <table class="table table-striped table-hover shadow">
 
     <thead>
         <tr>
@@ -47,23 +47,28 @@ include __DIR__ . "/../../../config/db.php";
 
     <?php 
     $query = "SELECT * FROM promociones WHERE estado_promo = 'pendiente'";
-    $result_tasks = mysqli_query($conn, $query);
+    $promociones_pendientes = mysqli_query($conn, $query);
 
-    while($row = mysqli_fetch_array($result_tasks)){?>
+    while($promocion = mysqli_fetch_array($promociones_pendientes)){?>
 
         <!-- Itero por cada fila de promociones en la DB -->
         <tbody>
             <tr>
-            <td><?php echo $row['texto_promo']?></td>
-            <td><?php echo $row['cod_local']?></td>
-            <td><?php echo ($row['fecha_desde_promo'] . ' | ' . $row['fecha_hasta_promo'])?></td>
-            <td><?php echo $row['categoria_cliente']?></td>
-            <td><?php echo $row['dias_semana']?></td>
+            <td><?php echo $promocion['texto_promo']?></td>
+            <td><?php echo $promocion['cod_local']?></td>
+            <td><?php echo ($promocion['fecha_desde_promo'] . ' | ' . $promocion['fecha_hasta_promo'])?></td>
+            <td><?php echo $promocion['categoria_cliente']?></td>
+            <td>
+                <?php $dias_semana = json_decode($promocion['dias_semana'])?>
+                    <div class="d-flex gap-1">
+                        <?php include '../component_dias_seman.php'?>
+                    </div>
+            </td>
             <td>
                 <form action="/bajorosario-shopping/src/controllers/promo_review.php" method="POST">
                     <button class="btn btn-outline-success" type="submit" name="action" value="approve">Aprobar</button>
                     <button class="btn btn-outline-danger" type="submit" name="action" value="deny">Denegar</button>
-                    <input type="hidden" name="cod_promo" value="<?php echo $row['cod_promo']?>">
+                    <input type="hidden" name="cod_promo" value="<?php echo $promocion['cod_promo']?>">
                 </form>
             </td>
             </tr>
