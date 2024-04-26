@@ -27,7 +27,7 @@ if (!$result){
     $_SESSION['review_failed'] = true;
 }
 
-header("Location: /bajorosario-shopping//admin/promociones");
+header("Location: /bajorosario-shopping/admin/promociones");
 exit();
 
 ?>

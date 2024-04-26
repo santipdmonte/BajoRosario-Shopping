@@ -67,7 +67,7 @@ include __DIR__ . "/../../../config/db.php";
                             </div>
                     </td>
                     <td>
-                        <form action="/bajorosario-shopping/src/controllers/promo_review.php" method="POST">
+                        <form action="/bajorosario-shopping/src/controllers/promociones/promo_review.php" method="POST">
                             <button class="btn btn-outline-success" type="submit" name="action" value="approve">Aprobar</button>
                             <button class="btn btn-outline-danger" type="submit" name="action" value="deny">Denegar</button>
                             <input type="hidden" name="cod_promo" value="<?php echo $promocion['cod_promo']?>">
