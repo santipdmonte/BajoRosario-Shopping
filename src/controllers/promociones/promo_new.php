@@ -42,7 +42,7 @@ if (isset($_POST['save_promo'])){
     if (!$result){
         $_SESSION['promo_failed'] = true;
 
-        header("Location: /bajorosario-shopping/duenos/new_promo");
+        header("Location: /bajorosario-shopping/dueno/new_promo");
         exit(); 
     }
 
@@ -50,7 +50,7 @@ if (isset($_POST['save_promo'])){
         session_start();
         $_SESSION['promo_saved'] = true;
 
-        header("Location: /bajorosario-shopping/duenos/new_promo");
+        header("Location: /bajorosario-shopping/dueno/new_promo");
         exit();
 
 }
