@@ -1,5 +1,17 @@
 <?php
 
+function get_novedades_active(){
+    include  __DIR__ . "/../../../config/db.php";
+
+    $query = "
+    SELECT * 
+    FROM novedades 
+    WHERE estado_novedad = 'activa'
+        AND fecha_hasta_novedad >= CURDATE()";
+    $novedades = mysqli_query($conn, $query); 
+    return $novedades;
+}
+
 function get_novedades_by_user(){
 
     include  __DIR__ . "/../../../config/db.php";
