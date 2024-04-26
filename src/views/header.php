@@ -136,7 +136,6 @@
         <!-- Loged out -->
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="/bajorosario-shopping/src/views/inicio_sesion.php">Iniciar Sesión</a> </li>
-          <li class="nav-item"><a class="nav-link" href="/bajorosario-shopping/src/views/registrar_usuario.php">Registrarte</a></li>
         </ul>
       <?php } ?>
 
