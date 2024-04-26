@@ -24,7 +24,7 @@ if (!$result){
 
 if (isset($_POST['source']) && $_POST['source'] == 'dueno') {
     // Redireccionar a dueno_manage_promo.php
-    header("Location: /bajorosario-shopping/src/views/duenos/dueno_manage_promo.php");
+    header("Location: /bajorosario-shopping/dueño/manage_promo");
     exit();
 } 
 

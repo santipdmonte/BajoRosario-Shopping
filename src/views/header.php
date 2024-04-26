@@ -54,7 +54,7 @@
             <a class="nav-link active" href="/bajorosario-shopping/dueno/new_promo">New Promo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/bajorosario-shopping/src/views/duenos/dueno_manage_promo.php">Manage Promos</a>
+            <a class="nav-link active" href="/bajorosario-shopping/dueño/manage_promo">Manage Promos</a>
           </li>
         <?php } ?>
 

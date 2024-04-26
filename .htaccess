@@ -26,3 +26,6 @@ RewriteRule ^novedades$ src/views/novedades.php [L]
 
 # Redirigir /dueno/new_promo a src/views/duenos/dueno_new_promo.php
 RewriteRule ^dueno/new_promo$ src/views/duenos/dueno_new_promo.php [L]
+
+# Redirigir /dueño/manage_promo a src/views/duenos/dueno_manage_promo.php
+RewriteRule ^dueño/manage_promo$ src/views/duenos/dueno_manage_promo.php [L]
