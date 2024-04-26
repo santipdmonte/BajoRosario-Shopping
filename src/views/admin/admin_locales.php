@@ -29,7 +29,7 @@ include __DIR__ . "/../../../config/db.php";
         Nuevo Local
     </button>
 
-    <!-- New local form -->
+    <!-- Edit local form -->
     <div class="card" style="width: 40rem;" hidden>
         <div class="card-body">
 

@@ -27,7 +27,7 @@ if (isset($_POST['save_local'])){
         $_SESSION['failed'] = true;
 
         // Redireccionar a admin_locales.php
-        header("Location: /bajorosario-shopping/src/views/admin/admin_locales.php");
+        header("Location: /bajorosario-shopping/admin/locales");
         exit(); 
     }
 
@@ -36,7 +36,7 @@ if (isset($_POST['save_local'])){
     $_SESSION['saved'] = true;
 
     // Redireccionar a admin_locales.php
-    header("Location: /bajorosario-shopping/src/views/admin/admin_locales.php");
+    header("Location: /bajorosario-shopping/admin/locales");
     exit();
 
 }
