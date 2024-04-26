@@ -30,7 +30,7 @@ if (isset($_POST['save_novedad'])){
         $_SESSION['failed'] = true;
 
         // Redireccionar a admin_novedades.php
-        header("Location: /bajorosario-shopping/src/views/admin/admin_novedades.php");
+        header("Location: /bajorosario-shopping/admin/novedades");
         exit(); 
     }
 
@@ -39,7 +39,7 @@ if (isset($_POST['save_novedad'])){
         $_SESSION['saved'] = true;
 
         // Redireccionar a admin_novedades.php
-        header("Location: /bajorosario-shopping/src/views/admin/admin_novedades.php");
+        header("Location: /bajorosario-shopping/admin/novedades");
         exit();
 
 }

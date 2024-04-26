@@ -11,3 +11,6 @@ RewriteRule ^local/([^/]+)/?$ /bajorosario-shopping/src/views/detalle_local.php?
 
 # Redirigir /promociones a /src/views/promociones.php
 RewriteRule ^promociones$ src/views/promociones.php [L]
+
+# Redirigir /admin/novedades a /src/views/admin/admin_novedades.php
+RewriteRule ^admin/novedades$ src/views/admin/admin_novedades.php [L]

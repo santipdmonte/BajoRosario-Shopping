@@ -27,14 +27,10 @@ $result = mysqli_query($conn, $query);
 
 if (!$result){
     $_SESSION['failed'] = true;
-    
-    // Redireccionar a admin_novedades.php
-    header("Location: /bajorosario-shopping/src/views/admin/admin_novedades.php");
-    exit(); 
+
 }
 
-// Redireccionar a admin_novedades.php
-header("Location: /bajorosario-shopping/src/views/admin/admin_novedades.php");
+header("Location: /bajorosario-shopping/admin/novedades");
 exit();
 
 ?>

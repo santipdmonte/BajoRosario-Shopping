@@ -98,7 +98,7 @@
                 </div>
                 </a>
               </li>
-              <li><a class="dropdown-item" href="/bajorosario-shopping/src/views/admin/admin_novedades.php">Novedades</a></li>
+              <li><a class="dropdown-item" href="/bajorosario-shopping/admin/novedades">Novedades</a></li>
               <li><a class="dropdown-item" href="/bajorosario-shopping/src/views/admin/admin_locales.php">Locales</a></li>
               <li><a class="dropdown-item" href="/bajorosario-shopping/src/views/admin/admin_cliente_categorias.php">Categorias Cliente</a></li>
             </ul>
