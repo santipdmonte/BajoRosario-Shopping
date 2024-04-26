@@ -1,37 +1,51 @@
 <?php
 
-// function get_promociones_by_client_category(){
+function get_promociones_by_client_category(){
 
-//     include  __DIR__ . "/../../../config/db.php";
+    include  __DIR__ . "/../../../config/db.php";
 
     
-//     $categorias_permitidas = get_categorias_permitidas();
+    $categorias_permitidas = get_categorias_permitidas();
     
 
-//     $query = "
-//             SELECT * 
-//             FROM promociones 
-//             WHERE estado_promo = 'aprobada' 
-//                 AND fecha_hasta_promo >= CURDATE() 
-//                 AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
-//             ORDER BY fecha_hasta_promo ASC";
-//     $result = mysqli_query($conn, $query);
+    $query = "
+            SELECT * 
+            FROM promociones 
+            WHERE estado_promo = 'aprobada' 
+                AND fecha_hasta_promo >= CURDATE() 
+                AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
+            ORDER BY fecha_hasta_promo ASC";
+    $result = mysqli_query($conn, $query);
 
-//     return $result;
-// }
+    return $result;
+}
 
 function get_total_promociones_by_client_category() {
     include __DIR__ . "/../../../config/db.php";
 
     $categorias_permitidas = get_categorias_permitidas();
 
-    $query = "
-        SELECT COUNT(*) AS total 
-        FROM promociones 
-        WHERE estado_promo = 'aprobada' 
-          AND fecha_hasta_promo >= CURDATE() 
-          AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
-    ";
+    if (isset($_GET['rubro']) && $_GET['rubro']){
+        $rubro = $_GET['rubro'];
+        $query = "
+            SELECT COUNT(*) AS total 
+            FROM promociones
+            INNER JOIN locales ON promociones.cod_local = locales.cod_local 
+            WHERE estado_promo = 'aprobada' 
+              AND fecha_hasta_promo >= CURDATE() 
+              AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
+              AND locales.rubro_local = '$rubro'
+        ";
+    } else {
+        $query = "
+            SELECT COUNT(*) AS total 
+            FROM promociones 
+            WHERE estado_promo = 'aprobada' 
+              AND fecha_hasta_promo >= CURDATE() 
+              AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
+        ";
+    }
+
 
     $result = mysqli_query($conn, $query);
     $fila = mysqli_fetch_assoc($result);
@@ -43,16 +57,41 @@ function get_promociones_by_client_category_paginadas($inicio, $elementos_por_pa
 
     $categorias_permitidas = get_categorias_permitidas();
 
-    $query = "
-        SELECT * 
-        FROM promociones 
-        WHERE estado_promo = 'aprobada' 
-          AND fecha_hasta_promo >= CURDATE() 
-          AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
-        ORDER BY fecha_hasta_promo ASC 
-        LIMIT $inicio, $elementos_por_pagina
-    ";
+    if (isset($_GET['rubro']) && $_GET['rubro']){
+        $rubro = $_GET['rubro'];
+        $query = "
+            SELECT * 
+            FROM promociones 
+            INNER JOIN locales ON promociones.cod_local = locales.cod_local 
+            WHERE estado_promo = 'aprobada' 
+                AND fecha_hasta_promo >= CURDATE() 
+                AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
+                AND locales.rubro_local = '$rubro'
+            ORDER BY fecha_hasta_promo ASC 
+            LIMIT $inicio, $elementos_por_pagina
+        ";
+    } else {
+        $query = "
+            SELECT * 
+            FROM promociones 
+            WHERE estado_promo = 'aprobada' 
+                AND fecha_hasta_promo >= CURDATE() 
+                AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
+            ORDER BY fecha_hasta_promo ASC 
+            LIMIT $inicio, $elementos_por_pagina
+        ";
+    }
 
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
+
+function get_rubros() {
+    include __DIR__ . "/../../../config/db.php";
+
+    $query = 
+    "SELECT DISTINCT rubro_local 
+    FROM locales";
     $result = mysqli_query($conn, $query);
     return $result;
 }
