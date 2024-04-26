@@ -19,7 +19,7 @@ include __DIR__ . "/../../../config/db.php";
     }
     ?>
 
-    <div class="card" style="width: 40rem;">
+    <div class="card w-100" style="max-width: 500px;">
         <div class="card-body">
             <form action="/bajorosario-shopping/src/controllers/promociones/promo_new.php" method="POST">
 
@@ -32,19 +32,19 @@ include __DIR__ . "/../../../config/db.php";
                 </div>
 
                 <!-- Input Fecha Ini -->
-                <div class="mb-3">
+                <div class="mb-3" style="max-width: 200px;">
                     <label for="fechaInicio" class="form-label">Promoción Desde</label>
                     <input type="date" class="form-control" name="fecha_inicio" required>
                 </div>
 
                 <!-- Input fecha Hasta -->
-                <div class="mb-3">
+                <div class="mb-3" style="max-width: 200px;">
                     <label for="fechaFin" class="form-label">Promoción Hasta</label>
                     <input type="date" class="form-control" name="fecha_fin" required>
                 </div>
                 
                 <!-- Input Categoria Cliente -->
-                <div class="mb-3">
+                <div class="mb-3" style="max-width: 200px;">
                     <label for="selectOpciones" class="form-label">Categoria de cliente</label>
                     <select class="form-select" id="selectOpciones" name="categoria_cliente">
                         <option value="Inicial">Inicial</option>
