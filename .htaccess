@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Redireccionar la pagina de error 404 a 404.php
+ErrorDocument 404 /bajorosario-shopping/404.php
+
 # Redireccionar promocion/<cod_promo> a detalle_promo.php?cod_promo=<cod_promo>
 RewriteRule ^promocion/([^/]+)/?$ src/views/detalle_promo.php?cod_promo=$1 [L]
 
