@@ -19,11 +19,10 @@ $result = mysqli_query($conn, $query);
 
 if (!$result){
     $_SESSION['review_failed'] = true;
-    header("Location: /bajorosario-shopping/src/views/admin/admin_duenos.php");
-    exit(); 
+
 }
 
-header("Location: /bajorosario-shopping/src/views/admin/admin_duenos.php");
+header("Location: /bajorosario-shopping/admin/duenos");
 exit();
 
 ?>

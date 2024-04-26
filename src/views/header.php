@@ -90,7 +90,7 @@
                 </div>
                 </a>
               </li>
-              <li><a class="dropdown-item d-flex gap-2" href="/bajorosario-shopping/src/views/admin/admin_duenos.php">Dueños
+              <li><a class="dropdown-item d-flex gap-2" href="/bajorosario-shopping/admin/duenos">Dueños
                 <div>
                   <span class="badge text-bg-secondary nav-item">
                     <?php echo $duenos_pendientes_aprobacion; ?>
