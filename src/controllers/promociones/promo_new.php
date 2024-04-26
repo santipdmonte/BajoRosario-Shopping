@@ -41,9 +41,8 @@ if (isset($_POST['save_promo'])){
 
     if (!$result){
         $_SESSION['promo_failed'] = true;
-        // Redireccionar a dueno_new_promo.php
 
-        header("Location: /bajorosario-shopping/src/views/duenos/dueno_new_promo.php");
+        header("Location: /bajorosario-shopping/duenos/new_promo");
         exit(); 
     }
 
@@ -51,8 +50,7 @@ if (isset($_POST['save_promo'])){
         session_start();
         $_SESSION['promo_saved'] = true;
 
-        // Redireccionar a dueno_new_promo.php
-        header("Location: /bajorosario-shopping/src/views/duenos/dueno_new_promo.php");
+        header("Location: /bajorosario-shopping/duenos/new_promo");
         exit();
 
 }
