@@ -29,7 +29,7 @@ include __DIR__ . "/../../../config/db.php";
     }
     ?>
 
-    <table class="table table-dark table-striped table-hover shadow">
+    <table class="table table-striped table-hover shadow">
 
     <thead>
         <tr>
