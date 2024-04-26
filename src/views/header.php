@@ -44,7 +44,7 @@
         <!-- Loged in -->
         <?php if ($login){ ?>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/src/views/novedades.php">Novedades</a>
+              <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/novedades">Novedades</a>
             </li>
         <?php } ?>
 

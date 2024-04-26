@@ -20,3 +20,6 @@ RewriteRule ^inicio_sesion$ src/views/inicio_sesion.php [L]
 
 # Redirigir /registrar_usuario a src/views/registrar_usuario.php
 RewriteRule ^registrar_usuario$ src/views/registrar_usuario.php [L]
+
+# Redirigir /novedades a src/views/novedades.php
+RewriteRule ^novedades$ src/views/novedades.php [L]
