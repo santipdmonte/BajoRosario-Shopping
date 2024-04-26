@@ -51,7 +51,12 @@ style="
             <td><?php echo $promocion['cod_local']?></td>
             <td><?php echo ($promocion['fecha_desde_promo'] . ' | ' . $promocion['fecha_hasta_promo'])?></td>
             <td><?php echo $promocion['categoria_cliente']?></td>
-            <td><?php echo $promocion['dias_semana']?></td>
+            <td>
+                <?php $dias_semana = json_decode($promocion['dias_semana'])?>
+                    <div class="d-flex gap-1">
+                        <?php include '../component_dias_seman.php'?>
+                    </div>
+            </td>
             <td>
                 <form action="/bajorosario-shopping/src/controllers/promociones/promo_delete.php" method="POST">
                     <input type="hidden" name="cod_promo" value="<?php echo $promocion['cod_promo']?>">
