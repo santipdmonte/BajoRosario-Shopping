@@ -119,4 +119,18 @@ function get_categorias_permitidas() {
     return [];
 }
 
+function get_promociones_by_dueno() {
+    include __DIR__ . "/../../../config/db.php";
+
+    $query = "
+    SELECT * 
+    FROM promociones 
+    INNER JOIN locales ON promociones.cod_local = locales.cod_local
+    WHERE estado_promo = 'aprobada'
+        AND cod_usuario = " . $_SESSION['cod_usuario'] .
+    " ORDER BY fecha_hasta_promo DESC";
+
+    return mysqli_query($conn, $query);
+}
+
 ?>
