@@ -3,7 +3,7 @@ include '../header.php';
 include __DIR__ . "/../../../config/db.php";
 ?>
 
-<div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+<div class="container pt-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
     <?php
         // Verificar si la variable de sesión está establecida para mostrar el toast
@@ -30,7 +30,7 @@ include __DIR__ . "/../../../config/db.php";
     </button>
 
     <!-- Edit local form -->
-    <div class="card" style="width: 40rem;" hidden>
+    <div class="card" hidden>
         <div class="card-body">
 
             <form action="/bajorosario-shopping/src/controllers/locales/local_new.php" method="POST">
@@ -54,7 +54,8 @@ include __DIR__ . "/../../../config/db.php";
         display: flex; 
         flex-direction: column; 
         justify-content: center; 
-        align-items: center;">
+        align-items: center;
+        overflow-x: auto;">
 
         <?php   
             // Verificar si la variable de sesión está establecida para mostrar el toast
@@ -75,7 +76,7 @@ include __DIR__ . "/../../../config/db.php";
             }
         ?>
 
-        <table class="table table-dark table-striped table-hover shadow">
+        <table class="table table-striped table-hover shadow text-center" style="min-width: 750px;">
 
             <thead>
                 <tr>
@@ -130,7 +131,7 @@ include __DIR__ . "/../../../config/db.php";
 
                     <div class="modal-body">
                         <!-- New local form -->
-                        <div class="card" style="width: 40rem;">
+                        <div class="card">
                             <div class="card-body">
                                 <form action="/bajorosario-shopping/src/controllers/locales/local_new.php" method="POST">
 

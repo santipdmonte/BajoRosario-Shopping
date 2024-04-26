@@ -15,7 +15,7 @@ $novedades = get_novedades_active();
 
 ?>
 
-<div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+<div class="container pt-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
     <?php
     if ($is_saved) {
@@ -61,10 +61,11 @@ $novedades = get_novedades_active();
         display: flex; 
         flex-direction: column; 
         justify-content: center; 
-        align-items: center;"
+        align-items: center;
+        overflow-x: auto;"
     >
 
-        <table class="table table-striped table-hover shadow">
+        <table class="table table-striped table-hover shadow text-center" style="min-width: 750px;">
 
             <thead>
                 <tr>
