@@ -28,7 +28,7 @@ if (!$result){
 }
 
 $_SESSION['save_changes'] = true;
-header("Location: /bajorosario-shopping/src/views/admin/admin_cliente_categorias.php");
+header("Location: /bajorosario-shopping/admin/categorias_cliente");
 exit();
 
 ?>
