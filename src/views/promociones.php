@@ -20,6 +20,8 @@ $promociones = get_promociones_by_client_category_paginadas($inicio, $elementos_
 
 $rubros = get_rubros();
 
+$get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
+
 ?>
 
 <h2 class="title"> Promociones </h2>
@@ -30,8 +32,9 @@ $rubros = get_rubros();
             <option selected disabled>Promociones por rubro</option>
             <?php while ($rubro = mysqli_fetch_array($rubros)['rubro_local']){ ?>
                 <option 
+                    key = "<?php echo $rubro?>"
                     value="<?php echo $rubro?>"
-                    <?php echo ($_GET['rubro'] == $rubro) ? 'selected' : ''?>
+                    <?php echo ($get_rubro == $rubro) ? 'selected' : ''?>
                 > 
                     <?php  echo ucfirst($rubro)?>
                 </option>;
