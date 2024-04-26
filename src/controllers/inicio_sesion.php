@@ -22,11 +22,10 @@ if (isset($_POST['valid_user'])){
         // La contraseña es válida
         if ($result["estado_usuario"] == "pendiente"){
             $_SESSION['not_aprove']=true;
-            header('location: /bajorosario-shopping/inicio_sesion.php');
+            header('location: /bajorosario-shopping/inicio_sesion');
             exit();
         }
-
-        header('location: /bajorosario-shopping/index.php');
+        
         $_SESSION['login']=true;
         $_SESSION['cod_usuario']=$result["cod_usuario"];
         $_SESSION['nombre_usuario']=$result["nombre_usuario"];
@@ -34,10 +33,11 @@ if (isset($_POST['valid_user'])){
         if ($result["tipo_usuario"] == "cliente"){
             $_SESSION['categoria_cliente']=$result["categoria_cliente"];
         }
+        header('location: /bajorosario-shopping/');
     } else {
         // La contraseña no es válida
         $_SESSION['not_valid_password']=true;
-        header('location: /bajorosario-shopping/inicio_sesion.php');
+        header('location: /bajorosario-shopping/inicio_sesion');
     }
 
 }

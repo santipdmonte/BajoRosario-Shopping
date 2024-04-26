@@ -1,10 +1,10 @@
 RewriteEngine On
 
 # Redireccionar promocion/<cod_promo> a detalle_promo.php?cod_promo=<cod_promo>
-RewriteRule ^promocion/([^/]+)/?$ /bajorosario-shopping/src/views/detalle_promo.php?cod_promo=$1 [L]
+RewriteRule ^promocion/([^/]+)/?$ src/views/detalle_promo.php?cod_promo=$1 [L]
 
 # Redireccionar local/<cod_local> a detalle_local.php?cod_local=<cod_local>
-RewriteRule ^local/([^/]+)/?$ /bajorosario-shopping/src/views/detalle_local.php?cod_local=$1 [L]
+RewriteRule ^local/([^/]+)/?$ src/views/detalle_local.php?cod_local=$1 [L]
 
 # Redirigir /admin/promociones a /src/views/admin/admin_promo.php
 # RewriteRule ^admin/promociones$ src/views/admin/admin_promo.php [L]
@@ -14,3 +14,9 @@ RewriteRule ^promociones$ src/views/promociones.php [L]
 
 # Redirigir /admin/novedades a /src/views/admin/admin_novedades.php
 RewriteRule ^admin/novedades$ src/views/admin/admin_novedades.php [L]
+
+# Redirigir /inicio_sesion a /src/views/inicio_sesion.php
+RewriteRule ^inicio_sesion$ src/views/inicio_sesion.php [L]
+
+# Redirigir /registrar_usuario a src/views/registrar_usuario.php
+RewriteRule ^registrar_usuario$ src/views/registrar_usuario.php [L]

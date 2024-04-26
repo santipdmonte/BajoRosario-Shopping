@@ -38,7 +38,7 @@ if (isset($_POST['create_user'])){
 
     if (!$result){
         $_SESSION['failed'] = true;
-        header("Location: /bajorosario-shopping/src/views/registrar_usuario.php");
+        header("Location: /bajorosario-shopping/registrar_usuario");
         exit(); 
     }
 
@@ -70,7 +70,7 @@ if (isset($_POST['create_user'])){
     $_SESSION['success'] = true;
 
     // Redireccionar a registrar_usuario.php
-    header("Location: /bajorosario-shopping/src/views/registrar_usuario.php");
+    header("Location: /bajorosario-shopping/registrar_usuario");
     exit();
 
 }
