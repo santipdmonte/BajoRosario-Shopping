@@ -82,7 +82,7 @@
 
             <ul class="dropdown-menu">
 
-              <li><a class="dropdown-item d-flex gap-2" href="/bajorosario-shopping/src/views/admin/admin_promo.php">Promociones
+              <li><a class="dropdown-item d-flex gap-2" href="/bajorosario-shopping/admin/promociones">Promociones
                 <div>
                   <span class="badge text-bg-secondary nav-item">
                     <?php echo $promos_pendientes_aprobacion; ?>

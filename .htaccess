@@ -6,9 +6,6 @@ RewriteRule ^promocion/([^/]+)/?$ src/views/detalle_promo.php?cod_promo=$1 [L]
 # Redireccionar local/<cod_local> a detalle_local.php?cod_local=<cod_local>
 RewriteRule ^local/([^/]+)/?$ src/views/detalle_local.php?cod_local=$1 [L]
 
-# Redirigir /admin/promociones a /src/views/admin/admin_promo.php
-# RewriteRule ^admin/promociones$ src/views/admin/admin_promo.php [L]
-
 # Redirigir /promociones a /src/views/promociones.php
 RewriteRule ^promociones$ src/views/promociones.php [L]
 
@@ -29,3 +26,6 @@ RewriteRule ^dueno/new_promo$ src/views/duenos/dueno_new_promo.php [L]
 
 # Redirigir /dueño/manage_promo a src/views/duenos/dueno_manage_promo.php
 RewriteRule ^dueño/manage_promo$ src/views/duenos/dueno_manage_promo.php [L]
+
+# Redirigir /admin/promociones a /src/views/admin/admin_promo.php
+RewriteRule ^admin/promociones$ src/views/admin/admin_promo.php [L]

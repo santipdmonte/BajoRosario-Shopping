@@ -25,14 +25,9 @@ $result = mysqli_query($conn, $query);
 
 if (!$result){
     $_SESSION['review_failed'] = true;
-    
-    // Redireccionar a admin_promo.php
-    header("Location: /bajorosario-shopping/admin_promo.php");
-    exit(); 
 }
 
-// Redireccionar a admin_promo.php
-header("Location: /bajorosario-shopping/admin_promo.php");
+header("Location: /bajorosario-shopping//admin/promociones");
 exit();
 
 ?>

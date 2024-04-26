@@ -16,10 +16,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
 
 if (!$result){
     $_SESSION['failed'] = true;
-    
-    // Redireccionar a admin_promo.php
-    header("Location: /bajorosario-shopping/index.php");
-    exit(); 
 }
 
 if (isset($_POST['source']) && $_POST['source'] == 'dueno') {
@@ -28,8 +24,7 @@ if (isset($_POST['source']) && $_POST['source'] == 'dueno') {
     exit();
 } 
 
-// Redireccionar a index.php
-header("Location: /bajorosario-shopping/index.php");
+header("Location: /bajorosario-shopping/admin/promociones");
 exit();
 
 ?>
