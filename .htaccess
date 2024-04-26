@@ -23,3 +23,6 @@ RewriteRule ^registrar_usuario$ src/views/registrar_usuario.php [L]
 
 # Redirigir /novedades a src/views/novedades.php
 RewriteRule ^novedades$ src/views/novedades.php [L]
+
+# Redirigir /dueno/new_promo a src/views/duenos/dueno_new_promo.php
+RewriteRule ^dueno/new_promo$ src/views/duenos/dueno_new_promo.php [L]
