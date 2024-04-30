@@ -93,6 +93,7 @@ if (mysqli_num_rows($promociones) == 0) {
     </nav>
 <?php endif ?>
 
+<?php include '../../src/views/whatsapp_float.html'?>
     
 <?php include __DIR__ . "/footer.html"?>
 
