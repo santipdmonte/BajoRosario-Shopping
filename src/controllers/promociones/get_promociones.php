@@ -90,8 +90,8 @@ function get_rubros() {
     include __DIR__ . "/../../../config/db.php";
 
     $query = 
-    "SELECT DISTINCT rubro_local 
-    FROM locales";
+    "SELECT DISTINCT categoria 
+    FROM cateogrias_locales";
     $result = mysqli_query($conn, $query);
     return $result;
 }

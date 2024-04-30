@@ -30,7 +30,7 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
     <form action="/bajorosario-shopping/promociones" method="get">
         <select class="form-select" name="rubro" aria-label="Promociones por rubro" onchange="this.form.submit()">
             <option selected disabled>Promociones por rubro</option>
-            <?php while ($rubro = mysqli_fetch_array($rubros)['rubro_local']){ ?>
+            <?php while ($rubro = mysqli_fetch_array($rubros)['categoria']){ ?>
                 <option 
                     key = "<?php echo $rubro?>"
                     value="<?php echo $rubro?>"
