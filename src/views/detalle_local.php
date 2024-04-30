@@ -18,6 +18,7 @@
             <h1><?php echo $result_local['nombre_local']?></h1>
             <p><?php echo $result_local['ubicacion_local']?></p>
             <p><?php echo $result_local['rubro_local']?></p>
+            <img src="<?php echo $result_local['url_logo']?>" alt="">
         </div>
 
         <div>

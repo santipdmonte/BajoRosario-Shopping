@@ -1,7 +1,7 @@
 <div>
 
                 <div class="card" style="width: 30rem;">
-                    <img src="/bajorosario-shopping/public/images/hero_1.webp" class="card-img-top" alt="...">
+                    <img src="<?php echo $promo['url_logo']?>" class="card-img-top" alt="...">
                     <div href="#" class="card-body">
     
                         <div style="display: flex; justify-content: space-between;">
@@ -12,8 +12,8 @@
                         </div>
     
                         <h6 class="card-subtitle mb-2 text-body-secondary">
-                            <a href="local/<?php echo $promo['cod_local']; ?>">
-                                Local: <?php echo $promo['cod_local']?>
+                            <a href="local/<?php echo $promo['cod_local']; ?>" style="color: black">
+                                <?php echo $promo['nombre_local']?>
                             </a>
                         </h6>
     

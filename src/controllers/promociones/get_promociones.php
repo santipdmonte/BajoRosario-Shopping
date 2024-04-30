@@ -11,6 +11,7 @@ function get_promociones_by_client_category(){
     $query = "
             SELECT * 
             FROM promociones 
+            INNER JOIN locales ON promociones.cod_local = locales.cod_local 
             WHERE estado_promo = 'aprobada' 
                 AND fecha_hasta_promo >= CURDATE() 
                 AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
@@ -74,6 +75,7 @@ function get_promociones_by_client_category_paginadas($inicio, $elementos_por_pa
         $query = "
             SELECT * 
             FROM promociones 
+            INNER JOIN locales ON promociones.cod_local = locales.cod_local 
             WHERE estado_promo = 'aprobada' 
                 AND fecha_hasta_promo >= CURDATE() 
                 AND categoria_cliente IN ('".implode("','", $categorias_permitidas)."')
