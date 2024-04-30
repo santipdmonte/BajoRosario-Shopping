@@ -1,6 +1,6 @@
 <div>
 
-                <div class="card" style="width: 30rem;">
+                <div class="card" style="width: 15rem;">
                     <img src="<?php echo $promo['url_logo']?>" class="card-img-top" alt="...">
                     <div href="#" class="card-body">
     
