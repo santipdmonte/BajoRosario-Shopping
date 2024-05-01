@@ -6,7 +6,7 @@ include __DIR__ . "/../../../config/db.php";
 <!-- TODO: Validar las fechas de las promo, hacer ver graficamente cuando una promo ya expiro -->
 
 <div 
-    class="container p-4" 
+    class="container p-4 section" 
     style="
     display: flex; 
     flex-direction: column; 

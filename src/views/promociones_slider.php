@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="cards.css">
 
-<section class="sectionPromo" style="max-width: 1200px;">
+<section class="sectionPromo" style="max-width: 1200px; margin: 0 auto;">
 
     <div class="racesWrapper p-4">
     <div class="races gap-4">
@@ -21,8 +21,8 @@
             include 'component_card.php';
         } ?>     
 
-        <div class="d-md-block d-none" style="width: 20rem;">
-        </div>
+        <!-- <div class="d-md-block d-none" style="width: 20rem;">
+        </div> -->
         
     </div>
     </div>

@@ -15,7 +15,7 @@ $novedades = get_novedades_active();
 
 ?>
 
-<div class="container pt-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+<div class="container pt-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
     <?php
     if ($is_saved) {
