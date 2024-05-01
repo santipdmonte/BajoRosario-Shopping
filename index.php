@@ -16,7 +16,7 @@
     <p class="bold">El mejor shopping de Rosario</p>
 </section>
 
-<?php include('src/views/cards.php')?>
+<?php include('src/views/promociones_slider.php')?>
 
 <?php include 'src/views/whatsapp_float.html'?>
 

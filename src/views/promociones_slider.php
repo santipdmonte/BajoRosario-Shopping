@@ -4,7 +4,7 @@
 
     <div class="racesWrapper p-4">
     <div class="races gap-4">
-        <div style="width: 350px;">
+        <div style="width: 14rem;">
             <h2 style="font-size: 2rem; font-weight: bold;">Promociones</h2>
             <a href="" style="color: black">Ver todas las promociones</a>
         </div>
