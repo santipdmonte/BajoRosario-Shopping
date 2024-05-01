@@ -21,6 +21,7 @@
   background: white;
   white-space: nowrap;
   position: relative;
+  margin: 0 auto;
 }
 
 .logos:before,
@@ -73,7 +74,9 @@
         <?php
         while($local = mysqli_fetch_array($locales2)){ 
         ?>
-            <img src="<?php echo $local['url_logo']?>" alt="<?php echo $local['nombre_local']?>">
+            <a href="local/<?php echo $local['cod_local']; ?>" style="text-decoration: none;">
+                <img src="<?php echo $local['url_logo']?>" alt="<?php echo $local['nombre_local']?>">
+            </a>
         <?php }?>
     </div>
     
