@@ -19,15 +19,17 @@
 
 body{
     font-family: 'Geist', sans-serif, system-ui; 
-    max-width: 1200px; 
+    /* max-width: 1200px;  */
     margin: 0 auto; 
     align-items: center; 
     background: #f2f2f2;
 }
 
-/* nav{
-    background-color: #252525;
-} */
+nav{
+    background-color: transparent;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
 
 .title{
     font-size: 2rem;

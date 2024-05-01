@@ -26,7 +26,7 @@
     $admin = isset($_SESSION['user']) && $_SESSION['user'] == 'admin';
   ?>
 
-  <nav class="navbar navbar-expand-lg shadow">
+  <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a href="/bajorosario-shopping/">
       <img src="/bajorosario-shopping/public/images/logo.png" class="mx-2" alt="Bajo Rosario Logo" style="width: 50px;">
