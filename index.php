@@ -9,6 +9,8 @@
 </style>
 
 <!-- TODO: Carusel de Marcas -->
+<?php include('src/views/marcas_carousel.php')?>
+
 <section class="text-center p-5" >
     <h3 class="bold text-xl fs-1" style="text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);">180+ TIENDAS</h3>
     <p class="bold">El mejor shopping de Rosario</p>
