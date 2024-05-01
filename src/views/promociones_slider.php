@@ -21,8 +21,8 @@
             include 'component_card.php';
         } ?>     
 
-        <!-- <div class="d-md-block d-none" style="width: 20rem;">
-        </div> -->
+        <div class="d-md-block d-none" style="width: 25rem;">
+        </div>
         
     </div>
     </div>
