@@ -3,6 +3,8 @@ session_start();
 
 include("../../config/db.php");
 
+require("script_enviar_email.php");
+
 if (isset($_POST['create_user'])){
     $nombre_usuario = $_POST['nombre_usuario'];
     $email = $_POST['email'];
@@ -17,13 +19,18 @@ if (isset($_POST['create_user'])){
 
     $hashed_password = password_hash($clave_usuario, PASSWORD_DEFAULT); // Generar el hash de la contraseña
 
+    $timestamp = time(); 
+    $seed = 'bajitoenano'; 
+    $hash_validacion = hash('sha256', $email . $timestamp . $seed); // Generar el hash de validación
+ 
     $query = "INSERT INTO usuarios(
         nombre_usuario, 
         email, 
         clave_usuario,  
         tipo_usuario, 
         categoria_cliente,
-        estado_usuario) 
+        estado_usuario,
+        hash_validacion) 
         VALUES 
         (
             '$nombre_usuario', 
@@ -31,7 +38,8 @@ if (isset($_POST['create_user'])){
             '$hashed_password',
             '$tipo_usuario',
             '$categoria_cliente',
-            '$estado_usuario'
+            '$estado_usuario',
+            '$hash_validacion'
         )";
 
     $result = mysqli_query($conn, $query);
@@ -42,26 +50,8 @@ if (isset($_POST['create_user'])){
         exit(); 
     }
 
-
-    // // Enviar email de confirmación
-    // $to = $email;
-    // $subject = "Confirmación de registro";
-    // $message = "Hola $nombre_usuario, gracias por registrarte en nuestra plataforma. 
-    // Tu cuenta se encuentra pendiente de aprobación. Te notificaremos cuando tu cuenta sea activada.";
-
-    // // Encabezados
-    // $header = 'From: pede@mail.com\r\n' .
-    // 'Reply-To: pede@mail.com \r\n' .
-    // 'X-Mailer: PHP/' . phpversion();
-
-    // $mail = mail($to, $subject, $message, $header);
-
-    // if ($mail){
-    //     $_SESSION['mail_status'] = "Email de confirmación enviado correctamente";
-    // } else {
-    //     $_SESSION['mail_status'] = "Error al enviar el email de confirmación";
-    // }
-
+    // Enviamos el mail de validación
+    $result = sendMail($email, $hash_validacion);
 
     // Establecer variable de sesión para indicar que el usuario se ha guardado con éxito
     $_SESSION['saved'] = true;
