@@ -1,4 +1,12 @@
-<?php include __DIR__ . "/header.php"?>
+<?php include __DIR__ . "/header.php";
+
+$exists = isset($_SESSION['exists']) && $_SESSION['exists'];
+$failed = isset($_SESSION['failed']) && $_SESSION['failed'];
+$success = isset($_SESSION['success']) && $_SESSION['success'];
+
+$email = isset($_GET['email'])? $_GET['email'] : '';
+
+?>
 
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column"> 
 
@@ -6,9 +14,8 @@
         <?php
         echo ("TODO: Validar todos los inputs en front y back");
 
-        if (isset($_SESSION['exists']) && $_SESSION['exists']) {
+        if ($exists) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
-            $email = $_GET['email'];
             echo "
                 <div class='alert alert-warning m-2' role='warning'>
                     Usuario ya registrado. 
@@ -19,20 +26,15 @@
             ";
             unset($_SESSION['exists']);
         }
-        if (isset($_SESSION['failed']) && $_SESSION['failed']) {
+        if ($failed) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
             echo '<div class="alert alert-danger m-2" role="alert"> Error al registrar el usuario</div>';
             unset($_SESSION['failed']);
         }
-        if (isset($_SESSION['success']) && $_SESSION['success']) {
+        if ($success) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
             echo '<div class="alert alert-success m-2" role="alert">Usuario Registrado correctamente. Pendiente de verificacion</div>';
             unset($_SESSION['success']);
-        }
-        if (isset($_SESSION['mail_status'])) {
-            // Si la promoción se ha guardado correctamente, muestra el mensaje
-            echo '<div class="alert alert-success m-2" role="alert">' . $_SESSION['mail_status']. '</div>';
-            unset($_SESSION['mail_status']);
         }
         ?>   
         <div class="card-body">

@@ -1,6 +1,7 @@
 <?php include __DIR__ . "/header.php";
 
 $usuario_no_encontrado = isset($_SESSION['usuario_no_encontrado']) && $_SESSION['usuario_no_encontrado'];
+$email = isset($_GET['email'])? $_GET['email'] : '';
 
 ?>
 
@@ -13,7 +14,6 @@ $usuario_no_encontrado = isset($_SESSION['usuario_no_encontrado']) && $_SESSION[
         <?php
         if ($usuario_no_encontrado) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
-            $email = $_GET['email'];
                 echo "
                     <div class='alert alert-warning m-2' role='warning'>
                         Usuario no encontrado. 
@@ -22,7 +22,7 @@ $usuario_no_encontrado = isset($_SESSION['usuario_no_encontrado']) && $_SESSION[
                         </a>
                     </div>
                 ";
-            // unset($_SESSION['usuario_no_encontrado']);
+            unset($_SESSION['usuario_no_encontrado']);
         }
         ?>
 
