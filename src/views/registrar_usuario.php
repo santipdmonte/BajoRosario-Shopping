@@ -6,6 +6,19 @@
         <?php
         echo ("TODO: Validar todos los inputs en front y back");
 
+        if (isset($_SESSION['exists']) && $_SESSION['exists']) {
+            // Si la promoción se ha guardado correctamente, muestra el mensaje
+            $email = $_GET['email'];
+            echo "
+                <div class='alert alert-warning m-2' role='warning'>
+                    Usuario ya registrado. 
+                    <a href='inicio_sesion?email=$email' class='text-black'>
+                        Iniciar Sesion
+                    </a>
+                </div>
+            ";
+            unset($_SESSION['exists']);
+        }
         if (isset($_SESSION['failed']) && $_SESSION['failed']) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
             echo '<div class="alert alert-danger m-2" role="alert"> Error al registrar el usuario</div>';
