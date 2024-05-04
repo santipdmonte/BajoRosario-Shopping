@@ -1,10 +1,31 @@
-<?php include __DIR__ . "/header.php" ?>
+<?php include __DIR__ . "/header.php";
+
+$usuario_no_encontrado = isset($_SESSION['usuario_no_encontrado']) && $_SESSION['usuario_no_encontrado'];
+
+?>
 
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
     <?php echo ("TODO: Validar todos los inputs en front y back");?>
 
     <div class="card" style="width: 40rem;">
+        
+        <?php
+        if ($usuario_no_encontrado) {
+            // Si la promoción se ha guardado correctamente, muestra el mensaje
+            $email = $_GET['email'];
+                echo "
+                    <div class='alert alert-warning m-2' role='warning'>
+                        Usuario no encontrado. 
+                        <a href='registrar_usuario?email=$email' class='text-black'>
+                            Registrar Usuario
+                        </a>
+                    </div>
+                ";
+            // unset($_SESSION['usuario_no_encontrado']);
+        }
+        ?>
+
         <div class="card-body">
 
             <h2 class="pb-2" style="font-weight: bold;"> Iniciar Sesión </h2>

@@ -12,7 +12,8 @@ if (isset($_POST['valid_user'])){
     $usuario = mysqli_fetch_assoc($usuario);
 
     if (!$usuario){
-        echo "Usuario no encontrado";
+        $_SESSION['usuario_no_encontrado'] = true;
+        header("Location: /bajorosario-shopping/inicio_sesion?email=$email");
         exit();
     }
 

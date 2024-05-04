@@ -51,7 +51,12 @@
                 <!-- Input Email -->
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email">
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        name="email"
+                        value="<?php echo isset($_GET['email']) ? $_GET['email'] : ''; ?>"
+                    >
                     <div id="emailHelp" class="form-text">No vamosa  compartir el email con nadie.</div>
                 </div>
 
