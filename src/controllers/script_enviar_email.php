@@ -10,7 +10,7 @@ use PHPMailer\PHPMailer\SMTP;
    We have to require the config.php file to use our 
    Gmail account login details.
 */
-require 'config.php';
+require '../../config/config_mail.php';
  
 /*
    We have to require the path to the PHPMailer classes.
