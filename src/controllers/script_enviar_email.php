@@ -31,7 +31,7 @@ function sendMail($email, $hash){
 
     $subject = "Validar Cuenta";
 
-    $message = "Click aca para validar tu cuenta: <a href='http://localhost/bajorosario-shopping/validar.php?token=$hash'>Validar</a>";
+    $message = "Click aca para validar tu cuenta: <a href='http://localhost/bajorosario-shopping/src/controllers/validar.php?token=$hash'>Validar</a>";
 
    // Creating a new PHPMailer object.
    $mail = new PHPMailer(true);

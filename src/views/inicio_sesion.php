@@ -16,7 +16,12 @@
                 <!-- Input Email -->
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email">
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        name="email" 
+                        value="<?php echo isset($_GET['email']) ? $_GET['email'] : ''; ?>"
+                    >
                     <?php if (isset($_SESSION['not_aprove']) && $_SESSION['not_aprove']){?>
                         <div id="emailHelp" class="form-text text-danger-emphasis">Usuario pendiente de aprobación.</div>
                     <?php 
