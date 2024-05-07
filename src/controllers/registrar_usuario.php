@@ -5,6 +5,8 @@ include("../../config/db.php");
 
 require("script_enviar_email.php");
 
+require("../models/Usuario.php");
+
 if (isset($_POST['create_user'])){
     $nombre_usuario = $_POST['nombre_usuario'];
     $email = $_POST['email'];
@@ -32,32 +34,9 @@ if (isset($_POST['create_user'])){
     $seed = 'bajitoenano'; 
     $hash_validacion = hash('sha256', $email . $timestamp . $seed); // Generar el hash de validación
  
-    $query = "INSERT INTO usuarios(
-        nombre_usuario, 
-        email, 
-        clave_usuario,  
-        tipo_usuario, 
-        categoria_cliente,
-        estado_usuario,
-        hash_validacion) 
-        VALUES 
-        (
-            '$nombre_usuario', 
-            '$email', 
-            '$hashed_password',
-            '$tipo_usuario',
-            '$categoria_cliente',
-            '$estado_usuario',
-            '$hash_validacion'
-        )";
-
-    $result = mysqli_query($conn, $query);
-
-    if (!$result){
-        $_SESSION['failed'] = true;
-        header("Location: /bajorosario-shopping/registrar_usuario");
-        exit(); 
-    }
+    // Crear nuevo Usuario
+    $usuario = new Usuario();
+    $usuario->save($nombre_usuario, $email, $hashed_password, $tipo_usuario, $categoria_cliente, $estado_usuario, $hash_validacion);
 
     // Enviamos el mail de validación unicamente a los clientes
     if ($tipo_usuario == 'cliente')
@@ -65,8 +44,7 @@ if (isset($_POST['create_user'])){
 
     // Establecer variable de sesión para indicar que el usuario se ha guardado con éxito
     $_SESSION['saved'] = true;
-    $_SESSION['hash'] = $hashed_password;
-
+    $_SESSION['hash'] = $hashed_password; // TODO: Eliminar esta variable de sesión, ver si se usa en algun lado
     $_SESSION['success'] = true;
 
     // Redireccionar a registrar_usuario.php
