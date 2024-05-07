@@ -99,8 +99,18 @@ class Usuario
     }
 
 
-    public static function findBycod_usuario($cod_usuario)
+    public static function findByemail($email)
     {
+        include("../../config/db.php");
+
+        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
+        $stmt->bind_param("s", $email); 
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $usuario = $result->fetch_assoc();
+        $stmt->close();
+
+        return $usuario;
     }
 
 

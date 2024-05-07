@@ -3,13 +3,13 @@ session_start();
 
 include  "../../config/db.php";
 
+require("../models/Usuario.php");
+
 if (isset($_POST['valid_user'])){
     $email = $_POST['email'];
     $contrasena_ingresada = $_POST['clave_usuario']; // Contraseña ingresada por el usuario durante el inicio de sesión
 
-    $query = "SELECT * FROM usuarios WHERE email = '$email'";
-    $usuario = mysqli_query($conn, $query);
-    $usuario = mysqli_fetch_assoc($usuario);
+    $usuario = Usuario::findByemail($email);
 
     if (!$usuario){
         $_SESSION['usuario_no_encontrado'] = true;
