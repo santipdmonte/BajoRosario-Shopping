@@ -114,7 +114,17 @@ class Usuario
     }
 
 
-    public static function delete($cod_usuario)
+    public static function update_category($cod_cliente, $cat_final)
     {
+        include("../../config/db.php");
+
+        $stmt = $conn->prepare("
+            UPDATE usuarios
+            SET categoria_cliente = ?
+            WHERE cod_usuario = ?"
+            );
+        $stmt->bind_param("ss", $cat_final, $cod_cliente); 
+        $stmt->execute();
+        $stmt->close();
     }
 }
