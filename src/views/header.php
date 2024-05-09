@@ -101,6 +101,7 @@
               <li><a class="dropdown-item" href="/bajorosario-shopping/admin/novedades">Novedades</a></li>
               <li><a class="dropdown-item" href="/bajorosario-shopping/admin/locales">Locales</a></li>
               <li><a class="dropdown-item" href="/bajorosario-shopping/admin/categorias_cliente">Categorias Cliente</a></li>
+              <li><a class="dropdown-item" href="/bajorosario-shopping/admin/reportes">Reportes</a></li>
             </ul>
           </div>
 

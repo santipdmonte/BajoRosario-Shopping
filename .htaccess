@@ -39,5 +39,8 @@ RewriteRule ^admin/novedades$ src/views/admin/admin_novedades.php [L]
 # Redirigir /admin/locales a src/views/admin/admin_locales.php
 RewriteRule ^admin/locales$ src/views/admin/admin_locales.php [L]
 
+# Redirigir /admin/reportes a src/views/admin/reportes.php
+RewriteRule ^admin/reportes$ src/views/admin/reportes.php [L]
+
 # Redirigir /admin/categorias_cliente a src/views/admin/admin_cliente_categorias.php
 RewriteRule ^admin/categorias_cliente$ src/views/admin/admin_cliente_categorias.php [L]
