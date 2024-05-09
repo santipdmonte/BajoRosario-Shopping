@@ -29,9 +29,9 @@ require 'PHPMailer/src/SMTP.php';
  */
 function sendMail($email, $hash){
 
-    $subject = "Validar Cuenta";
-
-    $message = "Click aca para validar tu cuenta: <a href='http://localhost/bajorosario-shopping/src/controllers/validar.php?token=$hash'>Validar</a>";
+   include '../views/email_template.php';
+   $email_template = email_template($hash);
+   $subject = "Validar Cuenta";
 
    // Creating a new PHPMailer object.
    $mail = new PHPMailer(true);
@@ -119,7 +119,7 @@ function sendMail($email, $hash){
    /*
       Assigning the incoming message to the $mail->body property.
     */
-   $mail->Body = $message;
+   $mail->Body = $email_template;
  
    /*
       When we set $mail->AltBody, we are providing 
