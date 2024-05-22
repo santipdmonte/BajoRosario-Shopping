@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+//Prueba .yml
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
