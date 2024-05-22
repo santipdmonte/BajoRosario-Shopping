@@ -15,4 +15,4 @@ jobs:
         username: ${{ secrets.FTPUSERNAME }}
         password: ${{ secrets.FTPPASSWORD }}
         protocol: ftps
-        server-dir: public_html/BajoRosario-Shopping/
+        server-dir: public_html/bajorosario-shopping/
