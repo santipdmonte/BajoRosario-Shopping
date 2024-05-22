@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bajito Rosario | Promociones</title>
-    <link rel="icon" type="image/x-icon" href="/bajorosario-shopping/public//favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://pub-6d29dc65ed78442db1957c22eac48272.r2.dev/favicon.ico">
 
     
     <!-- Boostrap CSS -->    
@@ -29,7 +29,7 @@
   <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a href="/bajorosario-shopping/">
-      <img src="/bajorosario-shopping/public/images/logo.png" class="mx-2" alt="Bajo Rosario Logo" style="width: 50px;">
+      <img src="https://pub-6d29dc65ed78442db1957c22eac48272.r2.dev/logo.png" class="mx-2" alt="Bajo Rosario Logo" style="width: 50px;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
