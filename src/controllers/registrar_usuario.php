@@ -35,9 +35,12 @@ if (isset($_POST['create_user'])){
     $hash_validacion = hash('sha256', $email . $timestamp . $seed); // Generar el hash de validación
  
     // Crear nuevo Usuario
-    $usuario = new Usuario();
-    $usuario->save($nombre_usuario, $email, $hashed_password, $tipo_usuario, $categoria_cliente, $estado_usuario, $hash_validacion);
+    save_user($nombre_usuario, $email, $hashed_password, $tipo_usuario, $categoria_cliente, $estado_usuario, $hash_validacion);
 
+    // $usuario = new Usuario();
+    // $usuario->save($nombre_usuario, $email, $hashed_password, $tipo_usuario, $categoria_cliente, $estado_usuario, $hash_validacion);
+    
+    
     // Enviamos el mail de validación unicamente a los clientes
     if ($tipo_usuario == 'cliente')
         $result = sendMail($email, $hash_validacion);

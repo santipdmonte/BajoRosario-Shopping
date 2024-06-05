@@ -1,5 +1,52 @@
 <?php
 
+function save_user(
+        $nombre_usuario,
+        $email,
+        $hashed_password,
+        $tipo_usuario,
+        $categoria_cliente,
+        $estado_usuario,
+        $hash_validacion
+        ){
+        include("../../config/db.php");
+
+    $query = "INSERT INTO usuarios(
+        nombre_usuario, 
+        email, 
+        clave_usuario, 
+        tipo_usuario, 
+        categoria_cliente,
+        estado_usuario,
+        hash_validacion) 
+        VALUES 
+        (?, ?, ?, ?, ?, ?, ?)"; 
+
+    $stmt = $conn->prepare($query);
+    if ($stmt === false) {
+        die("Error al preparar la consulta: " . $conn->error);
+    }
+
+    $stmt->bind_param(
+        'sssssss', // 's' indica tipo string
+        $nombre_usuario,
+        $email,
+        $hashed_password,
+        $tipo_usuario,
+        $categoria_cliente,
+        $estado_usuario,
+        $hash_validacion
+    );
+
+    $result = $stmt->execute(); // Ejecutar la consulta
+    if ($result === false) {
+        die("Error al ejecutar la consulta: " . $stmt->error);
+    }
+
+    $stmt->close(); // Cerrar la declaración
+
+}
+
 class Usuario
 {
     private $cod_usuario;
