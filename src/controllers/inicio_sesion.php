@@ -3,7 +3,7 @@ session_start();
 
 include  "../../config/db.php";
 
-require("../models/Usuario.php");
+require("../models/usuario.php");
 
 if (isset($_POST['valid_user'])){
     $email = $_POST['email'];

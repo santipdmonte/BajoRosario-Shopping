@@ -5,7 +5,7 @@ include("../../config/db.php");
 
 require("script_enviar_email.php");
 
-require("../models/Usuario.php");
+require("../models/usuario.php");
 
 if (isset($_POST['create_user'])){
     $nombre_usuario = $_POST['nombre_usuario'];
