@@ -14,7 +14,7 @@ function email_template($hash){
             </div>
             <h1 style="color: #333; font-size: 24px;">¡Bienvenido a Bajo Rosario!</h1>
             <p style="color: #555; font-size: 16px;">Gracias por unirte a nuestra comunidad. Haga clic en el enlace de abajo para confirmar su cuenta:</p>
-            <a href="http://localhost/bajorosario-shopping/src/controllers/validar.php?token='. $hash . '" style="color: white; background-color: blue; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Confirmar Cuenta</a>
+            <a href="https://bajorosario.000webhostapp.com/bajorosario-shopping/src/controllers/validar.php?token='. $hash . '" style="color: white; background-color: blue; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Confirmar Cuenta</a>
             
         </div>
     </body>
@@ -37,7 +37,7 @@ function email_template($hash){
             </div>
             <h1 style="color: #333; font-size: 24px;">¡Bienvenido a Bajo Rosario!</h1>
             <p style="color: #555; font-size: 16px;">Gracias por unirte a nuestra comunidad. Haga clic en el enlace de abajo para confirmar su cuenta:</p>
-            <a href="http://localhost/bajorosario-shopping/src/controllers/validar.php?token='. $hash . '" style="color: white; background-color: blue; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Confirmar Cuenta</a>
+            <a href="http://localhost/bajorosario-shopping/src/controllers/validar.php?token=template" style="color: white; background-color: blue; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Confirmar Cuenta</a>
             
         </div>
     </body>
