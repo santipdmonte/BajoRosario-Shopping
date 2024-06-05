@@ -138,9 +138,9 @@ function sendMail($email, $hash){
       We are going to catch the returned value in the index file,
       and display it in the HTML form.
     */
-   // if(!$mail->send()){
-   //    return "Email not send. Please try again";
-   // }else{
-   //    return "success";
-   // }
+   if(!$mail->send()){
+      return "Email not send. Please try again";
+   }else{
+      return "success";
+   }
 }
