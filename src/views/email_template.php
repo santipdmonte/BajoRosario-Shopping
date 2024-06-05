@@ -24,7 +24,7 @@ function email_template($hash){
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8">
@@ -41,4 +41,4 @@ function email_template($hash){
             
         </div>
     </body>
-    </html>
+    </html> -->
