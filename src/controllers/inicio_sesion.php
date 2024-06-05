@@ -9,7 +9,7 @@ if (isset($_POST['valid_user'])){
     $email = $_POST['email'];
     $contrasena_ingresada = $_POST['clave_usuario']; // Contraseña ingresada por el usuario durante el inicio de sesión
 
-    $usuario = Usuario::findByemail($email);
+    $usuario = find_user_by_email($email);
 
     if (!$usuario){
         $_SESSION['usuario_no_encontrado'] = true;

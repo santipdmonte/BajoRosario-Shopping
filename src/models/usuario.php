@@ -1,177 +1,71 @@
 <?php
 
 function save_user(
-        $nombre_usuario,
-        $email,
-        $hashed_password,
-        $tipo_usuario,
-        $categoria_cliente,
-        $estado_usuario,
-        $hash_validacion
-        ){
-        include("../../config/db.php");
+    $nombre_usuario,
+    $email,
+    $hashed_password,
+    $tipo_usuario,
+    $categoria_cliente,
+    $estado_usuario,
+    $hash_validacion
+    ){
 
-    $query = "INSERT INTO usuarios(
+    include("../../config/db.php");
+
+    // Prepare the SQL statement with placeholders
+    $query = "INSERT INTO usuarios (
         nombre_usuario, 
         email, 
         clave_usuario, 
         tipo_usuario, 
         categoria_cliente,
         estado_usuario,
-        hash_validacion) 
-        VALUES 
-        (?, ?, ?, ?, ?, ?, ?)"; 
+        hash_validacion
+    ) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    $stmt = $conn->prepare($query);
-    if ($stmt === false) {
-        die("Error al preparar la consulta: " . $conn->error);
-    }
+    // Initialize a statement
+    $stmt = mysqli_prepare($conn, $query);
 
-    $stmt->bind_param(
-        'sssssss', // 's' indica tipo string
-        $nombre_usuario,
-        $email,
-        $hashed_password,
-        $tipo_usuario,
-        $categoria_cliente,
-        $estado_usuario,
+    // Bind the actual values to the placeholders
+    mysqli_stmt_bind_param($stmt, "sssssss", 
+        $nombre_usuario, 
+        $email, 
+        $hashed_password, 
+        $tipo_usuario, 
+        $categoria_cliente, 
+        $estado_usuario, 
         $hash_validacion
     );
 
-    $result = $stmt->execute(); // Ejecutar la consulta
-    if ($result === false) {
-        die("Error al ejecutar la consulta: " . $stmt->error);
+    // Execute the prepared statement
+    $result = mysqli_stmt_execute($stmt);
+
+    if (!$result){
+        $_SESSION['failed'] = true;
+        header("Location: /bajorosario-shopping/");
+        exit(); 
     }
 
-    $stmt->close(); // Cerrar la declaración
-
+    // Close the statement and connection
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
 
-class Usuario
-{
-    private $cod_usuario;
-    private $nombre_usuario;
-    private $email;
-    private $tipo_usuario;
-    private $categoria_cliente;
-    private $estado_usuario;
 
+function find_user_by_email($email){
+    include("../../config/db.php");
 
-    public function __construct($cod_usuario = null, $nombre_usuario = '', $email = '', $tipo_usuario = '', $categoria_cliente = '', $estado_usuario = '')
-    {
-        $this->cod_usuario = $cod_usuario;
-        $this->nombre_usuario = $nombre_usuario;
-        $this->email = $email;
-        $this->tipo_usuario = $tipo_usuario;
-        $this->categoria_cliente = $categoria_cliente;
-        $this->estado_usuario = $estado_usuario;
-    }
+    $query = "SELECT * FROM usuarios WHERE email = '$email'";
+    $result = mysqli_query($conn, $query);
+    $usuario = mysqli_fetch_assoc($result);
 
+    return $usuario;
+}
 
-    public function save(
-        $nombre_usuario,
-        $email,
-        $hashed_password,
-        $tipo_usuario,
-        $categoria_cliente,
-        $estado_usuario,
-        $hash_validacion
-    )
-    {
-        include("../../config/db.php");
+// No se esta utilizando, modificar en clientes/cliente_validar_cat.php
+function update_user_category($cod_cliente, $cat_final){
+    include("../../config/db.php");
 
-        $query = "INSERT INTO usuarios(
-            nombre_usuario, 
-            email, 
-            clave_usuario, 
-            tipo_usuario, 
-            categoria_cliente,
-            estado_usuario,
-            hash_validacion) 
-            VALUES 
-            (?, ?, ?, ?, ?, ?, ?)"; 
-
-        $stmt = $conn->prepare($query);
-        if ($stmt === false) {
-            die("Error al preparar la consulta: " . $conn->error);
-        }
-
-        $stmt->bind_param(
-            'sssssss', // 's' indica tipo string
-            $nombre_usuario,
-            $email,
-            $hashed_password,
-            $tipo_usuario,
-            $categoria_cliente,
-            $estado_usuario,
-            $hash_validacion
-        );
-
-        $result = $stmt->execute(); // Ejecutar la consulta
-        if ($result === false) {
-            die("Error al ejecutar la consulta: " . $stmt->error);
-        }
-
-        $stmt->close(); // Cerrar la declaración
-    }
-
-
-    public static function findAll()
-    {
-        include("../../config/db.php"); 
-
-        $query = "SELECT * FROM usuarios"; 
-
-        $result = $conn->query($query); 
-
-        if ($result === false) {
-            die("Error al ejecutar la consulta: " . $conn->error);
-        }
-
-        $usuarios = []; 
-
-        while ($row = $result->fetch_assoc()) {
-            $usuarios[] = new Usuario(
-                $row['cod_usuario'],
-                $row['nombre_usuario'],
-                $row['email'],
-                $row['tipo_usuario'],
-                $row['categoria_cliente'],
-                $row['estado_usuario']
-            );
-        }
-
-        $result->free(); // Liberar el resultado
-        return $usuarios;
-    }
-
-
-    public static function findByemail($email)
-    {
-        include("../../config/db.php");
-
-        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
-        $stmt->bind_param("s", $email); 
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $usuario = $result->fetch_assoc();
-        $stmt->close();
-
-        return $usuario;
-    }
-
-
-    public static function update_category($cod_cliente, $cat_final)
-    {
-        include("../../config/db.php");
-
-        $stmt = $conn->prepare("
-            UPDATE usuarios
-            SET categoria_cliente = ?
-            WHERE cod_usuario = ?"
-            );
-        $stmt->bind_param("ss", $cat_final, $cod_cliente); 
-        $stmt->execute();
-        $stmt->close();
-    }
+    $query = "UPDATE usuarios SET categoria_cliente = '$cat_final' WHERE cod_usuario = '$cod_cliente'";
+    $result = mysqli_query($conn, $query);
 }

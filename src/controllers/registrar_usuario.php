@@ -15,9 +15,8 @@ if (isset($_POST['create_user'])){
     $estado_usuario = 'pendiente';
 
     // Verificar si el usuario ya existe
-    $query = "SELECT * FROM usuarios WHERE email = '$email'";
-    $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) > 0){
+    $usuario = find_user_by_email($email);
+    if ($usuario){
         $_SESSION['exists'] = true;
         header("Location: /bajorosario-shopping/registrar_usuario?email=$email");
         exit();
@@ -36,10 +35,6 @@ if (isset($_POST['create_user'])){
  
     // Crear nuevo Usuario
     save_user($nombre_usuario, $email, $hashed_password, $tipo_usuario, $categoria_cliente, $estado_usuario, $hash_validacion);
-
-    // $usuario = new Usuario();
-    // $usuario->save($nombre_usuario, $email, $hashed_password, $tipo_usuario, $categoria_cliente, $estado_usuario, $hash_validacion);
-    
     
     // Enviamos el mail de validación unicamente a los clientes
     if ($tipo_usuario == 'cliente')
