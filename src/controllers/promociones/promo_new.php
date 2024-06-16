@@ -1,6 +1,7 @@
 <?php
 
 include("../../../config/db.php");
+require("../../models/promocion.php");
 
 if (isset($_POST['save_promo'])){
     $texto_promo = $_POST['texto_promo'];
@@ -17,27 +18,7 @@ if (isset($_POST['save_promo'])){
     // Convertir el array a string
     $dias_semana = json_encode($dias_semana);
 
-
-    $query = "INSERT INTO promociones(
-        texto_promo, 
-        fecha_desde_promo, 
-        fecha_hasta_promo, 
-        categoria_cliente, 
-        dias_semana, 
-        estado_promo, 
-        cod_local) 
-        VALUES 
-        (
-            '$texto_promo', 
-            '$fecha_desde_promo', 
-            '$fecha_hasta_promo',
-            '$categoria_cliente',
-            '$dias_semana',
-            'pendiente',
-            '$cod_local'
-        )";
-
-    $result = mysqli_query($conn, $query);
+    $result = save_promo($conn, $texto_promo, $fecha_desde_promo, $fecha_hasta_promo, $categoria_cliente, $dias_semana, $cod_local);
 
     if (!$result){
         $_SESSION['promo_failed'] = true;
