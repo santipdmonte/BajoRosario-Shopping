@@ -15,8 +15,7 @@ if (isset($_POST['save_promo'])){
     foreach ($_POST['dias'] as $dia) {
         $dias_semana[$dia] = 1;
     }
-    // Convertir el array a string
-    $dias_semana = json_encode($dias_semana);
+    $dias_semana = json_encode($dias_semana); // Convertir el array a string
 
     $result = save_promo($conn, $texto_promo, $fecha_desde_promo, $fecha_hasta_promo, $categoria_cliente, $dias_semana, $cod_local);
 
@@ -28,11 +27,11 @@ if (isset($_POST['save_promo'])){
     }
 
     // Establecer variable de sesión para indicar que la promoción se ha guardado con éxito
-        session_start();
-        $_SESSION['promo_saved'] = true;
+    session_start();
+    $_SESSION['promo_saved'] = true;
 
-        header("Location: /bajorosario-shopping/dueno/new_promo");
-        exit();
+    header("Location: /bajorosario-shopping/dueno/new_promo");
+    exit();
 
 }
 
