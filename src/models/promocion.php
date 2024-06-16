@@ -17,6 +17,7 @@ function save_promo(
         categoria_cliente, 
         dias_semana, 
         estado_promo, 
+        cantidad_usos,
         cod_local) 
         VALUES 
         (
@@ -26,6 +27,7 @@ function save_promo(
             '$categoria_cliente',
             '$dias_semana',
             'pendiente',
+            0,
             '$cod_local'
         )";
 
