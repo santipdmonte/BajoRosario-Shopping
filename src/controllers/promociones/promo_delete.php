@@ -1,15 +1,14 @@
 <?php
 
 include("../../../config/db.php");
+include("../../models/promocion.php");
 
 if (isset($_POST['action']) && $_POST['action'] == 'delete') {
-    
-    $query = "UPDATE promociones SET estado_promo = 'eliminado' WHERE cod_promo = " . $_POST['cod_promo'];
 
     // Establecer variable de sesión para indicar que la promoción se ha actualizado con éxito
     session_start();
     $_SESSION['deleted'] = true;
-    $result = mysqli_query($conn, $query);
+    $result = delete_promo($conn, $_POST['cod_promo']);
 
 }
 
