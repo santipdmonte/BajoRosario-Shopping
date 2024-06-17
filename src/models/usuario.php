@@ -62,6 +62,18 @@ function find_user_by_email($email){
     return $usuario;
 }
 
+function get_user_by_token($conn, $token){
+    $query = "
+        SELECT * 
+        FROM usuarios 
+        WHERE hash_validacion = '$token'";
+    
+    $usuario = mysqli_query($conn, $query);
+    $usuario = mysqli_fetch_assoc($usuario);
+
+    return $usuario;
+}
+
 // No se esta utilizando, modificar en clientes/cliente_validar_cat.php
 function update_user_category($cod_cliente, $cat_final){
     include("../../config/db.php");

@@ -1,17 +1,13 @@
 <?php
 
 include  "../../config/db.php";
+include "../../models/usuario.php";
 include "inicio_sesion.php";
 
 if (isset($_GET['token'])){
     $token = $_GET['token'];
-    $query = "
-        SELECT * 
-        FROM usuarios 
-        WHERE hash_validacion = '$token'";
-    
-    $usuario = mysqli_query($conn, $query);
-    $usuario = mysqli_fetch_assoc($usuario);
+
+    $usuario = get_user_by_token($conn, $token);
 
     if (!$usuario){
         echo "Usuario no encontrado";
