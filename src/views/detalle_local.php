@@ -14,12 +14,29 @@
     if ($result_local) { 
     ?>
 
-        <div>
-            <h1><?php echo $result_local['nombre_local']?></h1>
-            <p><?php echo $result_local['ubicacion_local']?></p>
-            <p><?php echo $result_local['rubro_local']?></p>
-            <img src="<?php echo $result_local['url_logo']?>" alt="">
+    <div class="d-flex justify-content-center" style="width: 100%;">
+        <div style="width: 80%;">
+
+            <div class="text-center">
+                <h1 style="font-family: Times New Roman;"><?php echo $result_local['nombre_local']?></h1>
+            </div>
+            <hr/>
+
+            <div class="text-left">
+                <p class="fs-4"><strong>Ubicación:</strong> <?php echo $result_local['ubicacion_local']?></p>
+            </div>
+
+            <div class="text-left">
+                <p class="fs-4"><strong>Rubro:</strong> <?php echo $result_local['rubro_local']?></p>
+            </div>
+
+            <div class="text-center">
+                <img src="<?php echo $result_local['url_logo']?>" alt="Logo del local" style="max-width: 100%;">
+            </div>
+
         </div>
+    </div>
+
 
         <div>
             <h2 class="title">Promociones</h2>
@@ -46,7 +63,7 @@
                             TODO: Ads Card Component
                         </div>
                     </div>
-                    <!-- <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;">
                         <div href="#" class="card-body">
                             <div style="display: flex; justify-content: space-between;">
                                 <h5 class="card-title"><?php echo $promo['texto_promo']?></h5>
@@ -68,7 +85,7 @@
                                     <button type="submit" class="btn btn-primary" name="use_promo">Obtener Promoción</button>
                                 </form>
                             <?php }?>
-                        </div> -->
+                        </div> 
                     </div>
                 
                 <?php } ?>
@@ -77,10 +94,17 @@
         </div>
 
     <?php  
-    } else {
-        // Manejar el caso en que no se encuentre el local
-        echo "<p>El local no existe o no está disponible.</p>";
-    }
+    } else {?>
+        <!--Manejar el caso en que no se encuentre el local-->
+        <div class="alert alert-danger d-flex justify-content-center align-items-center" role="alert" style="width: 50%; margin: 0 auto; text-align: center;">
+            <h2 class="text-dark">El local no existe o no está disponible.</h2>
+        </div>
+  
+        
+
+
+
+    <?php }
 
     include __DIR__ . '/footer.html';
 ?>
