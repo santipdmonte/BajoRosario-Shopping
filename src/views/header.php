@@ -1,6 +1,3 @@
-<?php session_start();
-//Prueba .yml
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +15,7 @@
 
 
 <body>
-  <?php 
-  // include("config/db.php"); 
-  ?>
+  <?php session_start(); ?>
 
   <?php
     $login = isset($_SESSION['login']);
