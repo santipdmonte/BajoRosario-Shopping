@@ -42,5 +42,8 @@ RewriteRule ^admin/locales$ src/views/admin/admin_locales.php [L]
 # Redirigir /admin/reportes a src/views/admin/reportes.php
 RewriteRule ^admin/reportes$ src/views/admin/reportes.php [L]
 
+# Redirigir /admin/reportes a src/views/admin/reportes.php
+RewriteRule ^admin/reportes/([^/]+)/?$ src/views/admin/detalle_reporte.php?cod_local=$1 [L]
+
 # Redirigir /admin/categorias_cliente a src/views/admin/admin_cliente_categorias.php
 RewriteRule ^admin/categorias_cliente$ src/views/admin/admin_cliente_categorias.php [L]
