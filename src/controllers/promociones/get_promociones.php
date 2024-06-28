@@ -92,13 +92,13 @@ function get_rubros() {
     include __DIR__ . "/../../../config/db.php";
 
     $query = 
-    "SELECT DISTINCT categoria 
-    FROM cateogrias_locales";
-    $result = mysqli_query($conn, $query);
+    "SELECT DISTINCT rubro_local AS categoria 
+    FROM locales";
+    $result = mysqli_query($conn, $query);//no existe tabla categorias
     return $result;
 }
 
-function get_categorias_permitidas() {
+function get_categorias_permitidas() {//
     if (isset($_SESSION['categoria_cliente'])) {
         $categoria = $_SESSION['categoria_cliente'];
     } else {
