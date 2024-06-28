@@ -4,7 +4,7 @@ locales del shopping mediante reportes gerenciales brindados por el sistema a de
 <!--Se crea un contador en la base de datos que se actualize cada vez que sea 
 utilizada para que el admin pueda obsercvar la cantidad de veces que fue utilizada la promocion -->
 
-
+ 
 
 
 <?php 
