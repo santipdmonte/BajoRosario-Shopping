@@ -100,8 +100,32 @@ include __DIR__ . "/../../../config/db.php";
                     </div>
                 </div>
 
-                <!-- Codigo del local - Automatico segun que cliente agrega la promo -->
-                <input type="text" name="cod_local" value="1" hidden>
+                <!--<div class="mb-3" style="max-width: 200px;">
+                    <label for="fechaInicio" class="form-label">Codigo Local</label>
+                    <input type="text" class="form-control" name="cod_local" required>
+                </div>-->
+
+
+                <!-- Codigo del local - Automatico segun que cliente agrega la promo
+                Deberia hacer un despliegue con los locales del dueño -->
+                <div class="mb-3" style="max-width: 200px;">
+                    <label for="selectLocales" class="form-label">Seleccionar Local</label>
+                    <select class="form-select" id="selectLocales" name="cod_local" required>
+                        <?php
+                        // Obtener los locales del dueño
+                        include("../../../config/db.php");
+                        $codigo_usuario = $_SESSION['cod_usuario'];
+                        $query = "SELECT * FROM locales WHERE cod_usuario = '$codigo_usuario'";
+                        $result = mysqli_query($conn, $query);
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $cod_local = $row['cod_local'];
+                            $nombre_local = $row['nombre_local'];
+                            echo "<option value='$cod_local'>$nombre_local</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
 
                 <input type="submit" class="btn btn-primary" name="save_promo">    
 

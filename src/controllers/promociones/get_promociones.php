@@ -136,4 +136,5 @@ function get_promociones_by_dueno() {
     return mysqli_query($conn, $query);
 }
 
-?>
+?> 
+
