@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-06-2024 a las 22:59:21
+-- Tiempo de generación: 29-06-2024 a las 23:30:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `novedades` (
   `texto_novedad` varchar(200) NOT NULL,
   `fecha_desde_novedad` date NOT NULL,
   `fecha_hasta_novedad` date NOT NULL,
-  `tipo_usuario` varchar(15) NOT NULL,
+  `categoria_cliente` varchar(15) NOT NULL,
   `estado_novedad` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `novedades` (
 -- Volcado de datos para la tabla `novedades`
 --
 
-INSERT INTO `novedades` (`cod_novedad`, `texto_novedad`, `fecha_desde_novedad`, `fecha_hasta_novedad`, `tipo_usuario`, `estado_novedad`) VALUES
+INSERT INTO `novedades` (`cod_novedad`, `texto_novedad`, `fecha_desde_novedad`, `fecha_hasta_novedad`, `categoria_cliente`, `estado_novedad`) VALUES
 (1, 'Planta B cerrada', '2024-04-13', '2024-04-27', 'cliente', 'no activa'),
 (2, 'Planta B cerrada', '2024-04-13', '2024-04-27', 'cliente', 'no activa'),
 (3, 'Patio de comida abierto', '2024-04-16', '2024-04-25', 'cliente', 'activa'),
@@ -125,7 +125,11 @@ INSERT INTO `novedades` (`cod_novedad`, `texto_novedad`, `fecha_desde_novedad`, 
 (8, 'Planta B cerrada', '2024-04-26', '2024-06-20', 'cliente', 'no activa'),
 (9, 'Planta B cerrada', '2024-05-09', '2024-05-31', 'cliente', 'activa'),
 (10, 'Nuevo Local en a22', '2024-05-09', '2024-05-31', 'dueno de local', 'activa'),
-(11, 'Planta B cerrada', '2024-06-05', '2025-07-24', 'administrador', 'activa');
+(11, 'Planta B cerrada', '2024-06-05', '2025-07-24', 'administrador', 'activa'),
+(12, 'Planta B cerrada', '2024-06-29', '2024-11-22', 'medium', 'activa'),
+(13, 'Prueba Medium', '2024-06-29', '2024-11-30', 'medium', 'activa'),
+(14, 'Prueba Premium', '2024-06-29', '2025-01-04', 'premium', 'activa'),
+(15, 'Prueba Inicial', '2024-06-29', '2024-11-30', 'inicial', 'activa');
 
 -- --------------------------------------------------------
 
@@ -303,7 +307,7 @@ ALTER TABLE `locales`
 -- AUTO_INCREMENT de la tabla `novedades`
 --
 ALTER TABLE `novedades`
-  MODIFY `cod_novedad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cod_novedad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`

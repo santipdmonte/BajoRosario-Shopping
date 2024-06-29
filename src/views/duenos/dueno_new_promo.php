@@ -1,6 +1,17 @@
 <?php 
 include '../header.php';
 include __DIR__ . "/../../../config/db.php";
+
+$codigo_usuario = $_SESSION['cod_usuario'];
+
+$query = "SELECT * FROM locales WHERE cod_usuario = '$codigo_usuario'";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) == 0) {
+    echo '<h3 class="text-center mt-5">No hay locales asociados a este dueño para crear promociones</h3>';
+    echo '<h5 class="text-center mt-5 grey">El administrador debe asociarte a un local</h5>';
+} else {
+
 ?>
 
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
@@ -60,7 +71,6 @@ include __DIR__ . "/../../../config/db.php";
                         <?php
                         // Obtener los locales del dueño
                         include("../../../config/db.php");
-                        $codigo_usuario = $_SESSION['cod_usuario'];
                         $query = "SELECT * FROM locales WHERE cod_usuario = '$codigo_usuario'";
                         $result = mysqli_query($conn, $query);
 
@@ -132,4 +142,6 @@ include __DIR__ . "/../../../config/db.php";
 
 </div>
 
-<?php include ("../footer.html")?>
+<?php }
+
+include ("../footer.html")?>

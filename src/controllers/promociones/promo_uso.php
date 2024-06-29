@@ -1,6 +1,7 @@
 <?php
 include("../../../config/db.php");
-
+include("../../models/promocion.php");
+include("../../models/uso_promocion.php");
 
 if (isset($_POST['use_promo'])){
 
@@ -9,32 +10,11 @@ if (isset($_POST['use_promo'])){
     $fecha_uso_promo = date("Y-m-d H:i:s");
     $estado = 'enviada';
 
-    $query = "
-        SELECT * 
-        FROM uso_promociones 
-        WHERE cod_promo = '$cod_promo' 
-            AND cod_cliente = '$cod_cliente'";
-
-    $result = mysqli_query($conn, $query);
-
-    if ($result -> num_rows <= 0){
-        $query2 = "
-            INSERT INTO 
-            uso_promociones 
-                (cod_promo, 
-                cod_cliente, 
-                fecha_uso_promo, 
-                estado) 
-            VALUES 
-                ('$cod_promo', 
-                '$cod_cliente', 
-                '$fecha_uso_promo', 
-                '$estado'
-            )";
+    if (validate_if_user_used_promo ($conn, $cod_promo, $cod_cliente)){
+        
+        $result = save_uso_promo($conn, $cod_promo, $cod_cliente, $fecha_uso_promo, $estado);
     
-        $result2 = mysqli_query($conn, $query2);
-    
-        if (!$result2){
+        if (!$result){
             exit("Hubo un error al intentar usar la promoción");
         }
     } 

@@ -1,7 +1,8 @@
 <?php 
 include __DIR__ . "/header.php";
 
-include "../controllers/promociones/get_promociones.php";
+include "../models/promocion.php";
+include "../../config/db.php";
 
 // Número de elementos por página
 $elementos_por_pagina = 4;
@@ -11,14 +12,14 @@ $pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 $pagina_actual = max(1, $pagina_actual);
 
 // Obtener el total de promociones para calcular el número total de páginas
-$total_promociones = get_total_promociones_by_client_category();
+$total_promociones = get_total_promociones_by_client_category($conn);
 $total_paginas = ceil($total_promociones / $elementos_por_pagina);
 
 // Calcular el índice de inicio para la consulta SQL
 $inicio = ($pagina_actual - 1) * $elementos_por_pagina;
-$promociones = get_promociones_by_client_category_paginadas($inicio, $elementos_por_pagina);
+$promociones = get_promociones_by_client_category_paginadas($conn, $inicio, $elementos_por_pagina);
 
-$rubros = get_rubros();
+$rubros = get_rubros($conn);
 
 $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
 
