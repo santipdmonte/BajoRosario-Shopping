@@ -55,6 +55,10 @@
           <li class="nav-item">
             <a class="nav-link active" href="/bajorosario-shopping/dueño/manage_promo">Manage Promos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/bajorosario-shopping/dueño/reportes">Reportes</a> 
+          </li>
+
         <?php } ?>
 
         <!-- Admin -->

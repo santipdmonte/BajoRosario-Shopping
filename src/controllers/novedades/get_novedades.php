@@ -15,22 +15,44 @@ function get_novedades_active(){
 function get_novedades_by_user(){
 
     include  __DIR__ . "/../../../config/db.php";
+    
 
-if (isset($_SESSION['user'])){
-    $tipo_usuario = $_SESSION['user'];
-} else {
-    header("Location: /bajorosario-shopping/index.php");
-    exit();
-}
- 
-$query = "
-        SELECT * 
-        FROM novedades 
-        WHERE estado_novedad = 'activa' 
-            AND fecha_hasta_novedad >= CURDATE() 
-            AND tipo_usuario = '$tipo_usuario'
-        ORDER BY fecha_hasta_novedad ASC";
-$result = mysqli_query($conn, $query);
+    if (isset($_SESSION['categoria_cliente'])){
+        $categoria_cliente = $_SESSION['categoria_cliente'];
+    } else {
+        $categoria_cliente = "premium";
+        
+        //header("Location: /bajorosario-shopping/index.dphp");
+        //exit();
+    }
+    
+    if ($categoria_cliente == "premium"){
+        $query = "
+            SELECT * 
+            FROM novedades 
+            WHERE estado_novedad = 'activa' 
+                AND fecha_hasta_novedad >= CURDATE() 
+            ORDER BY fecha_hasta_novedad ASC";
+        } elseif ($categoria_cliente == "medium"){
+
+            $query = "
+                SELECT * 
+                FROM novedades 
+                WHERE estado_novedad = 'activa' 
+                    AND fecha_hasta_novedad >= CURDATE() 
+                    AND categoria_cliente = '$categoria_cliente' OR categoria_cliente = 'inicial'
+                ORDER BY fecha_hasta_novedad ASC";
+        }else{
+            $query = "
+                SELECT * 
+                FROM novedades 
+                WHERE estado_novedad = 'activa' 
+                    AND fecha_hasta_novedad >= CURDATE() 
+                    AND categoria_cliente = '$categoria_cliente'
+                ORDER BY fecha_hasta_novedad ASC";}
+
+    
+    $result = mysqli_query($conn, $query);
 
 return $result;
 }

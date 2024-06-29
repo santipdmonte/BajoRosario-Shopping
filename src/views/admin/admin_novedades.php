@@ -71,7 +71,7 @@ $novedades = get_novedades_active();
                 <tr>
                     <th scope="col">Novedad</th>
                     <th scope="col">Desde - Hasta</th>
-                    <th scope="col">Usuario</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Acción</th>
                 </tr>
             </thead>
@@ -83,7 +83,7 @@ $novedades = get_novedades_active();
                     <tr>
                     <td><?php echo $novedad['texto_novedad']?></td>
                     <td><?php echo ($novedad['fecha_desde_novedad'] . ' | ' . $novedad['fecha_hasta_novedad'])?></td>
-                    <td><?php echo $novedad['tipo_usuario']?></td>
+                    <td><?php echo $novedad['categoria_cliente']?></td>
                     <td>
                         <form action="/bajorosario-shopping/src/controllers/novedades/novedades_edit_delete.php" method="POST">
                             <button class="btn btn-outline-warning" type="submit" name="action" value="edit">Edit</button>
@@ -135,11 +135,11 @@ $novedades = get_novedades_active();
                                     
                                     <!-- Input Categoria Cliente -->
                                     <div class="mb-3">
-                                        <label for="selectOpciones" class="form-label">Tipo de Usuario</label>
-                                        <select class="form-select" id="selectOpciones" name="tipo_usuario">
-                                            <option value="cliente">Cliente</option>
-                                            <option value="dueno de local">Dueño de Local</option>
-                                            <option value="administrador">Administrador</option>
+                                        <label for="selectOpciones" class="form-label">Categoria</label>
+                                        <select class="form-select" id="selectOpciones" name="categoria_cliente">
+                                            <option value="inicial">Inicial</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="premium">Premium</option>
                                         </select>
                                     </div>
 

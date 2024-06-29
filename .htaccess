@@ -27,6 +27,9 @@ RewriteRule ^dueno/new_promo$ src/views/duenos/dueno_new_promo.php [L]
 # Redirigir /dueño/manage_promo a src/views/duenos/dueno_manage_promo.php
 RewriteRule ^dueño/manage_promo$ src/views/duenos/dueno_manage_promo.php [L]
 
+# Redirigir /dueño/reportes a src/views/duenos/reportes.php
+RewriteRule ^dueño/reportes$ src/views/duenos/reportes.php [L]
+
 # Redirigir /admin/promociones a src/views/admin/admin_promo.php
 RewriteRule ^admin/promociones$ src/views/admin/admin_promo.php [L]
 

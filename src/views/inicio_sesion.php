@@ -51,7 +51,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
 
                 </div>
 
-                <!-- Input Password -->
+                <!-- Input Password ¿Hace falta validar password? -->
                 <div class="mb-3">
                     <label class="form-label">Constraseña</label>
                     <input type="password" class="form-control" name="clave_usuario">
