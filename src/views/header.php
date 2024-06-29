@@ -20,6 +20,7 @@
 
   <?php
     $login = isset($_SESSION['login']);
+    $cliente = isset($_SESSION['user']) && $_SESSION['user'] == 'cliente';
     $dueno_local = isset($_SESSION['user']) && $_SESSION['user'] == 'dueno de local';
     $admin = isset($_SESSION['user']) && $_SESSION['user'] == 'admin';
   ?>
@@ -39,8 +40,8 @@
             <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/promociones">Promociones</a>
         </li>
 
-        <!-- Loged in -->
-        <?php if ($login){ ?>
+        <!-- Cliente - Log In -->
+        <?php if ($cliente){ ?>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/bajorosario-shopping/novedades">Novedades</a>
             </li>
