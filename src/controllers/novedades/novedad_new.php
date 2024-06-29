@@ -13,7 +13,7 @@ if (isset($_POST['save_novedad'])){
         texto_novedad, 
         fecha_desde_novedad, 
         fecha_hasta_novedad, 
-        categoria_cliente,
+        tipo_usuario,
         estado_novedad) 
         VALUES 
         (
