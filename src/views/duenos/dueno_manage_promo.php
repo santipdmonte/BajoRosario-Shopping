@@ -4,6 +4,12 @@ include __DIR__ . "/../../../config/db.php";
 include "../../models/promocion.php";
 
 $promociones = get_promociones_by_dueno($conn);
+
+if ($promociones -> num_rows == 0) {
+    // echo '<h3 class="text-center mt-5">No hay locales asociados a este dueño para crear promociones</h3>';
+    // echo '<h5 class="text-center mt-5 grey">El administrador debe asociarte a un local</h5>';
+    echo '<div class="alert alert-warning m-4 text-center" role="alert">No hay promociones disponibles</div>';
+} else {
 ?>
 
 <!-- TODO: Validar las fechas de las promo, hacer ver graficamente cuando una promo ya expiro -->
@@ -73,5 +79,7 @@ style="
 
 </div>
     
-<?php include ("../footer.html")?>
+<?php 
+}
+include ("../footer.html")?>
 
