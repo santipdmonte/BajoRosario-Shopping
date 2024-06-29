@@ -187,6 +187,17 @@ function deny_promo($conn, $cod_promo) {
     return mysqli_query($conn, $query);
 }
 
+function validate_if_user_used_promo ($conn, $cod_promo, $cod_cliente) {
+    $query = "
+        SELECT * 
+        FROM uso_promociones 
+        WHERE cod_promo = '$cod_promo' 
+            AND cod_cliente = '$cod_cliente'";
+    $result = mysqli_query($conn, $query);
+
+    return $result -> num_rows > 0;
+}
+
 // No implementado, implementado en un archivo promos_pendientes
 function promos_pendientes_aprobacion(){
     include __DIR__ . '/../../config/db.php';
