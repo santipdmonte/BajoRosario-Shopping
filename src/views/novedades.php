@@ -48,7 +48,7 @@ include __DIR__ . "/header.php";
             <?php }
         } else { ?>
             <!-- Mostrar mensaje si no hay novedades -->
-            <div class="alert alert-danger" role="alert" style="font-weight: bold; width: 70%; text-align: center;font-size: 1.5em; font-color:black;">
+            <div class="alert alert-danger" role="alert" style="font-weight: bold; width: 70%; text-align: center;font-size: 1.5em; color:black;">
                 No hay novedades por hoy.
             </div>
         <?php } ?>
