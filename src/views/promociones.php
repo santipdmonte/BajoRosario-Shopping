@@ -1,7 +1,7 @@
 <?php 
 include __DIR__ . "/header.php";
 
-include "../controllers/promociones/get_promociones.php";
+include "../models/promocion.php";
 
 // Número de elementos por página
 $elementos_por_pagina = 4;
