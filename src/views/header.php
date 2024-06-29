@@ -50,10 +50,10 @@
         <!-- Dueño -->
         <?php if ($dueno_local) { ?>
           <li class="nav-item">
-            <a class="nav-link active" href="/bajorosario-shopping/dueno/new_promo">New Promo</a>
+            <a class="nav-link active" href="/bajorosario-shopping/dueno/new_promo">Nueva Promo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/bajorosario-shopping/dueño/manage_promo">Manage Promos</a>
+            <a class="nav-link active" href="/bajorosario-shopping/dueño/manage_promo">Gestionar Promos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="/bajorosario-shopping/dueño/reportes">Reportes</a> 
