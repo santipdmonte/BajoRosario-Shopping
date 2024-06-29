@@ -83,7 +83,7 @@ $novedades = get_novedades_active();
                     <tr>
                     <td><?php echo $novedad['texto_novedad']?></td>
                     <td><?php echo ($novedad['fecha_desde_novedad'] . ' | ' . $novedad['fecha_hasta_novedad'])?></td>
-                    <td><?php echo $novedad['tipo_usuario']?></td>
+                    <td><?php echo $novedad['categoria_cliente']?></td>
                     <td>
                         <form action="/bajorosario-shopping/src/controllers/novedades/novedades_edit_delete.php" method="POST">
                             <button class="btn btn-outline-warning" type="submit" name="action" value="edit">Edit</button>
