@@ -33,25 +33,28 @@ include __DIR__ . "/header.php";
         
         <?php
         include "../controllers/novedades/get_novedades.php";
-        $result = get_novedades_by_user();
+        $result = get_novedades_by_client();
 
-        
-        if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_array($result)) { ?>
-                <!-- Itero por cada fila de promociones en la DB -->
-                <div class="card" style="width: 18rem;">
-                    <div href="#" class="card-body">
-                        <h5 class="card-title"><?php echo $row['texto_novedad']?></h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Hasta el <?php echo $row['fecha_hasta_novedad']?></h6>
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_array($result)) { ?>
+                    <!-- Itero por cada fila de promociones en la DB -->
+                    <div class="card" style="width: 18rem;">
+                        <div href="#" class="card-body">
+                            <h5 class="card-title"><?php echo $row['texto_novedad']?></h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Hasta el <?php echo $row['fecha_hasta_novedad']?></h6>
+                        </div>
                     </div>
-                </div>
-            <?php }
-        } else { ?>
-            <!-- Mostrar mensaje si no hay novedades -->
-            <div class="alert alert-danger" role="alert" style="font-weight: bold; width: 70%; text-align: center;font-size: 1.5em; color:black;">
+                <?php }
+            } else { ?>
+               <div class="alert alert-danger" role="alert" style="font-weight: bold; width: 70%; text-align: center;font-size: 1.5em; color:black;">
                 No hay novedades por hoy.
-            </div>
-        <?php } ?>
+                </div>
+            <?php
+            }
+        } else { 
+            header("Location: ./"); // Si no es cliente, redirige al inicio
+        } ?>
 
     
     

@@ -12,7 +12,7 @@ function get_novedades_active(){
     return $novedades;
 }
 
-function get_novedades_by_user(){
+function get_novedades_by_client(){
 
     include  __DIR__ . "/../../../config/db.php";
     
@@ -20,10 +20,7 @@ function get_novedades_by_user(){
     if (isset($_SESSION['categoria_cliente'])){
         $categoria_cliente = $_SESSION['categoria_cliente'];
     } else {
-        $categoria_cliente = "premium";
-        
-        //header("Location: /bajorosario-shopping/index.dphp");
-        //exit();
+        return false;
     }
     
     if ($categoria_cliente == "premium"){
