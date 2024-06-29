@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `categorias_cliente`
 --
 
-CREATE TABLE `categorias_cliente` (
+CREATE TABLE IF NOT EXISTS `categorias_cliente` (
   `cod_categoria` int(11) NOT NULL,
   `categoria` varchar(100) NOT NULL,
   `promociones_minimas_adquiridas` int(11) NOT NULL
@@ -47,7 +47,7 @@ INSERT INTO `categorias_cliente` (`cod_categoria`, `categoria`, `promociones_min
 -- Estructura de tabla para la tabla `cateogrias_locales`
 --
 
-CREATE TABLE `cateogrias_locales` (
+CREATE TABLE IF NOT EXISTS `cateogrias_locales` (
   `cod_categoria` int(11) NOT NULL,
   `categoria` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -74,7 +74,7 @@ INSERT INTO `cateogrias_locales` (`cod_categoria`, `categoria`) VALUES
 -- Estructura de tabla para la tabla `locales`
 --
 
-CREATE TABLE `locales` (
+CREATE TABLE IF NOT EXISTS `locales` (
   `cod_local` int(11) NOT NULL,
   `nombre_local` varchar(100) NOT NULL,
   `ubicacion_local` varchar(50) NOT NULL,
@@ -101,7 +101,7 @@ INSERT INTO `locales` (`cod_local`, `nombre_local`, `ubicacion_local`, `rubro_lo
 -- Estructura de tabla para la tabla `novedades`
 --
 
-CREATE TABLE `novedades` (
+CREATE TABLE IF NOT EXISTS `novedades` (
   `cod_novedad` int(11) NOT NULL,
   `texto_novedad` varchar(200) NOT NULL,
   `fecha_desde_novedad` date NOT NULL,
@@ -133,7 +133,7 @@ INSERT INTO `novedades` (`cod_novedad`, `texto_novedad`, `fecha_desde_novedad`, 
 -- Estructura de tabla para la tabla `promociones`
 --
 
-CREATE TABLE `promociones` (
+CREATE TABLE IF NOT EXISTS `promociones` (
   `cod_promo` int(11) NOT NULL,
   `texto_promo` varchar(200) NOT NULL,
   `fecha_desde_promo` date NOT NULL,
@@ -178,7 +178,7 @@ INSERT INTO `promociones` (`cod_promo`, `texto_promo`, `fecha_desde_promo`, `fec
 -- Estructura de tabla para la tabla `uso_promociones`
 --
 
-CREATE TABLE `uso_promociones` (
+CREATE TABLE IF NOT EXISTS `uso_promociones` (
   `cod_uso` int(11) NOT NULL,
   `cod_cliente` int(11) NOT NULL,
   `cod_promo` int(11) NOT NULL,
@@ -205,7 +205,7 @@ INSERT INTO `uso_promociones` (`cod_uso`, `cod_cliente`, `cod_promo`, `fecha_uso
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE IF NOT EXISTS `usuarios` (
   `cod_usuario` int(11) NOT NULL,
   `nombre_usuario` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
