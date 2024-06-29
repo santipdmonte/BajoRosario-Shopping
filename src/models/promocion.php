@@ -154,8 +154,7 @@ function get_categorias_permitidas() {
     return [];
 }
 
-function get_promociones_by_dueno() {
-    include __DIR__ . "/../../../config/db.php";
+function get_promociones_by_dueno($conn) {
 
     $query = "
     SELECT * 

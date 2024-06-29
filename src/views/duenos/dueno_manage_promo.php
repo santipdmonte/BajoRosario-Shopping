@@ -1,9 +1,9 @@
 <?php 
 include '../header.php';
 include __DIR__ . "/../../../config/db.php";
-include "../../controllers/promociones/get_promociones.php";
+include "../../models/promocion.php";
 
-$promociones = get_promociones_by_dueno();
+$promociones = get_promociones_by_dueno($conn);
 ?>
 
 <!-- TODO: Validar las fechas de las promo, hacer ver graficamente cuando una promo ya expiro -->
