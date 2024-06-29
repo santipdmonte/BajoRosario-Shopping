@@ -57,8 +57,7 @@ function get_promociones_by_client_category(){
     return $result;
 }
 
-function get_total_promociones_by_client_category() {
-    include __DIR__ . "/../../../config/db.php";
+function get_total_promociones_by_client_category($conn) {
 
     $categorias_permitidas = get_categorias_permitidas();
 
@@ -89,8 +88,7 @@ function get_total_promociones_by_client_category() {
     return (int) $fila['total'];
 }
 
-function get_promociones_by_client_category_paginadas($inicio, $elementos_por_pagina) {
-    include __DIR__ . "/../../../config/db.php";
+function get_promociones_by_client_category_paginadas($conn, $inicio, $elementos_por_pagina) {
 
     $categorias_permitidas = get_categorias_permitidas();
 
@@ -124,8 +122,7 @@ function get_promociones_by_client_category_paginadas($inicio, $elementos_por_pa
     return $result;
 }
 
-function get_rubros() {
-    include __DIR__ . "/../../../config/db.php";
+function get_rubros($conn) {
 
     $query = 
     "SELECT DISTINCT categoria 
@@ -199,7 +196,7 @@ function validate_if_user_used_promo ($conn, $cod_promo, $cod_cliente) {
 }
 
 // No implementado, implementado en un archivo promos_pendientes
-function promos_pendientes_aprobacion(){
+function promos_pendientes_aprobacion($conn){
     include __DIR__ . '/../../config/db.php';
     $sql = "SELECT COUNT(*) FROM promociones where estado_promo = 'pendiente'";
     $result = $conn->query($sql);
