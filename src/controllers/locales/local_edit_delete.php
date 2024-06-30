@@ -15,17 +15,20 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     session_start();
     $_SESSION['deleted'] = true;
     $result = mysqli_query($conn, $query);
+    header("Location: /bajorosario-shopping/admin/locales");
 } else if (isset($_POST['action']) && $_POST['action'] == 'edit'){
     
     
-
+    
+    
+    header("Location: /bajorosario-shopping/admin/locales");
 }
 /*$result = mysqli_query($conn, $query);
 
 if (!$result){
     $_SESSION['failed'] = true;
 }
-
-header("Location: /bajorosario-shopping/admin/locales");
 */
+
+
 ?>
