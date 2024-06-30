@@ -77,7 +77,7 @@ include __DIR__ . "/../../../config/db.php";
         ?>
 
         <table class="table table-striped table-hover shadow text-center" style="min-width: 750px;">
-
+ 
             <thead>
                 <tr>
                     <th scope="col">Codigo</th>
@@ -105,8 +105,9 @@ include __DIR__ . "/../../../config/db.php";
                     <td><?php echo $row['rubro_local']?></td>
                     <td><?php echo $row['cod_usuario']?></td>
                     <td>
+                        
                         <form action="/bajorosario-shopping/src/controllers/locales/local_edit_delete.php" method="POST">
-                            <button class="btn btn-outline-warning" type="submit" name="action" value="edit">Edit</button>
+                            <button class="btn btn-outline-warning" type="submit" name="action" value="edit">Edit</button> 
                             <button class="btn btn-outline-danger" type="submit" name="action" value="delete">Borrar</button>
                             <input type="hidden" name="cod_local" value="<?php echo $row['cod_local']?>">
                         </form>
@@ -125,7 +126,7 @@ include __DIR__ . "/../../../config/db.php";
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Local</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -173,6 +174,7 @@ include __DIR__ . "/../../../config/db.php";
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 
