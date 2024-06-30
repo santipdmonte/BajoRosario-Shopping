@@ -33,6 +33,7 @@ include("config/db.php");
     
 </section>
 
+<div style="height: 20vh;"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
