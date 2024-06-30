@@ -18,6 +18,8 @@
 
 <?php include('src/views/promociones_slider.php')?>
 
+<?php include('src/views/index_section_tiendas.php')?>
+
 <?php include 'src/views/whatsapp_float.html'?>
 
 <?php include("src/views/footer.html")?>
