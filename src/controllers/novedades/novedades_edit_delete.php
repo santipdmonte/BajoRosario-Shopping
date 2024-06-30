@@ -1,36 +1,40 @@
 <?php
-
 include("../../../config/db.php");
 
+// Manejo de la acción para eliminar una novedad
 if (isset($_POST['action']) && $_POST['action'] == 'delete') {
-    
-    $query = "UPDATE novedades SET estado_novedad = 'no activa' WHERE cod_novedad = " . $_POST['cod_novedad'];
+    $cod_novedad = $_POST['cod_novedad'];
 
+    $query = "UPDATE novedades SET estado_novedad = 'no activa' WHERE cod_novedad = $cod_novedad";
 
+    // Ejecutar la consulta
+    $result = mysqli_query($conn, $query);
 
-    // Establecer variable de sesión para indicar que la novedad se ha eliminado con éxito
-    session_start();
-    $_SESSION['deleted'] = true;
+    if ($result) {
+        // Establecer variable de sesión para indicar que la novedad se ha eliminado con éxito
+        session_start();
+        $_SESSION['deleted'] = true;
+    } else {
+        // Si hay un error en la consulta
+        session_start();
+        $_SESSION['failed'] = true;
+    }
 
-} else if (isset($_POST['action']) && $_POST['action'] == 'edit'){
-    echo "TODO: Implementar la edición de novedades";
+    // Redirigir de vuelta a la página principal de novedades
+    header("Location: /bajorosario-shopping/admin/novedades");
     exit();
-    // $query = "UPDATE promociones SET estado_promo = 'denegada' WHERE cod_promo = " . $_POST['cod_promo'];
-
-    // // Establecer variable de sesión para indicar que la promoción se ha actualizado con éxito
-    // session_start();
-    // $_SESSION['review_deny'] = true;
-
 }
 
-$result = mysqli_query($conn, $query);
+// Manejo de la acción para editar una novedad
+else if (isset($_POST['action']) && $_POST['action'] == 'edit') {
+    $cod_novedad = $_POST['cod_novedad'];
 
-if (!$result){
-    $_SESSION['failed'] = true;
-
+    // Redirigir a la página de edición de novedad con el parámetro cod_novedad
+    header("Location: editar_novedad.php?cod_novedad=$cod_novedad");
+    exit();
 }
 
+// Si se intenta acceder directamente a este script sin una acción válida
 header("Location: /bajorosario-shopping/admin/novedades");
 exit();
-
 ?>
