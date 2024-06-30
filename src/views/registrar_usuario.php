@@ -3,7 +3,6 @@
 $exists = isset($_SESSION['exists']) && $_SESSION['exists'];
 $failed = isset($_SESSION['failed']) && $_SESSION['failed'];
 $success = isset($_SESSION['success']) && $_SESSION['success'];
-
 $email = isset($_GET['email'])? $_GET['email'] : '';
 
 ?>
@@ -26,17 +25,21 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
             ";
             unset($_SESSION['exists']);
         }
+
         if ($failed) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
             echo '<div class="alert alert-danger m-2" role="alert"> Error al registrar el usuario</div>';
             unset($_SESSION['failed']);
         }
+
         if ($success) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
             echo '<div class="alert alert-success m-2" role="alert">Usuario Registrado correctamente. Pendiente de verificacion</div>';
             unset($_SESSION['success']);
         }
-        ?>   
+
+        ?> 
+          
         <div class="card-body">
             <h2 class="pb-2" style="font-weight: bold;"> Registrarte </h2>
 

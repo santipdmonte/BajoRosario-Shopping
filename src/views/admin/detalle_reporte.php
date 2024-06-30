@@ -23,13 +23,15 @@ $sql = "SELECT p.texto_promo, COUNT(up.cod_promo) AS usos
 $result = $conn->query($sql);
 
 $query_local = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
-    $result_local = mysqli_fetch_array (mysqli_query($conn, $query_local))
+$result_local = mysqli_fetch_array (mysqli_query($conn, $query_local))
+
 ?>
 
 <section class="section">
+
     <h2 class="title">Reportes Promociones <?php echo $result_local['nombre_local']?></h2>
+
     <div class="container pt-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
-        
         <div>
             <table class="table">
                 <thead>
@@ -52,13 +54,10 @@ $query_local = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
                 </tbody>
             </table>
         </div>
-
     </div>
 </section>
 
 <?php include '../footer.html' ?>
 
-<?php
-$conn->close();
-?>
+<?php $conn->close(); ?>
 

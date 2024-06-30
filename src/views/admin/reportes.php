@@ -95,7 +95,5 @@ $result3 = $conn->query($sql);
 
 <?php include '../footer.html' ?>
 
-<?php
-$conn->close();
-?>
+<?php $conn->close(); ?>
 

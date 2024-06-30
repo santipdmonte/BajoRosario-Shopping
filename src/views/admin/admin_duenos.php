@@ -31,38 +31,38 @@ include __DIR__ . "/../../../config/db.php";
 
     <table class="table table-striped table-hover shadow">
 
-    <thead>
-        <tr>
-            <th scope="col">Cod Usuario</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Email</th>
-            <th scope="col">Accion</th>
-        </tr>
-    </thead>
-
-    <?php 
-    $query = "SELECT * FROM usuarios WHERE tipo_usuario = 'dueno de local' AND estado_usuario = 'pendiente'";
-    $result_tasks = mysqli_query($conn, $query);
-
-    while($row = mysqli_fetch_array($result_tasks)){?>
-
-        <!-- Itero por cada fila de promociones en la DB -->
-        <tbody>
+        <thead>
             <tr>
-            <td><?php echo $row['cod_usuario']?></td>
-            <td><?php echo $row['nombre_usuario']?></td>
-            <td><?php echo ($row['email'])?></td>
-            <td>
-                <form action="/bajorosario-shopping/src/controllers/duenos/dueno_review.php" method="POST">
-                    <button class="btn btn-outline-success" type="submit" name="action" value="approve">Aprobar</button>
-                    <button class="btn btn-outline-danger" type="submit" name="action" value="deny">Denegar</button>
-                    <input type="hidden" name="cod_usuario" value="<?php echo $row['cod_usuario']?>">
-                </form>
-            </td>
+                <th scope="col">Cod Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Accion</th>
             </tr>
-        </tbody>
+        </thead>
 
-    <?php }?>
+        <?php 
+        $query = "SELECT * FROM usuarios WHERE tipo_usuario = 'dueno de local' AND estado_usuario = 'pendiente'";
+        $result_tasks = mysqli_query($conn, $query);
+
+        while($row = mysqli_fetch_array($result_tasks)){?>
+
+            <!-- Itero por cada fila de promociones en la DB -->
+            <tbody>
+                <tr>
+                <td><?php echo $row['cod_usuario']?></td>
+                <td><?php echo $row['nombre_usuario']?></td>
+                <td><?php echo ($row['email'])?></td>
+                <td>
+                    <form action="/bajorosario-shopping/src/controllers/duenos/dueno_review.php" method="POST">
+                        <button class="btn btn-outline-success" type="submit" name="action" value="approve">Aprobar</button>
+                        <button class="btn btn-outline-danger" type="submit" name="action" value="deny">Denegar</button>
+                        <input type="hidden" name="cod_usuario" value="<?php echo $row['cod_usuario']?>">
+                    </form>
+                </td>
+                </tr>
+            </tbody>
+
+        <?php }?>
 
     </table>
 

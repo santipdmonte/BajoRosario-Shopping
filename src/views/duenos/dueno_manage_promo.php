@@ -48,9 +48,9 @@ style="
     <?php 
 
 
+    // Itero por cada fila de promociones en la DB
     while($promocion = mysqli_fetch_array($promociones)){?>
 
-        <!-- Itero por cada fila de promociones en la DB -->
         <tbody>
             <tr>
             <td><?php echo $promocion['texto_promo']?></td>
@@ -73,7 +73,7 @@ style="
             </tr>
         </tbody>
 
-    <?php }?>
+    <?php } ?>
 
     </table>
 

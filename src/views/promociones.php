@@ -38,8 +38,8 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
                         key = "<?php echo $rubro?>"
                         value="<?php echo $rubro?>"
                         <?php echo ($get_rubro == $rubro) ? 'selected' : ''?>
-                    > 
-                        <?php  echo ucfirst($rubro)?>
+                        > 
+                            <?php  echo ucfirst($rubro)?>
                     </option>;
                 <?php }?>
             </select>
@@ -65,10 +65,8 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
         justify-content: center; 
         align-items: center;">
         
-        <?php
-        while($promo = mysqli_fetch_array($promociones)){ 
-            
-            // Itero por cada fila de promociones en la DB 
+        <!-- Itero por cada fila de promociones en la DB  -->
+        <?php while($promo = mysqli_fetch_array($promociones)){ 
             include 'component_card.php';
         }?>
     
@@ -82,12 +80,10 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
                     <a class="page-link" href="?pagina=<?php echo max(1, $pagina_actual - 1); ?>">Previous</a>
                 </li>
     
-                <?php 
-                for ($i = 1; $i <= $total_paginas; $i++) {
+                <?php for ($i = 1; $i <= $total_paginas; $i++) {
                     $clase_activa = ($i == $pagina_actual) ? 'active' : '';
                     echo '<li class="page-item ' . $clase_activa . '"><a class="page-link" href="?pagina=' . $i . '">' . $i . '</a></li>';
-                }
-                ?>
+                } ?>
     
                 <li class="page-item <?php echo ($pagina_actual >= $total_paginas) ? 'disabled' : ''; ?>">
                     <a class="page-link" href="?pagina=<?php echo min($total_paginas, $pagina_actual + 1); ?>">Next</a>
@@ -98,8 +94,8 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
     
 </section>
 
-
-<?php include '../../src/views/whatsapp_float.html'?>
-    
-<?php include __DIR__ . "/footer.html"?>
+<?php 
+    include '../../src/views/whatsapp_float.html';
+    include __DIR__ . "/footer.html";
+?>
 
