@@ -1,13 +1,18 @@
 <?php
     include  "../../config/db.php";
     include __DIR__ . '/header.php';
+    include("../../src/models/promocion.php");
 
     // Obtener el código de local de la URL
     $cod_local = $_GET['cod_local'];
 
     // Consultar la base de datos para obtener detalles del local según el código
     $query_local = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
-    $result_local = mysqli_fetch_array (mysqli_query($conn, $query_local)) ?>
+    $result_local = mysqli_fetch_array (mysqli_query($conn, $query_local)); 
+    
+    $promociones_by_client_category = get_promociones_by_client_category($conn);
+
+    ?>
 
 
     <?php
@@ -53,17 +58,10 @@
         
                 <?php   
                 
-                include("../../src/controllers/promociones/get_promociones.php");
-                $promociones_by_client_category = get_promociones_by_client_category();
                             
                 while($promo = mysqli_fetch_array($promociones_by_client_category)){ ?>
                 
                     <!-- Itero por cada fila de promociones en la DB -->
-                    <div class="card">
-                        <div>
-                            TODO: Ads Card Component
-                        </div>
-                    </div>
                     <div class="card" style="width: 18rem;">
                         <div href="#" class="card-body">
                             <div style="display: flex; justify-content: space-between;">
