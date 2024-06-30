@@ -36,10 +36,7 @@ function save_promo(
     return $result;
 }
 
-function get_promociones_by_client_category(){
-
-    include  __DIR__ . "/../../../config/db.php";
-
+function get_promociones_by_client_category($conn){
     
     $categorias_permitidas = get_categorias_permitidas();
     

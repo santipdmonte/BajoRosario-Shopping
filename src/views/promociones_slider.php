@@ -1,3 +1,8 @@
+<?php 
+include("src/models/promocion.php"); 
+include("config/db.php");
+?>
+
 <link rel="stylesheet" href="cards.css">
 
 <section class="sectionPromo" style="max-width: 1200px; margin: 0 auto;">
@@ -10,8 +15,7 @@
         </div>
 
         <?php 
-        include("src/controllers/promociones/get_promociones.php");
-        $promociones_by_client_category = get_promociones_by_client_category();
+        $promociones_by_client_category = get_promociones_by_client_category($conn);
         $contador = 0;
 
         
