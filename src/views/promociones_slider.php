@@ -11,7 +11,7 @@ include("config/db.php");
     <div class="races gap-4">
         <div style="width: 14rem;">
             <h2 style="font-size: 2rem; font-weight: bold;">Promociones</h2>
-            <a href="" style="color: black">Ver todas las promociones</a>
+            <a href="promociones" style="color: black">Ver todas las promociones</a>
         </div>
 
         <?php 
