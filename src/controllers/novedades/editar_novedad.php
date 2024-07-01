@@ -62,6 +62,6 @@ if (isset($_GET['cod_novedad'])) {
             <input type="submit" name="edit_novedad" value="Guardar Cambios" style="background-color: #4CAF50; color: white; padding: 10px 25px; border: none; cursor: pointer; border-radius: 10px;">
         </form>
     </div>
-</body>
+</body> 
 </html>
 <?php include("../../../src/views/footer.html"); ?>
