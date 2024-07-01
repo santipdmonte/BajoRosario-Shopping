@@ -1,12 +1,3 @@
-<!--Por último, el administrador podrá monitorear la utilización de los descuentos en los
-locales del shopping mediante reportes gerenciales brindados por el sistema a desarrollar.-->
-
-<!--Se crea un contador en la base de datos que se actualize cada vez que sea 
-utilizada para que el admin pueda obsercvar la cantidad de veces que fue utilizada la promocion -->
-
-
-
-
 <?php 
 include '../header.php';
 include __DIR__ . "/../../../config/db.php";
