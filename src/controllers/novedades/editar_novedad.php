@@ -28,40 +28,77 @@ if (isset($_GET['cod_novedad'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
-    <title>Editar Novedad</title>
-</head>
-<body>
+<!-- <h2 style="text-align: center;">Editar Novedad</h2>
+<div class="container" style="align: center; width: 60%;">
+    <form action="procesar_edicion_novedad.php" method="POST" style="margin: 0 auto; width: 50%;">
+        <input type="hidden" name="cod_novedad" value="<?php echo $cod_novedad; ?>">
+        <label style="text-align: center; font-weight: bold; font-size: 18px;">Novedad:</label><br>
+        <input type="text" name="texto_novedad" rows="4" cols="50" style="width: 100%; height: 60px; font-size: 20px; border-radius: 10px;" value="<?php echo $texto_novedad; ?>" required></input><br>
+
+        <label style="text-align: left; font-weight: bold; font-size: 18px;">Fecha Desde:</label><br>
+        <input type="date" name="fecha_desde" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $fecha_desde; ?>" required><br>
+
+        <label style="text-align: left; font-weight: bold; font-size: 18px;">Fecha Hasta:</label><br>
+        <input type="date" name="fecha_hasta" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $fecha_hasta; ?>" required><br>
+
+        <label style="text-align: left; font-weight: bold; font-size: 18px;">Categoría Cliente:</label><br>
+
+        <select name="categoria_cliente" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $categoria_cliente; ?>" required>
+            <option value="inicial" <?php if ($categoria_cliente == 'inicial') echo 'selected'; ?>>Inicial</option>
+            <option value="medium" <?php if ($categoria_cliente == 'medium') echo 'selected'; ?>>Medium</option>
+            <option value="premium" <?php if ($categoria_cliente == 'premium') echo 'selected'; ?>>Premium</option>
+        </select><br>
+
+        <br>
+        <input type="submit" name="edit_novedad" value="Guardar Cambios" style="background-color: #4CAF50; color: white; padding: 10px 25px; border: none; cursor: pointer; border-radius: 10px;">
+    </form>
+</div> -->
+
+<div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+
     <h2 style="text-align: center;">Editar Novedad</h2>
-    <div class="container" style="align: center; width: 60%;">
-        <form action="procesar_edicion_novedad.php" method="POST" style="margin: 0 auto; width: 50%;">
-            <input type="hidden" name="cod_novedad" value="<?php echo $cod_novedad; ?>">
-            <label style="text-align: center; font-weight: bold; font-size: 18px;">Novedad:</label><br>
-            <input type="text" name="texto_novedad" rows="4" cols="50" style="width: 100%; height: 60px; font-size: 20px; border-radius: 10px;" value="<?php echo $texto_novedad; ?>" required></input><br>
 
-            <label style="text-align: left; font-weight: bold; font-size: 18px;">Fecha Desde:</label><br>
-            <input type="date" name="fecha_desde" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $fecha_desde; ?>" required><br>
+    <div class="card w-100" style="max-width: 500px;">
+        <div class="card-body">
+            <form action="procesar_edicion_novedad.php" method="POST">
 
-            <label style="text-align: left; font-weight: bold; font-size: 18px;">Fecha Hasta:</label><br>
-            <input type="date" name="fecha_hasta" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $fecha_hasta; ?>" required><br>
+                <input type="hidden" name="cod_novedad" value="<?php echo $cod_novedad; ?>">
 
-            <label style="text-align: left; font-weight: bold; font-size: 18px;">Categoría Cliente:</label><br>
+                <!-- Input Texto -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Novedad</label>
+                    <input type="text" class="form-control"  name="texto_novedad"  value="<?php echo $texto_novedad; ?>" autofocus required>
+                </div>
 
-            <select name="categoria_cliente" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $categoria_cliente; ?>" required>
-                <option value="inicial" <?php if ($categoria_cliente == 'inicial') echo 'selected'; ?>>Inicial</option>
-                <option value="medium" <?php if ($categoria_cliente == 'medium') echo 'selected'; ?>>Medium</option>
-                <option value="premium" <?php if ($categoria_cliente == 'premium') echo 'selected'; ?>>Premium</option>
-            </select><br>
+                <!-- Input Fecha Desde -->
+                <div class="mb-3" style="max-width: 200px;">
+                    <label for="fechaInicio" class="form-label">Fecha Hastas</label>
+                    <input type="date" class="form-control" name="fecha_desde" value="<?php echo $fecha_desde; ?>" required>
+                </div>
 
-            <br>
-            <input type="submit" name="edit_novedad" value="Guardar Cambios" style="background-color: #4CAF50; color: white; padding: 10px 25px; border: none; cursor: pointer; border-radius: 10px;">
-        </form>
+                <!-- Input Fecha Desde -->
+                <div class="mb-3" style="max-width: 200px;">
+                    <label for="fechaInicio" class="form-label">Fecha Hasta</label>
+                    <input type="date" class="form-control" name="fecha_hasta" value="<?php echo $fecha_hasta; ?>" required>
+                </div>
+                
+                <!-- Input Categoria Cliente -->
+                <div class="mb-3" style="max-width: 200px;">
+                    <label for="selectOpciones" class="form-label">Categoria de cliente</label>
+                    <select class="form-select" id="selectOpciones" name="categoria_cliente" required>
+                        <option value="inicial" <?php if ($categoria_cliente == 'inicial') echo 'selected'; ?>>Inicial</option>
+                        <option value="medium" <?php if ($categoria_cliente == 'medium') echo 'selected'; ?>>Medium</option>
+                        <option value="premium" <?php if ($categoria_cliente == 'premium') echo 'selected'; ?>>Premium</option>
+                    </select>
+                </div>
+                
+                <input type="submit" class="btn btn-primary" name="edit_novedad" value="Guardar Cambios">
+
+            </form>
+
+        </div>
     </div>
-</body> 
-</html>
+
+</div>
+
 <?php include("../../../src/views/footer.html"); ?>

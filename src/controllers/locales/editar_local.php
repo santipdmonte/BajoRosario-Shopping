@@ -29,38 +29,49 @@ if (isset($_GET['cod_local'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
-    <title>Editar Local</title>
-</head>
-<body>
+<div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+
     <h2 style="text-align: center;">Editar Local</h2>
-    <div class="container" style="align: center; width: 60%;">
-        <form action="procesar_edicion_local.php" method="POST" style="margin: 0 auto; width: 50%;">
-            <input type="hidden" name="cod_local" value="<?php echo $cod_local; ?>">
-            <input type="hidden" name="url_logo" value="<?php echo $url_logo; ?>">
 
-            <label style="text-align: center; font-weight: bold; font-size: 18px;">Local:</label><br>
-            <input type="text" name="nombre_local" rows="4" cols="50" style="width: 100%; height: 60px; font-size: 20px; border-radius: 10px;" value="<?php echo $nombre_local; ?>" required><br>
+    <div class="card w-100" style="max-width: 500px;">
+        <div class="card-body">
+            <form action="procesar_edicion_local.php" method="POST">
 
-            <label style="text-align: left; font-weight: bold; font-size: 18px;">Ubicacion:</label><br>
-            <input type="text" name="ubicacion_local" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $ubicacion_local; ?>" required><br>
+                <input type="hidden" name="cod_local" value="<?php echo $cod_local; ?>">
+                <input type="hidden" name="url_logo" value="<?php echo $url_logo; ?>">
 
-            <label style="text-align: left; font-weight: bold; font-size: 18px;">Rubro:</label><br>
-            <input type="text" name="rubro_local" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $rubro_local; ?>" required><br>
+                <!-- Input Texto -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Nombre Local</label>
+                    <input type="text" class="form-control"  name="nombre_local"  value="<?php echo $nombre_local; ?>" autofocus required>
+                </div>
 
-            <label style="text-align: left; font-weight: bold; font-size: 18px;"> ID Dueño:</label><br>
-            <input type="text" name="cod_usuario" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $cod_usuario; ?>" required><br>
+                <!-- Input Texto -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Ubicacion Local</label>
+                    <input type="text" class="form-control"  name="ubicacion_local"  value="<?php echo $ubicacion_local; ?>" required>
+                </div>
 
-            <br>
-            <input type="submit" name="edit_local" value="Guardar Cambios" style="background-color: #4CAF50; color: white; padding: 10px 25px; border: none; cursor: pointer; border-radius: 10px;">
-        </form>
+                <!-- Input Texto -->
+                <div class="mb-3">
+                    <label for="" class="form-label">Rubro Local</label>
+                    <input type="text" class="form-control"  name="rubro_local"  value="<?php echo $rubro_local; ?>" required>
+                </div>
+
+                <!-- Input Texto -->
+                <div class="mb-3">
+                    <label for="" class="form-label">ID Dueño</label>
+                    <input type="text" class="form-control"  name="cod_usuario"  value="<?php echo $cod_usuario; ?>" required>
+                </div>
+                
+                <input type="submit" class="btn btn-primary" name="edit_local" value="Guardar Cambios"> 
+
+            </form>
+
+        </div>
     </div>
-</body>
-</html>
+
+</div>
+
  
 <?php include("../../../src/views/footer.html"); ?>
