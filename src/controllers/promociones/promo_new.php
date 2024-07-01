@@ -10,7 +10,7 @@ if (isset($_POST['save_promo'])){
     $categoria_cliente = $_POST['categoria_cliente'];
     $cod_local = $_POST['cod_local'];
 
-    $clave_promo = substr(bin2hex(random_bytes(3)), 0, $length);
+    $clave_promo = substr(bin2hex(random_bytes(6)), 0, 6);
 
     $query = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
     $local = mysqli_query($conn, $query);
