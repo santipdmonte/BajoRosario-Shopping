@@ -130,7 +130,7 @@
             ?>
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Configuraciones</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Configuraciones</a></li> -->
               <li><a class="dropdown-item text-danger" href="/bajorosario-shopping/src/controllers/cerrar_sesion.php">Cerrar Sesion</a></li>
             </ul>
           </li>

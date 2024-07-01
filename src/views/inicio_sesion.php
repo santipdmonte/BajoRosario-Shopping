@@ -67,7 +67,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
 
             <div class="pt-3 d-flex gap-4 justify-content-center text-secondary">
                 <a href="/bajorosario-shopping/registrar_usuario" class="text-secondary">Registrarte</a>
-                <a href="" class="text-secondary">Recuperar Contraseña</a>
+                <!-- <a href="" class="text-secondary">Recuperar Contraseña</a> -->
             </div>
 
         </div>
