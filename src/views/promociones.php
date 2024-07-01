@@ -29,7 +29,7 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
 
     <h2 class="title"> Promociones </h2>
     
-    <div style="width: 14rem; padding-left: 1.5rem">
+    <div style="width: 17rem; padding-left: 1.5rem">
         <form action="/bajorosario-shopping/promociones" method="get">
             <select class="form-select" name="rubro" aria-label="Promociones por rubro" onchange="this.form.submit()">
                 <option selected disabled>Promociones por rubro</option>
