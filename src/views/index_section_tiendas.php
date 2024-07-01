@@ -15,7 +15,7 @@ mysqli_close($conn);
 
 ?>
 
-<section class="sectionPromo p-4" style="max-width: 1200px; margin: 0 auto;">
+<section id="tiendas" class="sectionPromo p-4" style="max-width: 1200px; margin: 0 auto;">
     <div style="width: 14rem;">
                 <h2 style="font-size: 2rem; font-weight: bold;">Tiendas</h2>
                 <!-- <a href="" style="color: black">Ver todas las tiendas</a> -->
