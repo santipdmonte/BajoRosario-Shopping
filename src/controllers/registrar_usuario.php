@@ -1,4 +1,7 @@
 <?php
+// Iniciar el almacenamiento en buffer de salida
+ob_start();
+
 session_start();
 
 include("../../config/db.php");
@@ -73,6 +76,8 @@ if (isset($_POST['create_user'])){
 
 }
 
+// Enviar el contenido del buffer y limpiar el buffer
+ob_end_flush();
 
 /*
 session_start();
