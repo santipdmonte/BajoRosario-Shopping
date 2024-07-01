@@ -11,7 +11,6 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
 
     <div class="card" style="width: 40rem;">
         <?php
-        echo ("TODO: Validar todos los inputs en front y back");
 
         if ($exists) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje

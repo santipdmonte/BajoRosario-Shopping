@@ -60,7 +60,7 @@ style="
             <td>
                 <?php $dias_semana = json_decode($promocion['dias_semana'])?>
                     <div class="d-flex gap-1">
-                        <?php include '../component_dias_seman.php'?>
+                        <?php include '../component_dias_semana.php'?>
                     </div>
             </td>
             <td>
