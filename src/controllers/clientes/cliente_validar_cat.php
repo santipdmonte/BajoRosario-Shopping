@@ -29,6 +29,8 @@ function validar_categoria($cod_cliente){
 
         if ($cant_promo_usadas >= $promociones_minimas){
             $cat_final = $categoria['categoria'];
+            unset($_SESSION['categoria_cliente']);
+            $_SESSION['categoria_cliente'] = $categoria['categoria'];
         }
     }
 
