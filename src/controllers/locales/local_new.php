@@ -7,17 +7,20 @@ if (isset($_POST['save_local'])){
     $ubicacion_local = $_POST['ubicacion_local'];
     $rubro_local = $_POST['rubro_local'];
     $cod_usuario = $_POST['cod_usuario'];
+    $url_logo = 'https://pub-6d29dc65ed78442db1957c22eac48272.r2.dev/logo.png';
 
     $query = "INSERT INTO locales(
         nombre_local,
         ubicacion_local,
         rubro_local,
+        url_logo,
         cod_usuario) 
         VALUES 
         (
             '$nombre_local',
             '$ubicacion_local',
             '$rubro_local',
+            'url_logo',
             '$cod_usuario'
         )";
 
