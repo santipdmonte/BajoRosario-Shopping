@@ -36,10 +36,7 @@ function save_promo(
     return $result;
 }
 
-function get_promociones_by_client_category(){
-
-    include  __DIR__ . "/../../../config/db.php";
-
+function get_promociones_by_client_category($conn){
     
     $categorias_permitidas = get_categorias_permitidas();
     
@@ -195,10 +192,10 @@ function validate_if_user_used_promo ($conn, $cod_promo, $cod_cliente) {
 }
 
 // No implementado, implementado en un archivo promos_pendientes
-function promos_pendientes_aprobacion($conn){
-    include __DIR__ . '/../../config/db.php';
-    $sql = "SELECT COUNT(*) FROM promociones where estado_promo = 'pendiente'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_row();
-    return $row[0];
-}
+// function promos_pendientes_aprobacion($conn){
+//     include __DIR__ . '/../../config/db.php';
+//     $sql = "SELECT COUNT(*) FROM promociones where estado_promo = 'pendiente'";
+//     $result = $conn->query($sql);
+//     $row = $result->fetch_row();
+//     return $row[0];
+// }

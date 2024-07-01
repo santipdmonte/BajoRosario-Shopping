@@ -48,9 +48,9 @@ style="
     <?php 
 
 
+    // Itero por cada fila de promociones en la DB
     while($promocion = mysqli_fetch_array($promociones)){?>
 
-        <!-- Itero por cada fila de promociones en la DB -->
         <tbody>
             <tr>
             <td><?php echo $promocion['texto_promo']?></td>
@@ -60,7 +60,7 @@ style="
             <td>
                 <?php $dias_semana = json_decode($promocion['dias_semana'])?>
                     <div class="d-flex gap-1">
-                        <?php include '../component_dias_seman.php'?>
+                        <?php include '../component_dias_semana.php'?>
                     </div>
             </td>
             <td>
@@ -73,7 +73,7 @@ style="
             </tr>
         </tbody>
 
-    <?php }?>
+    <?php } ?>
 
     </table>
 

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 function validar_categoria($cod_cliente){
     include("../../../config/db.php");

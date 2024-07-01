@@ -10,13 +10,10 @@ if (isset($_POST['use_promo'])){
     $fecha_uso_promo = date("Y-m-d H:i:s");
     $estado = 'enviada';
 
-    if (validate_if_user_used_promo ($conn, $cod_promo, $cod_cliente)){
+    if (!validate_if_user_used_promo ($conn, $cod_promo, $cod_cliente)){
         
         $result = save_uso_promo($conn, $cod_promo, $cod_cliente, $fecha_uso_promo, $estado);
     
-        if (!$result){
-            exit("Hubo un error al intentar usar la promoción");
-        }
     } 
  
     include ('../clientes/cliente_validar_cat.php');

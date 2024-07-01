@@ -23,20 +23,20 @@ include __DIR__ . "/../../../config/db.php";
         <form action="/bajorosario-shopping/src/controllers/clientes/cliente_categorias.php" method="POST">
             <table class="table table-striped table-hover shadow">
     
-            <thead>
-                <tr>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Promociones Minimas</th>
-                </tr>
-            </thead>
-    
-            
+                <thead>
+                    <tr>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Promociones Minimas</th>
+                    </tr>
+                </thead>
+        
+                
                 <?php 
                 $query = "SELECT * FROM categorias_cliente";
                 $result_tasks = mysqli_query($conn, $query);
-    
-                while($row = mysqli_fetch_array($result_tasks)){?>
-    
+        
+                while($row = mysqli_fetch_array($result_tasks)){ ?>
+        
                     <!-- Itero por cada fila de promociones en la DB -->
                     <tbody>
                         <tr>
@@ -47,7 +47,7 @@ include __DIR__ . "/../../../config/db.php";
                         </td>
                         </tr>
                     </tbody>
-    
+        
                 <?php }?>            
                 
             </table>
@@ -55,8 +55,9 @@ include __DIR__ . "/../../../config/db.php";
             <div>
                 <button class="btn btn-outline-success" type="submit" name="save_changes" value="save_changes">Guardar Cambios</button>
             </div>
+
         </form>
-    
+        
     </div>
 </div>
 

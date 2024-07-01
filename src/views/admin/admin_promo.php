@@ -1,7 +1,9 @@
 <?php 
 include '../header.php';
 include __DIR__ . "/../../../config/db.php";
+
 ?>
+
 <!-- TODO: Validar las fechas de las promo, hacer ver graficamente cuando una promo ya expiro -->
 <div class="container pt-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
     
@@ -52,6 +54,8 @@ include __DIR__ . "/../../../config/db.php";
             $promociones_pendientes = mysqli_query($conn, $query);
     
             while($promocion = mysqli_fetch_array($promociones_pendientes)){?>
+
+                <?php $dias_semana = json_decode($promocion['dias_semana']) ?>
     
                 <!-- Itero por cada fila de promociones en la DB -->
                 <tbody>
@@ -61,10 +65,9 @@ include __DIR__ . "/../../../config/db.php";
                     <td><?php echo ($promocion['fecha_desde_promo'] . ' | ' . $promocion['fecha_hasta_promo'])?></td>
                     <td><?php echo $promocion['categoria_cliente']?></td>
                     <td>
-                        <?php $dias_semana = json_decode($promocion['dias_semana'])?>
-                            <div class="d-flex gap-1 justify-content-center">
-                                <?php include '../component_dias_seman.php'?>
-                            </div>
+                        <div class="d-flex gap-1 justify-content-center">
+                            <?php include '../component_dias_semana.php'?>
+                        </div>
                     </td>
                     <td>
                         <form action="/bajorosario-shopping/src/controllers/promociones/promo_review.php" method="POST">

@@ -2,7 +2,7 @@
 
 $server = 'localhost';
 $username = 'root';
-$password = 'maateo123';
+$password = '';
 $dbname = 'bajito_rosario_promociones';
 
 $conn = mysqli_connect($server, $username, $password, $dbname);

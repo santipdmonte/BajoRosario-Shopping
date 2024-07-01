@@ -11,7 +11,7 @@ if (!$result){
 ?>
 
 <!-- TODO: Mostar solo las promo a la fecha y validar el tipo de cliente -->
- <!-- chequear la columna de estado para novedades, no tiene sentido si valida por fecha-->
+<!-- chequear la columna de estado para novedades, no tiene sentido si valida por fecha-->
 
 <section class="section">
     <h2 class="title"> Novedades </h2>
@@ -42,23 +42,29 @@ if (!$result){
         <?php
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_array($result)) { ?>
+
                 <!-- Itero por cada fila de promociones en la DB -->
                 <div class="card" style="width: 18rem;">
                     <div href="#" class="card-body">
                         <h5 class="card-title"><?php echo $row['texto_novedad']?></h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Hasta el <?php echo $row['fecha_hasta_novedad']?></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">
+                            Hasta el <?php echo $row['fecha_hasta_novedad']?>
+                        </h6>
                     </div>
                 </div>
+
             <?php }
         } else { ?>
-            <div class="alert alert-danger" role="alert" style="font-weight: bold; width: 70%; text-align: center;font-size: 1.5em; color:black;">
-            No hay novedades por hoy.
+
+            <div 
+                class="alert alert-danger" 
+                role="alert" 
+                style="font-weight: bold; width: 70%; text-align: center;font-size: 1.5em; color:black;">
+                No hay novedades por hoy.
             </div>
+
         <?php } ?>
 
-
-    
-    
     </div>
 </section>
     
