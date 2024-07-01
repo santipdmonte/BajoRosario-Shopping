@@ -12,7 +12,7 @@ if (isset($_POST['save_promo'])){
 
     $query = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
     $local = mysqli_query($conn, $query);
-
+    $result = false;
     // Validar que las fechas sean válidas y el local exista
     if ($local->num_rows != 0){
         if (!empty($fecha_desde_promo) && DateTime::createFromFormat('Y-m-d', $fecha_desde_promo) !== false){
