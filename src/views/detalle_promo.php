@@ -36,7 +36,7 @@
                     <h6 class="card-subtitle mb-2 text-body-secondary">Hasta el <?php echo $row['fecha_hasta_promo']?></h6>
 
                     <!-- Codigo -->
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Codigo de promocion: XXXXX</h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Codigo de promocion: <?php echo $row['clave_promo'] ?></h6>
                     
                     <!-- Dias de la semana -->
                 </div>
