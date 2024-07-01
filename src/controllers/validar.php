@@ -1,7 +1,7 @@
 <?php
 
 include  "../../config/db.php";
-include "../../models/usuario.php";
+include "../models/usuario.php";
 include "inicio_sesion.php";
 
 if (isset($_GET['token'])){
@@ -10,13 +10,11 @@ if (isset($_GET['token'])){
     $usuario = get_user_by_token($conn, $token);
 
     if (!$usuario){
-        echo "Usuario no encontrado";
-        header('location: /bajorosario-shopping/inicio_sesion/sdfa');
+        header('location: /bajorosario-shopping/');
         exit();
     } 
 
     if ($usuario['estado_usuario'] == 'activo'){
-        echo "Usuario ya activo";
         header('location: /bajorosario-shopping/inicio_sesion?email='.$usuario['email']);
         exit();
     } 
