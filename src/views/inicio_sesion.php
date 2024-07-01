@@ -8,7 +8,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
     
-    <div class="card" style="width: 40rem;">
+    <div class="card w-100" style="max-width: 500px;">
         
         <?php
         if ($usuario_no_encontrado) {
