@@ -7,8 +7,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
 
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
-    <?php echo ("TODO: Validar todos los inputs en front y back");?>
-
+    
     <div class="card" style="width: 40rem;">
         
         <?php
