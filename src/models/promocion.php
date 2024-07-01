@@ -3,6 +3,7 @@
 function save_promo(
     $conn,
     $texto_promo, 
+    $clave_promo,
     $fecha_desde_promo, 
     $fecha_hasta_promo,
     $categoria_cliente,
@@ -12,6 +13,7 @@ function save_promo(
 
     $query = "INSERT INTO promociones(
         texto_promo, 
+        clave_promo,
         fecha_desde_promo, 
         fecha_hasta_promo, 
         categoria_cliente, 
@@ -22,6 +24,7 @@ function save_promo(
         VALUES 
         (
             '$texto_promo', 
+            '$clave_promo',
             '$fecha_desde_promo', 
             '$fecha_hasta_promo',
             '$categoria_cliente',

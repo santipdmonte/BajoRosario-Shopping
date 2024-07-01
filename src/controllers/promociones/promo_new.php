@@ -10,6 +10,8 @@ if (isset($_POST['save_promo'])){
     $categoria_cliente = $_POST['categoria_cliente'];
     $cod_local = $_POST['cod_local'];
 
+    $clave_promo = substr(bin2hex(random_bytes(3)), 0, $length);
+
     $query = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
     $local = mysqli_query($conn, $query);
     $result = false;
@@ -26,7 +28,7 @@ if (isset($_POST['save_promo'])){
                     }
                     $dias_semana = json_encode($dias_semana); // Convertir el array a string
 
-                    $result = save_promo($conn, $texto_promo, $fecha_desde_promo, $fecha_hasta_promo, $categoria_cliente, $dias_semana, $cod_local);
+                    $result = save_promo($conn, $texto_promo, $clave_promo, $fecha_desde_promo, $fecha_hasta_promo, $categoria_cliente, $dias_semana, $cod_local);
                 }
             } else { $error = "La fecha de fin no es válida"; }
         } else { $error = "La fecha de inicio no es válida"; }
