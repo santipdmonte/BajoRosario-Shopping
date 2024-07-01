@@ -1,7 +1,6 @@
 <?php
 
 include  "../../config/db.php";
-include "../models/usuario.php";
 include "inicio_sesion.php";
 
 if (isset($_GET['token'])){
