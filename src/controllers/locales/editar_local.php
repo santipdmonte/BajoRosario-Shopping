@@ -45,16 +45,16 @@ if (isset($_GET['cod_local'])) {
             <input type="hidden" name="url_logo" value="<?php echo $url_logo; ?>">
 
             <label style="text-align: center; font-weight: bold; font-size: 18px;">Local:</label><br>
-            <input type="text" name="nombre_local" rows="4" cols="50" style="width: 100%; height: 60px; font-size: 20px; border-radius: 10px;" value="<?php echo $nombre_local; ?>"><br>
+            <input type="text" name="nombre_local" rows="4" cols="50" style="width: 100%; height: 60px; font-size: 20px; border-radius: 10px;" value="<?php echo $nombre_local; ?>" required><br>
 
             <label style="text-align: left; font-weight: bold; font-size: 18px;">Ubicacion:</label><br>
-            <input type="text" name="ubicacion_local" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $ubicacion_local; ?>"><br>
+            <input type="text" name="ubicacion_local" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $ubicacion_local; ?>" required><br>
 
             <label style="text-align: left; font-weight: bold; font-size: 18px;">Rubro:</label><br>
-            <input type="text" name="rubro_local" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $rubro_local; ?>"><br>
+            <input type="text" name="rubro_local" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $rubro_local; ?>" required><br>
 
             <label style="text-align: left; font-weight: bold; font-size: 18px;"> ID Dueño:</label><br>
-            <input type="text" name="cod_usuario" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $cod_usuario; ?>"><br>
+            <input type="text" name="cod_usuario" style="width: 35%; height: 60px; font-size: 20px; text-align: left; border-radius: 10px;" value="<?php echo $cod_usuario; ?>" required><br>
 
             <br>
             <input type="submit" name="edit_local" value="Guardar Cambios" style="background-color: #4CAF50; color: white; padding: 10px 25px; border: none; cursor: pointer; border-radius: 10px;">
@@ -62,3 +62,5 @@ if (isset($_GET['cod_local'])) {
     </div>
 </body>
 </html>
+
+<?php include("../../../src/views/footer.html"); ?>

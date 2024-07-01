@@ -25,7 +25,13 @@ if (mysqli_num_rows($result) == 0) {
     }
     if (isset($_SESSION['promo_failed']) && $_SESSION['promo_failed']) {
         // Si la promoción no se pudo guardar, muestra el mensaje
-        echo '<div class="alert alert-danger" role="alert"> Error al guardar la promoción</div>';
+        if (isset($_COOKIE['promo_error'])) {
+            $error = $_COOKIE['promo_error'];
+        } else {
+            $error = "Error al guardar la promoción";
+        }
+        
+        echo '<div class="alert alert-danger" role="alert">' . $error . '</div>';
         unset($_SESSION['promo_saved']);
     }
     ?>
@@ -57,7 +63,7 @@ if (mysqli_num_rows($result) == 0) {
                 <!-- Input Categoria Cliente -->
                 <div class="mb-3" style="max-width: 200px;">
                     <label for="selectOpciones" class="form-label">Categoria de cliente</label>
-                    <select class="form-select" id="selectOpciones" name="categoria_cliente">
+                    <select class="form-select" id="selectOpciones" name="categoria_cliente" required>
                         <option value="Inicial">Inicial</option>
                         <option value="Medium">Medium</option>
                         <option value="Premium">Premium</option>

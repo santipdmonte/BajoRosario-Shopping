@@ -7,8 +7,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
 
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
-    <?php echo ("TODO: Validar todos los inputs en front y back");?>
-
+    
     <div class="card" style="width: 40rem;">
         
         <?php
@@ -41,7 +40,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
                         type="email" 
                         class="form-control" 
                         name="email" 
-                        value="<?php echo isset($_GET['email']) ? $_GET['email'] : ''; ?>"
+                        value="<?php echo isset($_GET['email']) ? $_GET['email'] : ''; ?>" required
                     >
                     <?php if (isset($_SESSION['not_aprove']) && $_SESSION['not_aprove']){?>
                         <div id="emailHelp" class="form-text text-danger-emphasis">Usuario pendiente de aprobación.</div>
@@ -54,7 +53,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
                 <!-- Input Password ¿Hace falta validar password? -->
                 <div class="mb-3">
                     <label class="form-label">Constraseña</label>
-                    <input type="password" class="form-control" name="clave_usuario">
+                    <input type="password" class="form-control" name="clave_usuario" required>
                     <?php if (isset($_SESSION['not_valid_password']) && $_SESSION['not_valid_password']){?>
                         <div id="emailHelp" class="form-text text-danger">Contraseña incorrecta</div>
                     <?php 
