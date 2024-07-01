@@ -2,8 +2,6 @@
 include '../header.php';
 include __DIR__ . "/../../../config/db.php";
 
-$dias_semana = json_decode($promocion['dias_semana'])
-
 ?>
 
 <!-- TODO: Validar las fechas de las promo, hacer ver graficamente cuando una promo ya expiro -->
@@ -56,6 +54,8 @@ $dias_semana = json_decode($promocion['dias_semana'])
             $promociones_pendientes = mysqli_query($conn, $query);
     
             while($promocion = mysqli_fetch_array($promociones_pendientes)){?>
+
+                <?php $dias_semana = json_decode($promocion['dias_semana']) ?>
     
                 <!-- Itero por cada fila de promociones en la DB -->
                 <tbody>
@@ -66,7 +66,7 @@ $dias_semana = json_decode($promocion['dias_semana'])
                     <td><?php echo $promocion['categoria_cliente']?></td>
                     <td>
                         <div class="d-flex gap-1 justify-content-center">
-                            <?php include '../component_dias_seman.php'?>
+                            <?php include '../component_dias_semana.php'?>
                         </div>
                     </td>
                     <td>
