@@ -32,6 +32,7 @@ function sendMail($email, $hash){
    include '../views/email_template.php';
    $email_template = email_template($hash);
    $subject = "Validar Cuenta";
+   $alt_message = "Gracias por unirte a nuestra comunidad. Haga clic en el enlace de abajo para confirmar su cuenta: https://bajorosario.000webhostapp.com/bajorosario-shopping/src/controllers/validar.php?token=". $hash;
 
    // Creating a new PHPMailer object.
    $mail = new PHPMailer(true);
@@ -129,7 +130,7 @@ function sendMail($email, $hash){
       In such cases, the email client will display 
       the plain text content instead of the HTML content.
     */
-   $mail->AltBody = $message;
+   $mail->AltBody = $alt_message;
    
    /*
       And last we send the email.
