@@ -24,24 +24,21 @@ function get_novedades_by_client(){
     }
     
     if ($categoria_cliente == "premium"){
-        $query = "
-            SELECT * 
+        $query = "SELECT * 
             FROM novedades 
             WHERE estado_novedad = 'activa' 
                 AND fecha_hasta_novedad >= CURDATE() 
             ORDER BY fecha_hasta_novedad ASC";
         } elseif ($categoria_cliente == "medium"){
 
-            $query = "
-                SELECT * 
+            $query = "SELECT * 
                 FROM novedades 
                 WHERE estado_novedad = 'activa' 
                     AND fecha_hasta_novedad >= CURDATE() 
                     AND categoria_cliente = '$categoria_cliente' OR categoria_cliente = 'inicial'
                 ORDER BY fecha_hasta_novedad ASC";
         }else{
-            $query = "
-                SELECT * 
+            $query = "SELECT * 
                 FROM novedades 
                 WHERE estado_novedad = 'activa' 
                     AND fecha_hasta_novedad >= CURDATE() 

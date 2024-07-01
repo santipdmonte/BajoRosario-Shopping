@@ -62,3 +62,5 @@ if (isset($_GET['cod_local'])) {
     </div>
 </body>
 </html>
+
+<?php include("../../../src/views/footer.html"); ?>
