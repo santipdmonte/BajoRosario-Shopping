@@ -2,7 +2,7 @@
 
 <div>
     <div class="card" style="width: 15rem;">
-        <img src="<?php echo $promo['url_logo']?>" class="card-img-top" alt="...">
+        <img src="<?php echo $promo['url_logo']?>" class="card-img-top" alt="Logo de <?php echo $promo['nombre_local']?>">
         <div href="#" class="card-body">
 
             <div style="display: flex; justify-content: space-between;">
