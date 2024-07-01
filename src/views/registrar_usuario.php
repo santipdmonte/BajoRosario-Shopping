@@ -49,7 +49,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
                 <!-- Input Nombre -->
                 <div class="mb-3">
                     <label class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre_usuario">
+                    <input type="text" class="form-control" name="nombre_usuario" required>
                 </div>
                 
                 <!-- Input Email -->
@@ -59,7 +59,7 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
                         type="email" 
                         class="form-control" 
                         name="email"
-                        value="<?php echo isset($_GET['email']) ? $_GET['email'] : ''; ?>"
+                        value="<?php echo isset($_GET['email']) ? $_GET['email'] : ''; ?>" required
                     >
                     <div id="emailHelp" class="form-text">No vamosa  compartir el email con nadie.</div>
                 </div>
@@ -67,15 +67,15 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
                 <!-- Input Password -->
                 <div class="mb-3">
                     <label class="form-label">Constraseña</label>
-                    <input type="password" class="form-control" name="clave_usuario">
+                    <input type="password" class="form-control" name="clave_usuario" required>
                 </div>
                 
                 <!-- Input Categoria Usuario -->
                 <div class="mb-3">
                     <label class="form-label">Tipo de Usuario</label>
-                    <select class="form-select" name="tipo_usuario">
+                    <select class="form-select" name="tipo_usuario" required>
                         <option value="cliente">Cliente</option>
-                        <option value="dueno de local">Dueño de local</option>
+                        <option value="dueno de local">Dueño de local</option> 
                     </select>
                 </div>
 

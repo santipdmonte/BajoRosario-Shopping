@@ -42,8 +42,8 @@ include __DIR__ . "/../../../config/db.php";
                         <tr>
                         <td><?php echo ucfirst($row['categoria'])?></td>
                         <td>
-                            <input type="hidden" name="cod_categorias[]" value="<?php echo $row['cod_categoria']?>">
-                            <input class="w-25 rounded ps-2" style="background-color: transparent; border: 1px solid black; color: black" type="text" name="promociones_minimas_<?php echo $row['cod_categoria']?>" value="<?php echo $row['promociones_minimas_adquiridas']?>">
+                            <input type="hidden" name="cod_categorias[]" value="<?php echo $row['cod_categoria']?>" required>
+                            <input class="w-25 rounded ps-2" style="background-color: transparent; border: 1px solid black; color: black" type="text" name="promociones_minimas_<?php echo $row['cod_categoria']?>" value="<?php echo $row['promociones_minimas_adquiridas']?>" required>
                         </td>
                         </tr>
                     </tbody>

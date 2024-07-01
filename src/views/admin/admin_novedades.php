@@ -138,7 +138,7 @@ $novedades = get_novedades_active();
                                     <!-- Input Categoria Cliente -->
                                     <div class="mb-3">
                                         <label for="selectOpciones" class="form-label">Categoria</label>
-                                        <select class="form-select" id="selectOpciones" name="categoria_cliente">
+                                        <select class="form-select" id="selectOpciones" name="categoria_cliente" required>
                                             <option value="inicial">Inicial</option>
                                             <option value="medium">Medium</option>
                                             <option value="premium">Premium</option>
