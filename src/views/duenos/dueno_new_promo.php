@@ -64,9 +64,9 @@ if (mysqli_num_rows($result) == 0) {
                 <div class="mb-3" style="max-width: 200px;">
                     <label for="selectOpciones" class="form-label">Categoria de cliente</label>
                     <select class="form-select" id="selectOpciones" name="categoria_cliente" required>
-                        <option value="Inicial">Inicial</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Premium">Premium</option>
+                        <option value="inicial">Inicial</option>
+                        <option value="medium">Medium</option>
+                        <option value="premium">Premium</option>
                     </select>
                 </div>
 
