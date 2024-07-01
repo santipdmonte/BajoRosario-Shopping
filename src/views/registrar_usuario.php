@@ -4,6 +4,8 @@ $exists = isset($_SESSION['exists']) && $_SESSION['exists'];
 $failed = isset($_SESSION['failed']) && $_SESSION['failed'];
 $success = isset($_SESSION['success']) && $_SESSION['success'];
 $email = isset($_GET['email'])? $_GET['email'] : '';
+$error_email = isset($_GET['error_email'])? $_GET['error_email'] : '';
+$nombre_usuario = isset($_GET['error'])? $_GET['error'] : '';
 
 ?>
 
@@ -35,6 +37,20 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
             // Si la promoción se ha guardado correctamente, muestra el mensaje
             echo '<div class="alert alert-success m-2" role="alert">Usuario Registrado correctamente. Pendiente de verificacion</div>';
             unset($_SESSION['success']);
+        }
+
+        //Tendria que mostrar el cartel de error
+        if ($nombre_usuario) {
+            // Si la promoción se ha guardado correctamente, muestra el mensaje
+            echo '<div class="alert alert-danger m-2" role="alert"> Tipo de nombre de usuario incorrecto. El nombre de usuario no debe contener numeros ni caracteres especiales</div>';
+            unset($_SESSION['error']);
+        }
+
+        //Tendria que mostrar el cartel de error
+        if ($error_email) {
+            // Si la promoción se ha guardado correctamente, muestra el mensaje
+            echo '<div class="alert alert-danger m-2" role="alert"> Formato de mail incorrecto</div>';
+            unset($_SESSION['error_email']);
         }
 
         ?> 
