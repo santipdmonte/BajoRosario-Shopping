@@ -18,7 +18,7 @@ if (isset($_POST['save_promo'])){
         if (!empty($fecha_desde_promo) && DateTime::createFromFormat('Y-m-d', $fecha_desde_promo) !== false){
             if (!empty($fecha_hasta_promo) && DateTime::createFromFormat('Y-m-d', $fecha_hasta_promo) !== false) {
                 if ($fecha_desde_promo > $fecha_hasta_promo){
-                    echo "La fecha de inicio debe ser menor a la fecha de fin";
+                    $error = "La fecha de inicio debe ser menor a la fecha de fin";
                 } else {
                     $dias_semana = [0,0,0,0,0,0,0];
                     foreach ($_POST['dias'] as $dia) {
@@ -28,25 +28,28 @@ if (isset($_POST['save_promo'])){
 
                     $result = save_promo($conn, $texto_promo, $fecha_desde_promo, $fecha_hasta_promo, $categoria_cliente, $dias_semana, $cod_local);
                 }
-            } else{ echo "La fecha de fin no es válida"; }
-        } else{ echo "La fecha de inicio no es válida"; }
-    } else { echo "El local no existe"; }
+            } else { $error = "La fecha de fin no es válida"; }
+        } else { $error = "La fecha de inicio no es válida"; }
+    } else {$error = "El local no existe"; }
 
-    // Recorrer el array de días seleccionados y activar los dias seleccionados
+    
     session_start();
-
+   
     if (!$result){
-        $_SESSION['promo_failed'] = true;
-
-    } else{
-        $_SESSION['promo_saved'] = true;
+            
+            $_SESSION['promo_failed'] = true;
+            setcookie('promo_error', $error, time() + 60000, '/');
+            
+        } else{
+            $_SESSION['promo_saved'] = true;
+            
     }
 
-    // Establecer variable de sesión para indicar que la promoción se ha guardado con éxito
+   
    
 
     header("Location: /bajorosario-shopping/dueno/new_promo");
-    exit();
+    
 
 }
  
