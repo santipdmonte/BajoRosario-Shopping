@@ -58,6 +58,7 @@ if (isset($_GET['cod_novedad'])) {
                 <option value="premium" <?php if ($categoria_cliente == 'premium') echo 'selected'; ?>>Premium</option>
             </select><br>
 
+            
             <br>
             <input type="submit" name="edit_novedad" value="Guardar Cambios" style="background-color: #4CAF50; color: white; padding: 10px 25px; border: none; cursor: pointer; border-radius: 10px;">
         </form>
