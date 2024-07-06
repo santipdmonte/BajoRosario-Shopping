@@ -9,6 +9,7 @@ $is_failed = isset($_SESSION['failed']) && $_SESSION['failed'];
 $review_approve = isset($_SESSION['review_approve']) && $_SESSION['review_approve'];
 $review_deny = isset($_SESSION['review_deny']) && $_SESSION['review_deny'];
 $review_failed = isset($_SESSION['review_failed']) && $_SESSION['review_failed'];
+$error = isset($_SESSION['error']) && $_SESSION['error'];
 
 
 $novedades = get_novedades_active(); 
@@ -45,6 +46,10 @@ $novedades = get_novedades_active();
         // Si la promoción no se pudo guardar, muestra el mensaje
         echo '<div class="alert alert-danger" role="alert"> Error al aprobar/denegar la promoción</div>';
         unset($_SESSION['review_saved']);
+    }
+    if ($error) {
+        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error'] . '</div>';
+        unset($_SESSION['error']);
     }
     ?>
 
