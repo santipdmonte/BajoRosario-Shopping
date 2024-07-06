@@ -21,6 +21,12 @@ if (isset($_POST['save_promo'])){
         if (!empty($fecha_desde_promo) && DateTime::createFromFormat('Y-m-d', $fecha_desde_promo) !== false){
             if (!empty($fecha_hasta_promo) && DateTime::createFromFormat('Y-m-d', $fecha_hasta_promo) !== false) {
 
+                if ($fecha_desde_promo < date("Y-m-d")) {
+                    $_SESSION['error'] = "Error: La fecha de inicio debe ser mayor a la fecha actual";
+                    header("Location: /bajorosario-shopping/dueno/new_promo");
+                    exit();
+                }
+                
                 if ($fecha_desde_promo > $fecha_hasta_promo){
                     $_SESSION['error'] = "Error: La fecha de inicio debe ser menor a la fecha de fin";
                     header("Location: /bajorosario-shopping/dueno/new_promo");
