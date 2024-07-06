@@ -164,8 +164,7 @@ include __DIR__ . "/../../../config/db.php";
 
                                     <!-- <input type="text" name="cod_usuario" value= <?php # $_SESSION['cod_usuario'] ?> > -->
 
-                                    <input type="submit" class="btn btn-primary" name="save_local">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                                    <input type="submit" class="btn btn-primary" name="save_local">  
 
                                 </form>
                             </div>
