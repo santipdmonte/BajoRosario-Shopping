@@ -1,6 +1,13 @@
 <?php include __DIR__ . "/header.php";
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['use_promo_no_sesion'])) {
+        $_SESSION['alert'] = 'Para utilizar las promociones debes iniciar sesion';
+    }
+}
+
 $usuario_no_encontrado = isset($_SESSION['usuario_no_encontrado']) && $_SESSION['usuario_no_encontrado'];
+$alert = (isset($_SESSION['alert']) && $_SESSION['alert'])? $_SESSION['alert'] : '';
 $email = isset($_GET['email'])? $_GET['email'] : '';
 
 ?>
@@ -22,6 +29,15 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
                     </div>
                 ";
             unset($_SESSION['usuario_no_encontrado']);
+        }
+
+        if ($alert){
+            echo "
+                <div class='alert alert-warning m-2' role='warning'>
+                    $alert
+                </div>
+            ";
+            unset($_SESSION['alert']);
         }
         ?>
 

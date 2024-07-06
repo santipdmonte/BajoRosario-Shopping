@@ -32,7 +32,11 @@
                     <input type="text" name="cod_usuario" value="<?php echo $_SESSION['cod_usuario']?>" hidden>
                     <button type="submit" class="btn btn-primary w-100" name="use_promo">Obtener Promoción</button>
                 </form>
-            <?php }?>
+            <?php } else {?>
+                <form action="/bajorosario-shopping/inicio_sesion" method="POST">
+                    <button type="submit" class="btn btn-secondary w-100" name="use_promo_no_sesion">Obtener Promoción</button>
+                </form>
+            <?php } ?>
 
         </div>
     </div>
