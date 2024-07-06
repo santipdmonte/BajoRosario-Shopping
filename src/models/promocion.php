@@ -149,11 +149,12 @@ function get_rubros($conn) {
 }
 
 function get_categorias_permitidas() {
-    if (isset($_SESSION['categoria_cliente'])) {
+
+    $categoria = 'premium';
+
+    if (isset($_SESSION['user']) && $_SESSION['user'] == 'cliente') {
         $categoria = $_SESSION['categoria_cliente'];
-    } else {
-        $categoria = 'inicial';
-    }
+    } 
 
     if ($categoria == 'inicial') {
         return ['inicial'];
