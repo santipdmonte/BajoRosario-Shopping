@@ -39,6 +39,23 @@ function save_promo(
     return $result;
 }
 
+function get_promociones_by_client_store($conn, $cod_local){
+    
+    $categorias_permitidas = get_categorias_permitidas();
+    
+    $query = "
+            SELECT * 
+            FROM promociones 
+            INNER JOIN locales ON promociones.cod_local = locales.cod_local 
+            WHERE estado_promo = 'aprobada' 
+                AND fecha_hasta_promo >= CURDATE() 
+                AND promociones.cod_local = '$cod_local'
+            ORDER BY fecha_hasta_promo ASC";
+    $result = mysqli_query($conn, $query);
+
+    return $result;
+}
+
 function get_promociones_by_client_category($conn){
     
     $categorias_permitidas = get_categorias_permitidas();

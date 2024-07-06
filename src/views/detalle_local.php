@@ -10,7 +10,7 @@
     $query_local = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
     $result_local = mysqli_fetch_array (mysqli_query($conn, $query_local)); 
     
-    $promociones_by_client_category = get_promociones_by_client_category($conn);
+    $promociones_by_client_store = get_promociones_by_client_store($conn, $cod_local);
 
 ?>
 
@@ -53,7 +53,7 @@
                     align-items: center;"
                 >
                 
-                <?php while($promo = mysqli_fetch_array($promociones_by_client_category)){ ?>
+                <?php while($promo = mysqli_fetch_array($promociones_by_client_store)){ ?>
                     
                     <!-- Itero por cada fila de promociones en la DB -->
                     <div class="card" style="width: 18rem;">
@@ -67,12 +67,6 @@
                             </div>
 
                             <h6 class="card-subtitle mb-2 text-body-secondary">
-                                <a href="local/<?php echo $promo['cod_local']; ?>">
-                                    Local: <?php echo $promo['cod_local']?>
-                                </a>
-                            </h6>
-
-                            <h6 class="card-subtitle mb-2 text-body-secondary">
                                 Hasta el <?php echo $promo['fecha_hasta_promo']?>
                             </h6>
 
@@ -80,9 +74,13 @@
                                 <form action="src/controllers/promo_uso.php" method="POST">
                                     <input type="text" name="cod_promo" value="<?php echo $promo['cod_promo']?>" hidden>
                                     <input type="text" name="cod_usuario" value="<?php echo $_SESSION['cod_usuario']?>" hidden>
-                                    <button type="submit" class="btn btn-primary" name="use_promo">Obtener Promoción</button>
+                                    <button type="submit" class="btn btn-primary w-100" name="use_promo">Obtener Promoción</button>
                                 </form>
-                            <?php }?>
+                            <?php } else {?>
+                                <form action="/bajorosario-shopping/inicio_sesion" method="POST">
+                                    <button type="submit" class="btn btn-secondary w-100" name="use_promo_no_sesion">Obtener Promoción</button>
+                                </form>
+                            <?php } ?>
 
                         </div> 
                     </div>
