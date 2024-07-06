@@ -23,16 +23,10 @@ if (mysqli_num_rows($result) == 0) {
         echo '<div class="alert alert-success" role="alert"> La promoción se guardo con éxito </div>';
         unset($_SESSION['promo_saved']);
     }
-    if (isset($_SESSION['promo_failed']) && $_SESSION['promo_failed']) {
+    if (isset($_SESSION['error']) && $_SESSION['error']) {
         // Si la promoción no se pudo guardar, muestra el mensaje
-        if (isset($_COOKIE['promo_error'])) {
-            $error = $_COOKIE['promo_error'];
-        } else {
-            $error = "Error al guardar la promoción";
-        }
-        
-        echo '<div class="alert alert-danger" role="alert">' . $error . '</div>';
-        unset($_SESSION['promo_saved']);
+        echo '<div class="alert alert-danger" role="alert">'. $_SESSION['error'] .'</div>';
+        unset($_SESSION['error']);
     }
     ?>
 
