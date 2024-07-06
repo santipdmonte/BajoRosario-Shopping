@@ -17,11 +17,16 @@ if (isset($_POST['save_promo'])){
     $query = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
     $local = mysqli_query($conn, $query);
     $result = false;
+
     // Validar que las fechas sean válidas y el local exista
-    if ($local->num_rows != 0){
-        $_SESSION['error'] = validate_dates($fecha_desde_promo, $fecha_hasta_promo);
-    } else {
+    if ($local->num_rows == 0){
         $_SESSION['error'] = "Error: El local seleccionado no existe"; 
+    }  
+    $_SESSION['error'] = validate_dates($fecha_desde_promo, $fecha_hasta_promo);
+
+    if (isset($_SESSION['error'])){
+        header("Location: /bajorosario-shopping/dueno/new_promo");
+        exit();
     }
 
     $dias_semana = [0,0,0,0,0,0,0];
@@ -32,9 +37,7 @@ if (isset($_POST['save_promo'])){
 
     $result = save_promo($conn, $texto_promo, $clave_promo, $fecha_desde_promo, $fecha_hasta_promo, $categoria_cliente, $dias_semana, $cod_local);
    
-    if (!isset($_SESSION['error'])){ 
-        $_SESSION['promo_saved'] = true;    
-    }
+    $_SESSION['promo_saved'] = true;    
 
     header("Location: /bajorosario-shopping/dueno/new_promo");
     exit();
