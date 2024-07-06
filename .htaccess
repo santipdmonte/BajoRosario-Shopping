@@ -50,3 +50,12 @@ RewriteRule ^admin/reportes/([^/]+)/?$ src/views/admin/detalle_reporte.php?cod_l
 
 # Redirigir /admin/categorias_cliente a src/views/admin/admin_cliente_categorias.php
 RewriteRule ^admin/categorias_cliente$ src/views/admin/admin_cliente_categorias.php [L]
+
+# Redirigir /contacto a /src/views/contacto.php
+RewriteRule ^contacto$ src/views/contacto.php [L]
+
+# Redirigir /mapa_sitio a /src/views/mapa_sitio.php
+RewriteRule ^mapa_sitio$ src/views/mapa_sitio.php [L]
+
+# Redirigir /cuenta a /src/views/cuenta.php
+RewriteRule ^cuenta$ src/views/cuenta.php [L]
