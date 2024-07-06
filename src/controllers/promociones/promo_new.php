@@ -3,6 +3,7 @@
 session_start();
 include("../../../config/db.php");
 require("../../models/promocion.php");
+require("../validate_dates.php");
 
 if (isset($_POST['save_promo'])){
     $texto_promo = $_POST['texto_promo'];
@@ -18,32 +19,7 @@ if (isset($_POST['save_promo'])){
     $result = false;
     // Validar que las fechas sean válidas y el local exista
     if ($local->num_rows != 0){
-        if (!empty($fecha_desde_promo) && DateTime::createFromFormat('Y-m-d', $fecha_desde_promo) !== false){
-            if (!empty($fecha_hasta_promo) && DateTime::createFromFormat('Y-m-d', $fecha_hasta_promo) !== false) {
-
-                if ($fecha_desde_promo < date("Y-m-d")) {
-                    $_SESSION['error'] = "Error: La fecha de inicio debe ser mayor a la fecha actual";
-                    header("Location: /bajorosario-shopping/dueno/new_promo");
-                    exit();
-                }
-                
-                if ($fecha_desde_promo > $fecha_hasta_promo){
-                    $_SESSION['error'] = "Error: La fecha de inicio debe ser menor a la fecha de fin";
-                    header("Location: /bajorosario-shopping/dueno/new_promo");
-                    exit();
-
-                }
-
-            } else { 
-                $_SESSION['error'] = "Error: La fecha de fin no es válida";
-                header("Location: /bajorosario-shopping/dueno/new_promo");
-                exit(); 
-            }
-        } else { 
-            $_SESSION['error'] = "Error: La fecha de inicio no es válida"; 
-            header("Location: /bajorosario-shopping/dueno/new_promo");
-            exit();
-        }
+        $_SESSION['error'] = validate_dates($fecha_desde_promo, $fecha_hasta_promo);
     } else {
         $_SESSION['error'] = "Error: El local seleccionado no existe"; 
     }
