@@ -1,6 +1,13 @@
 <?php 
 include '../header.php';
 include __DIR__ . "/../../../config/db.php";
+
+$categoryQuery = "SELECT * FROM cateogrias_locales";
+$categoryResult = mysqli_query($conn, $categoryQuery);
+
+$userQuery = "SELECT * FROM usuarios WHERE tipo_usuario = 'dueno de local'";
+$userResult = mysqli_query($conn, $userQuery);
+
 ?>
 
 <div class="container pt-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
@@ -153,13 +160,28 @@ include __DIR__ . "/../../../config/db.php";
                                     <!-- Input Rubro -->
                                     <div class="mb-3">
                                         <label for="" class="form-label">Rubro</label>
-                                        <input type="text" name="rubro_local" class="form-control" required>
+                                        <select name="rubro_local" class="form-control" required>
+                                            <?php
+                                            echo '<option disabled selected>Seleccionar Categoria</option>';
+                                            while ($categoryRow = mysqli_fetch_array($categoryResult)) {
+                                                echo '<option value="' . $categoryRow['categoria'] . '">'. $categoryRow['categoria'] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
 
                                     <!-- Input usuario -->
                                     <div class="mb-3">
                                         <label for="" class="form-label">Usuario</label>
-                                        <input type="text" name="cod_usuario" class="form-control" required>
+                                        <!-- <input type="text" name="cod_usuario" class="form-control" required> -->
+                                        <select name="cod_usuario" class="form-control" required>
+                                            <?php
+                                            echo '<option disabled selected>Seleccionar Usuario</option>';
+                                            while ($userRow = mysqli_fetch_array($userResult)) {
+                                                echo '<option value="' . $userRow['cod_usuario'] . '"> [' . $userRow['cod_usuario'] . '] - ' . $userRow['nombre_usuario'] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
 
                                     <!-- <input type="text" name="cod_usuario" value= <?php # $_SESSION['cod_usuario'] ?> > -->

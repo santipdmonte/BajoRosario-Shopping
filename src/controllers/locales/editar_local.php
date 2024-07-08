@@ -16,9 +16,7 @@ if (isset($_GET['cod_local'])) {
         $rubro_local = $row['rubro_local'];
         $cod_usuario = $row['cod_usuario'];
         $url_logo = $row['url_logo'];
-        // Puedes agregar más campos según sea necesario
     } else {
-        // Manejo de error si no se encuentra la novedad
         echo "Local no encontrada.";
         exit();
     }
@@ -27,6 +25,10 @@ if (isset($_GET['cod_local'])) {
     echo "Parámetro cod_local no especificado.";
     exit();
 }
+
+$userQuery = "SELECT * FROM usuarios WHERE tipo_usuario = 'dueno de local'";
+$userResult = mysqli_query($conn, $userQuery);
+
 ?>
 
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
@@ -52,16 +54,23 @@ if (isset($_GET['cod_local'])) {
                     <input type="text" class="form-control"  name="ubicacion_local"  value="<?php echo $ubicacion_local; ?>" required>
                 </div>
 
-                <!-- Input Texto -->
+                <!-- Input Rubro -->
                 <div class="mb-3">
                     <label for="" class="form-label">Rubro Local</label>
                     <input type="text" class="form-control"  name="rubro_local"  value="<?php echo $rubro_local; ?>" required>
                 </div>
 
-                <!-- Input Texto -->
+                <!-- Input usuario -->
                 <div class="mb-3">
-                    <label for="" class="form-label">ID Dueño</label>
-                    <input type="text" class="form-control"  name="cod_usuario"  value="<?php echo $cod_usuario; ?>" required>
+                    <label for="" class="form-label">Usuario</label>
+                    <select name="cod_usuario" class="form-control" required>
+                        <?php
+                        echo '<option disabled>Seleccionar Usuario</option>';
+                        while ($userRow = mysqli_fetch_array($userResult)) {
+                            echo '<option value="' . $userRow['cod_usuario'] . '"' . ($userRow['cod_usuario'] == $cod_usuario ? "selected" : "") . '> [' . $userRow['cod_usuario'] . '] - ' . $userRow['nombre_usuario'] . '</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
                 
                 <input type="submit" class="btn btn-primary" name="edit_local" value="Guardar Cambios"> 
