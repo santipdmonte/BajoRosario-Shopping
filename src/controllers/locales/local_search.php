@@ -1,7 +1,7 @@
 <?php
 
-if (isset($_POST['local'])){
-    header('Location: /bajorosario-shopping/local/' . $_POST['local']);
+if (isset($_GET['local'])){
+    header('Location: /bajorosario-shopping/local/' . $_GET['local']);
     exit();
 }
 

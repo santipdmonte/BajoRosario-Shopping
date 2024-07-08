@@ -116,9 +116,7 @@
       <!-- Loged in -->
       <?php if ($login) { ?>
 
-        <form class="d-flex me-3" role="search" action="/bajorosario-shopping/src/controllers/locales/local_search.php" method="POST">
-          <input class="form-control me-2" type="search" placeholder="Buscar locales..." aria-label="Search" name='local'>
-        </form>
+        <?php include('buscador.php')?>
 
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item dropdown">
