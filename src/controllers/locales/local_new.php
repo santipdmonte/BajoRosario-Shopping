@@ -20,7 +20,7 @@ if (isset($_POST['save_local'])){
             '$nombre_local',
             '$ubicacion_local',
             '$rubro_local',
-            'url_logo',
+            '$url_logo',
             '$cod_usuario'
         )";
 
