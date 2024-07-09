@@ -71,7 +71,7 @@
                             </h6>
 
                             <?php if (isset($_SESSION['user'])){?>
-                                <form action="src/controllers/promo_uso.php" method="POST">
+                                <form action="/bajorosario-shopping/src/controllers/promociones/promo_uso.php" method="POST">
                                     <input type="text" name="cod_promo" value="<?php echo $promo['cod_promo']?>" hidden>
                                     <input type="text" name="cod_usuario" value="<?php echo $_SESSION['cod_usuario']?>" hidden>
                                     <button type="submit" class="btn btn-primary w-100" name="use_promo">Obtener Promoción</button>
