@@ -2,6 +2,7 @@
     include  "../../config/db.php";
     include __DIR__ . '/header.php';
     include("../../src/models/promocion.php");
+    include("../controllers/validate_user_access.php");
 
     // Obtener el código de local de la URL
     $cod_local = $_GET['cod_local'];
@@ -41,7 +42,7 @@
         </div>
 
 
-        <div>
+        <div class="w-80">
             <h2 class="title">Promociones</h2>
             <div 
                 class="container p-4" 
@@ -74,7 +75,11 @@
                                 <form action="/bajorosario-shopping/src/controllers/promociones/promo_uso.php" method="POST">
                                     <input type="text" name="cod_promo" value="<?php echo $promo['cod_promo']?>" hidden>
                                     <input type="text" name="cod_usuario" value="<?php echo $_SESSION['cod_usuario']?>" hidden>
-                                    <button type="submit" class="btn btn-primary w-100" name="use_promo">Obtener Promoción</button>
+                                    <?php 
+                                    echo validate_category_access($conn, $promo) ? 
+                                        '<button type="submit" class="btn btn-primary w-100" name="use_promo">Obtener Promoción</button>' : 
+                                        '<button type="submit" class="btn btn-secondary w-100 disabled" name="use_promo">Obtener Promoción</button>';  
+                                    ?>
                                 </form>
                             <?php } else {?>
                                 <form action="/bajorosario-shopping/inicio_sesion" method="POST">
