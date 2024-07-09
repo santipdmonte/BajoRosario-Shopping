@@ -29,6 +29,11 @@ $userResult = mysqli_query($conn, $userQuery);
             echo '<div class="alert alert-danger" role="alert"> Error</div>';
             unset($_SESSION['failed']);
         }
+        if (isset($_SESSION['warning']) && $_SESSION['warning']) {
+            // Si la promoción se ha guardado correctamente, muestra el mensaje
+            echo '<div class="alert alert-warning" role="alert">'. $_SESSION['warning'] .'</div>';
+            unset($_SESSION['warning']);
+        }
     ?>
 
     <!-- Button trigger modal -->
@@ -141,7 +146,7 @@ $userResult = mysqli_query($conn, $userQuery);
                         <!-- New local form -->
                         <div class="card">
                             <div class="card-body">
-                                <form action="/bajorosario-shopping/src/controllers/locales/local_new.php" method="POST">
+                                <form action="/bajorosario-shopping/src/controllers/locales/local_new.php" method="POST" enctype="multipart/form-data">
 
                                     <!-- TODO: Validacion de inputs -->
 
@@ -149,6 +154,12 @@ $userResult = mysqli_query($conn, $userQuery);
                                     <div class="mb-3">
                                         <label for="" class="form-label">Nombre Local</label>
                                         <input type="text" name="nombre_local" class="form-control" autofocus required>
+                                    </div>
+
+                                    <!-- Input Logo Local -->
+                                    <div>
+                                        <label for="">Logo Local</label>
+                                        <input type="file" name="imagen_local" class="form-control">
                                     </div>
 
                                     <!-- Input Ubicacion -->
