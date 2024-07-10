@@ -1,5 +1,5 @@
 <?php
-// session_start(); -> error en servidor
+session_start(); 
 include("../../../config/db.php");
 include("../validate_dates.php");
 
