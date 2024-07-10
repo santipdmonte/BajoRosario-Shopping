@@ -29,6 +29,9 @@ if (isset($_GET['cod_local'])) {
 $userQuery = "SELECT * FROM usuarios WHERE tipo_usuario = 'dueno de local'";
 $userResult = mysqli_query($conn, $userQuery);
 
+$categoryQuery = "SELECT * FROM cateogrias_locales";
+$categoryResult = mysqli_query($conn, $categoryQuery);
+
 ?>
 
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
@@ -63,7 +66,14 @@ $userResult = mysqli_query($conn, $userQuery);
                 <!-- Input Rubro -->
                 <div class="mb-3">
                     <label for="" class="form-label">Rubro Local</label>
-                    <input type="text" class="form-control"  name="rubro_local"  value="<?php echo $rubro_local; ?>" required>
+                    <select name="rubro_local" class="form-control" required>
+                        <?php
+                        echo '<option disabled>Seleccionar Rubro</option>';
+                        while ($categoryRow = mysqli_fetch_array($categoryResult)) {
+                            echo '<option value="' . $categoryRow['categoria'] . '"' . (strtolower($categoryRow['categoria']) == strtolower($rubro_local) ? "selected" : "") . '>' . $categoryRow['categoria'] . '</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
 
                 <!-- Input usuario -->
