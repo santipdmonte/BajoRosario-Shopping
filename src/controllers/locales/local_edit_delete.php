@@ -17,7 +17,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
 
     // Establecer variable de sesión para indicar que el local se ha eliminado con éxito
     session_start();
-    $_SESSION['deleted'] = true;
+    $_SESSION['success'] = 'Local eliminado correctamente, junto con sus promociones asociadas.';
     header("Location: /bajorosario-shopping/admin/locales");
 } else if (isset($_POST['action']) && $_POST['action'] == 'edit'){
     // Manejo de la acción para editar una novedad

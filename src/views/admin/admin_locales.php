@@ -15,19 +15,15 @@ $userResult = mysqli_query($conn, $userQuery);
 <div class="container pt-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
     <?php
-        // Verificar si la variable de sesión está establecida para mostrar el toast
         if (isset($_SESSION['success']) && $_SESSION['success']) {
-            // Si la promoción se ha guardado correctamente, muestra el mensaje
             echo '<div class="alert alert-success" role="alert">'. $_SESSION['success'] .'</div>';
             unset($_SESSION['success']);
         }
         if (isset($_SESSION['error']) && $_SESSION['error']) {
-            // Si la promoción se ha guardado correctamente, muestra el mensaje
-            echo '<div class="alert alert-success" role="alert">'. $_SESSION['error'] .'</div>';
+            echo '<div class="alert alert-error" role="alert">'. $_SESSION['error'] .'</div>';
             unset($_SESSION['error']);
         }
         if (isset($_SESSION['warning']) && $_SESSION['warning']) {
-            // Si la promoción se ha guardado correctamente, muestra el mensaje
             echo '<div class="alert alert-warning" role="alert">'. $_SESSION['warning'] .'</div>';
             unset($_SESSION['warning']);
         }
@@ -37,24 +33,6 @@ $userResult = mysqli_query($conn, $userQuery);
     <button type="button" class="btn btn-primary justify-content-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Nuevo Local
     </button>
-
-    <!-- Edit local form -->
-    <div class="card" hidden>
-        <div class="card-body">
-
-            <form action="/bajorosario-shopping/src/controllers/locales/local_new.php" method="POST">
-
-                <!-- TODO: Validacion de inputs -->
-
-                <!-- Input Texto -->
-
-
-                <input type="submit" class="btn btn-primary" name="save_local">    
-
-            </form>
-
-        </div>
-    </div>
 
     <!-- List Locales -->
     <div 
@@ -103,7 +81,6 @@ $userResult = mysqli_query($conn, $userQuery);
             </thead>
 
             <?php 
-            // TODO: filtrar por fecha
             $query = "SELECT * FROM locales";
             $result = mysqli_query($conn, $query); 
 
@@ -133,7 +110,7 @@ $userResult = mysqli_query($conn, $userQuery);
 
 
 
-        <!-- Modal -->
+        <!-- Input Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -148,8 +125,6 @@ $userResult = mysqli_query($conn, $userQuery);
                         <div class="card">
                             <div class="card-body">
                                 <form action="/bajorosario-shopping/src/controllers/locales/local_new.php" method="POST" enctype="multipart/form-data">
-
-                                    <!-- TODO: Validacion de inputs -->
 
                                     <!-- Input Nopmbre -->
                                     <div class="mb-3">
