@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 session_start();
 include("../../../config/db.php");
 include("../../controllers/update_files.php");
@@ -62,5 +62,8 @@ if (isset($_POST['save_local'])){
     exit();
 
 }
+
+// Enviar el contenido del buffer y limpiar el buffer
+ob_end_flush();
 
 ?>
