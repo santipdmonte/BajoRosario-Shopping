@@ -53,7 +53,9 @@ if (isset($_POST['save_local'])){
 
     // Establecer variable de sesión para indicar que el local se ha guardado con éxito
     $_SESSION['saved'] = true;
-    $_SESSION['warning'] = $warning;
+    if (isset($warning) && $warning != ""){
+        $_SESSION['warning'] = $warning;
+    }
 
     // Redireccionar a admin_locales.php
     header("Location: /bajorosario-shopping/admin/locales");
