@@ -37,7 +37,7 @@ $userResult = mysqli_query($conn, $userQuery);
 
     <div class="card w-100" style="max-width: 500px;">
         <div class="card-body">
-            <form action="procesar_edicion_local.php" method="POST">
+            <form action="procesar_edicion_local.php" method="POST" enctype="multipart/form-data">
 
                 <input type="hidden" name="cod_local" value="<?php echo $cod_local; ?>">
                 <input type="hidden" name="url_logo" value="<?php echo $url_logo; ?>">
@@ -46,6 +46,12 @@ $userResult = mysqli_query($conn, $userQuery);
                 <div class="mb-3">
                     <label for="" class="form-label">Nombre Local</label>
                     <input type="text" class="form-control"  name="nombre_local"  value="<?php echo $nombre_local; ?>" autofocus required>
+                </div>
+
+                <!-- Input Logo Local -->
+                <div>
+                    <label for="">Nuevo Logo</label>
+                    <input type="file" name="imagen_local" class="form-control">
                 </div>
 
                 <!-- Input Texto -->

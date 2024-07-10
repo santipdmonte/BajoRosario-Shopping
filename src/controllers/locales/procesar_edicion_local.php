@@ -1,5 +1,10 @@
 <?php
+session_start();
 include("../../../config/db.php");
+
+include("../../controllers/update_files.php");
+require '../../../aws-sdk-php/aws-autoloader.php';
+$config = parse_ini_file('../../../config/config.ini', true);
 
 if (isset($_POST['edit_local'])) {
     $cod_local = $_POST['cod_local'];
@@ -7,8 +12,26 @@ if (isset($_POST['edit_local'])) {
     $ubicacion_local = $_POST['ubicacion_local'];
     $rubro_local = $_POST['rubro_local'];
     $cod_usuario = $_POST['cod_usuario'];
-    $url_logo = $_POST['url_logo'];
     // Puedes agregar más campos según sea necesario
+
+    // Logica para subir imagen
+    $query = "SELECT * FROM locales WHERE cod_local = $cod_local";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    if (isset($_FILES['imagen_local']) && $_FILES['imagen_local']['error'] === UPLOAD_ERR_OK) {
+
+        $url = upload_img($_FILES['imagen_local'], $config);
+        if ($url) {
+            $url_logo = $url;
+        } else {
+            $warning = "Error: No pudimos cargar la imagen, vuelve a intentarlo mas tarde editando el local.";
+            $url_logo = $row['url_logo'];
+        };
+        
+    } else {
+        $url_logo = $row['url_logo'];
+    }
 
     // Construir la consulta SQL para actualizar la novedad
     $query = "UPDATE locales SET 
@@ -25,21 +48,21 @@ if (isset($_POST['edit_local'])) {
     if ($result) {
         // Establecer variable de sesión para indicar que la novedad se ha editado con éxito
         session_start();
-        $_SESSION['edited'] = true;
-        $_SESSION['message'] = "Local editada correctamente.";
+        $_SESSION['success'] = "Local editado correctamente.";
     } else {
         // Si hay un error en la consulta
         session_start();
-        $_SESSION['edit_failed'] = true;
-        $_SESSION['message'] = "Error al editar la local.";
+        $_SESSION['error'] = "Error al editar la local.";
     }
 
-    // Redirigir de vuelta a la página principal de novedades
-    header("Location: /bajorosario-shopping/admin/locales");
-    exit();
-} else {
-    // Si se intenta acceder directamente a este script sin una acción válida
-    header("Location: /bajorosario-shopping/admin/locales");
-    exit();
-}
+    if (isset($warning)) {
+        $_SESSION['warning'] = $warning;
+    }
+
+    
+} 
+
+// Redirigir de vuelta a la página principal de novedades
+header("Location: /bajorosario-shopping/admin/locales");
+exit();
 ?>

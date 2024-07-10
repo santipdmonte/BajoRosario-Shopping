@@ -8,26 +8,23 @@ $categoryResult = mysqli_query($conn, $categoryQuery);
 $userQuery = "SELECT * FROM usuarios WHERE tipo_usuario = 'dueno de local'";
 $userResult = mysqli_query($conn, $userQuery);
 
+
+
 ?>
 
 <div class="container pt-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
     <?php
         // Verificar si la variable de sesión está establecida para mostrar el toast
-        if (isset($_SESSION['saved']) && $_SESSION['saved']) {
+        if (isset($_SESSION['success']) && $_SESSION['success']) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
-            echo '<div class="alert alert-success" role="alert"> El local se guardo con éxito </div>';
-            unset($_SESSION['saved']);
+            echo '<div class="alert alert-success" role="alert">'. $_SESSION['success'] .'</div>';
+            unset($_SESSION['success']);
         }
-        if (isset($_SESSION['deleted']) && $_SESSION['deleted']) {
+        if (isset($_SESSION['error']) && $_SESSION['error']) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
-            echo '<div class="alert alert-success" role="alert"> El local se elimino con éxito </div>';
-            unset($_SESSION['deleted']);
-        }
-        if (isset($_SESSION['failed']) && $_SESSION['failed']) {
-            // Si la promoción no se pudo guardar, muestra el mensaje
-            echo '<div class="alert alert-danger" role="alert"> Error</div>';
-            unset($_SESSION['failed']);
+            echo '<div class="alert alert-success" role="alert">'. $_SESSION['error'] .'</div>';
+            unset($_SESSION['error']);
         }
         if (isset($_SESSION['warning']) && $_SESSION['warning']) {
             // Si la promoción se ha guardado correctamente, muestra el mensaje
@@ -85,6 +82,10 @@ $userResult = mysqli_query($conn, $userQuery);
                 // Si la promoción no se pudo guardar, muestra el mensaje
                 echo '<div class="alert alert-danger" role="alert"> Error al aprobar/denegar la promoción</div>';
                 unset($_SESSION['review_saved']);
+            }
+            if (isset($_SESSION['warning']) && $_SESSION['warning']) {
+                echo '<div class="alert alert-warning" role="alert">'. $_SESSION['warning'] .'</div>';
+                unset($_SESSION['warning']);
             }
         ?>
 
