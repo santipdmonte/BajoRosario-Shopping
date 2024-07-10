@@ -10,11 +10,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     $cod_local = $_POST['cod_local'];
 
     $query = "DELETE FROM locales WHERE cod_local = $cod_local";
+    $result = mysqli_query($conn, $query);
+
+    $query = "DELETE FROM promociones WHERE cod_local = $cod_local";
+    $result = mysqli_query($conn, $query);
 
     // Establecer variable de sesión para indicar que el local se ha eliminado con éxito
     session_start();
     $_SESSION['deleted'] = true;
-    $result = mysqli_query($conn, $query);
     header("Location: /bajorosario-shopping/admin/locales");
 } else if (isset($_POST['action']) && $_POST['action'] == 'edit'){
     // Manejo de la acción para editar una novedad
