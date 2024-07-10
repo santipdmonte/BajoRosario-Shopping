@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include("../../../config/db.php");
 
@@ -47,11 +48,9 @@ if (isset($_POST['edit_local'])) {
 
     if ($result) {
         // Establecer variable de sesión para indicar que la novedad se ha editado con éxito
-        session_start();
         $_SESSION['success'] = "Local editado correctamente.";
     } else {
         // Si hay un error en la consulta
-        session_start();
         $_SESSION['error'] = "Error al editar la local.";
     }
 
@@ -65,4 +64,6 @@ if (isset($_POST['edit_local'])) {
 // Redirigir de vuelta a la página principal de novedades
 header("Location: /bajorosario-shopping/admin/locales");
 exit();
+// Enviar el contenido del buffer y limpiar el buffer
+ob_end_flush();
 ?>
