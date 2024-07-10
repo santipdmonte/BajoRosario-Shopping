@@ -34,6 +34,14 @@ if (isset($_GET['cod_novedad'])) {
 
     <div class="card w-100" style="max-width: 500px;">
         <div class="card-body">
+
+            <?php
+            if (isset($_SESSION['error'])) {
+                echo '<div class="alert alert-danger" role="alert">'. $_SESSION['error'] .'</div>';
+                unset($_SESSION['error']);
+            }
+            ?>
+
             <form action="procesar_edicion_novedad.php" method="POST">
 
                 <input type="hidden" name="cod_novedad" value="<?php echo $cod_novedad; ?>">
@@ -46,7 +54,7 @@ if (isset($_GET['cod_novedad'])) {
 
                 <!-- Input Fecha Desde -->
                 <div class="mb-3" style="max-width: 200px;">
-                    <label for="fechaInicio" class="form-label">Fecha Hastas</label>
+                    <label for="fechaInicio" class="form-label">Fecha Desde</label>
                     <input type="date" class="form-control" name="fecha_desde" value="<?php echo $fecha_desde; ?>" required>
                 </div>
 

@@ -1,5 +1,7 @@
 <?php
+session_start();
 include("../../../config/db.php");
+include("../validate_dates.php");
 
 if (isset($_POST['edit_novedad'])) {
     $cod_novedad = $_POST['cod_novedad'];
@@ -7,7 +9,12 @@ if (isset($_POST['edit_novedad'])) {
     $fecha_desde = $_POST['fecha_desde'];
     $fecha_hasta = $_POST['fecha_hasta'];
     $categoria_cliente = $_POST['categoria_cliente'];
-    // Puedes agregar más campos según sea necesario
+
+    $_SESSION['error'] = validate_dates($fecha_desde, $fecha_hasta);
+    if (isset($_SESSION['error'])){
+        header("Location: editar_novedad.php?cod_novedad=$cod_novedad");
+        exit();
+    } 
 
     // Construir la consulta SQL para actualizar la novedad
     $query = "UPDATE novedades SET 

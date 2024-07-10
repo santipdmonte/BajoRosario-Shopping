@@ -11,7 +11,7 @@ if (isset($_POST['save_novedad'])){
     $categoria_cliente = $_POST['categoria_cliente'];
     $estado_novedad = 'activa';
 
-    $_SESSION['error'] = validate_dates($fecha_desde_promo, $fecha_hasta_promo);
+    $_SESSION['error'] = validate_dates($fecha_desde, $fecha_hasta);
     if (isset($_SESSION['error'])){
         header("Location: /bajorosario-shopping/admin/novedades");
         exit();
