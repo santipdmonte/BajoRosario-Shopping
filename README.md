@@ -56,5 +56,11 @@ Durante el desarrollo de este proyecto, he adquirido y fortalecido las siguiente
 - **Autenticación y Seguridad**: Implementación de autenticación de usuarios y validacion de cuenta con encriptación de contraseñas.
 - **Gestión de Proyectos**: Organización y planificación del desarrollo del proyecto, implementación de buenas prácticas y metodologías ágiles.
 
+
+![image](https://github.com/user-attachments/assets/cb6dee3d-b301-427a-bc7e-6db99c68c926)
+![image](https://github.com/user-attachments/assets/4e36f8aa-d417-412b-a5ed-19a50c868c82)
+
+
+
 ---
 
