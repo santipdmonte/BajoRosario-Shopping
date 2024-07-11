@@ -2,7 +2,7 @@
 
 function validate_category_access($conn, $promo){
 
-    if (isset($_SESSION['user'])){
+    if (isset($_SESSION['user']) && $_SESSION['user']){
 
         $tipo_usuario = $_SESSION['user'];
 
