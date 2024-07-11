@@ -50,7 +50,13 @@ if (isset($_GET['cod_novedad'])) {
                 <!-- Input Fecha Desde -->
                 <div class="mb-3" style="max-width: 200px;">
                     <label for="fechaInicio" class="form-label">Fecha Desde</label>
-                    <input type="date" class="form-control" name="fecha_desde" value="<?php echo $fecha_desde; ?>" required>
+                    <input 
+                        type="date" 
+                        class="form-control" 
+                        name="fecha_desde" 
+                        value="<?php echo $fecha_desde; ?>" 
+                        <?php if ($fecha_desde < date('Y-m-d')) echo 'disabled'; ?>
+                        required>
                 </div>
 
                 <!-- Input Fecha Desde -->
