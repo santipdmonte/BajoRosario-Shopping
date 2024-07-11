@@ -8,7 +8,7 @@
             <div style="display: flex; justify-content: space-between;">
                 <h5 class="card-title"><?php echo $promo['texto_promo']?></h5>
                 <div>
-                    <span class="badge text-bg-info"><?php echo $promo['categoria_cliente']?></span>
+                    <span class="badge rounded-pill text-bg-info"><?php echo $promo['categoria_cliente']?></span>
                 </div>
             </div>
 
