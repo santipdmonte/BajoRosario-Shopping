@@ -34,16 +34,19 @@
                     </div>
                     <hr/>
 
-                    <div class="text-left">
-                        <p class="fs-4"><strong>Ubicación:</strong> <?php echo $result_local['ubicacion_local']?></p>
-                    </div>
-
-                    <div class="text-left">
-                        <p class="fs-4"><strong>Rubro:</strong> <?php echo $result_local['rubro_local']?></p>
-                    </div>
-
-                    <div class="text-center">
-                        <img src="<?php echo $result_local['url_logo']?>" alt="Logo del local" style="max-width: 100%;">
+                    <div class="d-flex gap-4">
+                        <div class="text-left">
+                            <img src="<?php echo $result_local['url_logo']?>" alt="Logo del local" style="max-width: 100%;">
+                        </div>
+                        <div>
+                            <div class="text-left">
+                                <p class="fs-4"><strong>Ubicación:</strong> <?php echo $result_local['ubicacion_local']?></p>
+                            </div>
+        
+                            <div class="text-left">
+                                <p class="fs-4"><strong>Rubro:</strong> <?php echo $result_local['rubro_local']?></p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -52,7 +55,7 @@
 
 
             <div class="w-80">
-                <h2 class="title">Promociones</h2>
+                <h2 class="title text-center">Promociones</h2>
                 <div 
                     class="container p-4" 
                     style="
@@ -62,8 +65,11 @@
                         justify-content: center; 
                         align-items: center;"
                     >
-                    
-                    <?php while($promo = mysqli_fetch_array($promociones_by_client_store)){ ?>
+
+                    <?php if ($promociones_by_client_store -> num_rows == 0) {
+                        echo "<p>No hay promociones disponibles para este local.</p>";
+                    } else {
+                    while($promo = mysqli_fetch_array($promociones_by_client_store)){ ?>
                         
                         <!-- Itero por cada fila de promociones en la DB -->
                         <div class="card" style="width: 18rem;">
@@ -98,7 +104,7 @@
 
                             </div> 
                         </div>
-                    <?php } ?>
+                    <?php }} ?>
                 </div>
             </div>
         </div>
