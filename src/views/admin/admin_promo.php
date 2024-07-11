@@ -52,6 +52,7 @@ include __DIR__ . "/../../../config/db.php";
             <?php 
             $query = "SELECT * FROM promociones WHERE estado_promo = 'pendiente'";
             $promociones_pendientes = mysqli_query($conn, $query);
+            $conn->close();
     
             while($promocion = mysqli_fetch_array($promociones_pendientes)){?>
 

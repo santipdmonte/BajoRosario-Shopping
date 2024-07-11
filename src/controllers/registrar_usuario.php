@@ -4,7 +4,7 @@ ob_start();
 
 session_start();
 
-include("../../config/db.php");
+// include("../../config/db.php");
 
 require("script_enviar_email.php");
 

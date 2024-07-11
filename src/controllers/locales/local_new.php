@@ -42,6 +42,7 @@ if (isset($_POST['save_local'])){
         )";
 
     $result = mysqli_query($conn, $query);
+    $conn->close();
 
     if (!$result){
         $_SESSION['failed'] = true;

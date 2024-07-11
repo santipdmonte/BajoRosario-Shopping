@@ -9,6 +9,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
 
     // Ejecutar la consulta
     $result = mysqli_query($conn, $query);
+    $conn->close();
 
     if ($result) {
         session_start();

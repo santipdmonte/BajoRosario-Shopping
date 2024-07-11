@@ -33,6 +33,7 @@ if (isset($_GET['token'])){
         iniciar_sesion_validado($usuario);
     }
 
+    $conn->close();
     header('location: /bajorosario-shopping/inicio_sesion');
     exit();
     

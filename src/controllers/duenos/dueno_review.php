@@ -22,6 +22,7 @@ if (!$result){
 
 }
 
+$conn->close();
 header("Location: /bajorosario-shopping/admin/duenos");
 exit();
 

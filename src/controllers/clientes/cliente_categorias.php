@@ -28,6 +28,7 @@ if (!$result){
 }
 
 $_SESSION['save_changes'] = true;
+$conn->close();
 header("Location: /bajorosario-shopping/admin/categorias_cliente");
 exit();
 

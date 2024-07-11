@@ -43,6 +43,7 @@ function validar_categoria($cod_cliente){
             mysqli_query($conn, $query);
 
     // echo $cat_final;
+    $conn->close();
 }
 
 

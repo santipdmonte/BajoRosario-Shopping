@@ -19,6 +19,7 @@ if (isset($_POST['use_promo'])){
     include ('../clientes/cliente_validar_cat.php');
     validar_categoria($cod_cliente);
 
+    $conn->close();
     header("Location: /bajorosario-shopping/promocion/". $cod_promo);
     exit();
 }

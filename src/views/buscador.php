@@ -22,6 +22,7 @@ if (isset($_POST['local'])) {
 
 $localQuery = "SELECT * FROM locales";
 $localResult = $conn->query($localQuery);
+$conn->close();
 
 ?>
 

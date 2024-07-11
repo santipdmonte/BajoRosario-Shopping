@@ -36,7 +36,8 @@ if (isset($_POST['save_promo'])){
     $dias_semana = json_encode($dias_semana); // Convertir el array a string
 
     $result = save_promo($conn, $texto_promo, $clave_promo, $fecha_desde_promo, $fecha_hasta_promo, $categoria_cliente, $dias_semana, $cod_local);
-   
+    $conn->close();
+
     $_SESSION['promo_saved'] = true;    
 
     header("Location: /bajorosario-shopping/dueno/new_promo");

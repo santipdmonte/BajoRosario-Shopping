@@ -5,5 +5,7 @@ function get_locales(){
 
     $query = " SELECT * FROM locales";
     $locales = mysqli_query($conn, $query); 
+
+    $conn->close();
     return $locales;
 }

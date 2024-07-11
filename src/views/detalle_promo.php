@@ -1,7 +1,8 @@
 <?php
-    include  "../../config/db.php";
     include __DIR__ . '/header.php';
     include '../controllers/validate_user_access.php';
+    include  "../../config/db.php";
+
 
     // Obtener el código de promoción de la URL
     $cod_promo = $_GET['cod_promo'];

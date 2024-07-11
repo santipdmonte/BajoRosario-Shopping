@@ -83,6 +83,7 @@ $userResult = mysqli_query($conn, $userQuery);
             <?php 
             $query = "SELECT * FROM locales";
             $result = mysqli_query($conn, $query); 
+            $conn->close();
 
             while($row = mysqli_fetch_array($result)){ ?>
 

@@ -6,6 +6,7 @@ if (isset($_SESSION['cod_usuario'])){
     $cod_usuario = $_SESSION['cod_usuario'];
     $query = "SELECT * FROM usuarios WHERE cod_usuario = '$cod_usuario'";
     $usuario = mysqli_query($conn, $query);
+    $conn->close();
     $usuario = mysqli_fetch_assoc($usuario);
 }
 
@@ -14,6 +15,7 @@ if (isset($_POST['guardar_cambios'])){
     $nombre = $_POST['nombre'];
     $query = "UPDATE usuarios SET nombre_usuario = '$nombre' WHERE cod_usuario = '$cod_usuario'";
     $result = mysqli_query($conn, $query);
+    $conn->close();
     $_SESSION['saved'] = true;
     $_SESSION['nombre_usuario'] = $nombre;
     header("Location: /bajorosario-shopping/src/views/cuenta.php");

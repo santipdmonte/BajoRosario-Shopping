@@ -1,11 +1,11 @@
 <?php
-include("../../../config/db.php");
 include("../../../src/views/header.php");
 // Verificar si se ha pasado un parámetro cod_local por GET
 if (isset($_GET['cod_local'])) {
     $cod_local = $_GET['cod_local'];
 
     // Consulta para obtener los datos actuales de la novedad
+    include("../../../config/db.php");
     $query = "SELECT * FROM locales WHERE cod_local = $cod_local";
     $result = mysqli_query($conn, $query);
 
@@ -26,12 +26,14 @@ if (isset($_GET['cod_local'])) {
     exit();
 }
 
+include("../../../config/db.php");
 $userQuery = "SELECT * FROM usuarios WHERE tipo_usuario = 'dueno de local'";
 $userResult = mysqli_query($conn, $userQuery);
 
 $categoryQuery = "SELECT * FROM cateogrias_locales";
 $categoryResult = mysqli_query($conn, $categoryQuery);
 
+$conn->close();
 ?>
 
 <div class="container p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column">

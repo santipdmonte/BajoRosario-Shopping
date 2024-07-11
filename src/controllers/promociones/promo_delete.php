@@ -9,6 +9,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     session_start();
     $_SESSION['deleted'] = true;
     $result = delete_promo($conn, $_POST['cod_promo']);
+    $conn->close();
 
 }
 

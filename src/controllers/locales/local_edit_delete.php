@@ -15,6 +15,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     $query = "DELETE FROM promociones WHERE cod_local = $cod_local";
     $result = mysqli_query($conn, $query);
 
+    $conn->close();
+
     // Establecer variable de sesión para indicar que el local se ha eliminado con éxito
     session_start();
     $_SESSION['success'] = 'Local eliminado correctamente, junto con sus promociones asociadas.';

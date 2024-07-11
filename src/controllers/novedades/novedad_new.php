@@ -33,6 +33,7 @@ if (isset($_POST['save_novedad'])){
         )";
 
     $result = mysqli_query($conn, $query);
+    $conn->close();
 
     // Establecer variable de sesión para indicar que la promoción se ha guardado con éxito
     $_SESSION['success'] = 'Novedad guardada correctamente.';

@@ -45,6 +45,7 @@ if (isset($_POST['edit_local'])) {
 
     // Ejecutar la consulta
     $result = mysqli_query($conn, $query);
+    $conn->close();
 
     if ($result) {
         // Establecer variable de sesión para indicar que la novedad se ha editado con éxito

@@ -16,6 +16,7 @@ include("config/db.php");
 
         <?php 
         $promociones_by_client_category = get_promociones_by_client_category($conn);
+        $conn->close();
         $contador = 0;
 
         

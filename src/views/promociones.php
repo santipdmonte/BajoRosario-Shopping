@@ -20,6 +20,7 @@ $inicio = ($pagina_actual - 1) * $elementos_por_pagina;
 $promociones = get_promociones_by_client_category_paginadas($conn, $inicio, $elementos_por_pagina);
 
 $rubros = get_rubros($conn);
+$conn->close();
 
 $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
 

@@ -1,13 +1,13 @@
 <?php
-    include  "../../config/db.php";
     include __DIR__ . '/header.php';
     include("../../src/models/promocion.php");
     include("../controllers/validate_user_access.php");
-
+    
     // Obtener el código de local de la URL
     $cod_local = $_GET['cod_local'];
-
+    
     // Consultar la base de datos para obtener detalles del local según el código
+    include  "../../config/db.php";
     $query_local = "SELECT * FROM locales WHERE cod_local = '$cod_local'";
     $result_local = mysqli_fetch_array (mysqli_query($conn, $query_local)); 
     
@@ -120,3 +120,4 @@
     <?php } ?>
 
 <?php include __DIR__ . '/footer.html'; ?>
+<?php $conn->close();?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include  "../../config/db.php";
+// include  "../../config/db.php";
 
 require("../models/usuario.php");
 
@@ -33,6 +33,7 @@ if (isset($_POST['valid_user'])){
     // La contraseña no es válida
     $_SESSION['not_valid_password']=true;
     header('location: /bajorosario-shopping/inicio_sesion');
+    exit();
 }
 
 function iniciar_sesion_validado($usuario){

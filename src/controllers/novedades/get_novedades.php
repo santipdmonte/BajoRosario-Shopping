@@ -9,6 +9,7 @@ function get_novedades_active(){
     WHERE estado_novedad = 'activa'
         AND fecha_hasta_novedad >= CURDATE()";
     $novedades = mysqli_query($conn, $query); 
+    $conn->close();
     return $novedades;
 }
 
@@ -47,6 +48,7 @@ function get_novedades_by_client(){
 
     
     $result = mysqli_query($conn, $query);
+    $conn->close();
 
 return $result;
 }

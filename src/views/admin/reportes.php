@@ -26,6 +26,8 @@ $sql = "SELECT l.nombre_local, l.cod_local, COUNT(up.cod_promo) AS usos
         GROUP BY l.cod_local
         ORDER BY usos DESC";
 $result3 = $conn->query($sql);
+
+$conn->close();
 ?>
 
 <section class="section">
@@ -85,6 +87,4 @@ $result3 = $conn->query($sql);
 </section>
 
 <?php include '../footer.html' ?>
-
-<?php $conn->close(); ?>
 

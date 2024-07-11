@@ -43,6 +43,7 @@ include __DIR__ . "/../../../config/db.php";
         <?php 
         $query = "SELECT * FROM usuarios WHERE tipo_usuario = 'dueno de local' AND estado_usuario = 'pendiente'";
         $result_tasks = mysqli_query($conn, $query);
+        $conn->close();
 
         while($row = mysqli_fetch_array($result_tasks)){?>
 
