@@ -19,10 +19,15 @@ include("config/db.php");
         $contador = 0;
 
         
+        
         while($promo = mysqli_fetch_array($promociones_by_client_category)){ 
             
-            // Itero por cada fila de promociones en la DB 
             include 'component_card.php';
+            $contador++;
+            if($contador == 7){
+                break;
+            }
+
         } ?>     
 
         <div class="d-md-block d-none" style="width: 25rem;">
