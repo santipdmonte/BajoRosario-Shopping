@@ -35,12 +35,7 @@ if (isset($_GET['cod_novedad'])) {
     <div class="card w-100" style="max-width: 500px;">
         <div class="card-body">
 
-            <?php
-            if (isset($_SESSION['error'])) {
-                echo '<div class="alert alert-danger" role="alert">'. $_SESSION['error'] .'</div>';
-                unset($_SESSION['error']);
-            }
-            ?>
+            <?php include('../../views/error_messages.php')?>
 
             <form action="procesar_edicion_novedad.php" method="POST">
 

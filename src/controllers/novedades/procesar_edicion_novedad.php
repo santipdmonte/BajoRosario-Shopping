@@ -10,7 +10,13 @@ if (isset($_POST['edit_novedad'])) {
     $fecha_hasta = $_POST['fecha_hasta'];
     $categoria_cliente = $_POST['categoria_cliente'];
 
-    $_SESSION['error'] = validate_dates($fecha_desde, $fecha_hasta);
+    $current_date = date('Y-m-d');
+    if ($fecha_desde < $current_date) {
+        $_SESSION['error'] = validate_dates($current_date, $fecha_hasta);
+    } else {
+        $_SESSION['error'] = validate_dates($fecha_desde, $fecha_hasta);
+    }
+
     if (isset($_SESSION['error'])){
         header("Location: editar_novedad.php?cod_novedad=$cod_novedad");
         exit();
@@ -28,23 +34,15 @@ if (isset($_POST['edit_novedad'])) {
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-        // Establecer variable de sesión para indicar que la novedad se ha editado con éxito
-        session_start();
-        $_SESSION['edited'] = true;
-        $_SESSION['message'] = "Novedad editada correctamente.";
+        $_SESSION['success'] = "Novedad editada correctamente.";
     } else {
-        // Si hay un error en la consulta
-        session_start();
-        $_SESSION['edit_failed'] = true;
-        $_SESSION['message'] = "Error al editar la novedad.";
+        $_SESSION['error'] = "Error al editar la novedad.";
     }
 
-    // Redirigir de vuelta a la página principal de novedades
-    header("Location: /bajorosario-shopping/admin/novedades");
-    exit();
-} else {
-    // Si se intenta acceder directamente a este script sin una acción válida
-    header("Location: /bajorosario-shopping/admin/novedades");
-    exit();
-}
+} 
+
+// Redirigir de vuelta a la página principal de novedades
+header("Location: /bajorosario-shopping/admin/novedades");
+exit();
+
 ?>

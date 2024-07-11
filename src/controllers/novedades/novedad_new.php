@@ -35,7 +35,7 @@ if (isset($_POST['save_novedad'])){
     $result = mysqli_query($conn, $query);
 
     // Establecer variable de sesión para indicar que la promoción se ha guardado con éxito
-    $_SESSION['saved'] = true;
+    $_SESSION['success'] = 'Novedad guardada correctamente.';
 
     // Redireccionar a admin_novedades.php
     header("Location: /bajorosario-shopping/admin/novedades");

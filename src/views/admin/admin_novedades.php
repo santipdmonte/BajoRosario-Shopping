@@ -3,55 +3,13 @@ include '../header.php';
 include __DIR__ . "/../../../config/db.php";
 include "../../controllers/novedades/get_novedades.php";
 
-$is_saved = isset($_SESSION['saved']) && $_SESSION['saved'];
-$is_deleted = isset($_SESSION['deleted']) && $_SESSION['deleted'];
-$is_failed = isset($_SESSION['failed']) && $_SESSION['failed'];
-$review_approve = isset($_SESSION['review_approve']) && $_SESSION['review_approve'];
-$review_deny = isset($_SESSION['review_deny']) && $_SESSION['review_deny'];
-$review_failed = isset($_SESSION['review_failed']) && $_SESSION['review_failed'];
-$error = isset($_SESSION['error']) && $_SESSION['error'];
-
-
 $novedades = get_novedades_active(); 
 
 ?>
 
 <div class="container pt-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
 
-    <?php
-    if ($is_saved) {
-        echo '<div class="alert alert-success" role="alert"> La novedad se guardo con éxito </div>';
-        unset($_SESSION['saved']);
-    }
-    if ($is_deleted) {
-        echo '<div class="alert alert-success" role="alert"> La novedad se elimino con éxito </div>';
-        unset($_SESSION['deleted']);
-    }
-    if ($is_failed) {
-        echo '<div class="alert alert-danger" role="alert"> Error</div>';
-        unset($_SESSION['failed']);
-    }
-    // Verificar si la variable de sesión está establecida para mostrar el toast
-    if ($review_approve) {
-        // Si la promoción se ha guardado correctamente, muestra el mensaje
-        echo '<div class="alert alert-success" role="alert"> La promoción se aprobo con éxito </div>';
-        unset($_SESSION['review_approve']);
-    }
-    if ($review_deny) {
-        // Si la promoción se ha guardado correctamente, muestra el mensaje
-        echo '<div class="alert alert-success" role="alert"> La promoción se denego con éxito </div>';
-        unset($_SESSION['review_deny']);
-    }
-    if ($review_failed) {
-        // Si la promoción no se pudo guardar, muestra el mensaje
-        echo '<div class="alert alert-danger" role="alert"> Error al aprobar/denegar la promoción</div>';
-        unset($_SESSION['review_saved']);
-    }
-    if ($error) {
-        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error'] . '</div>';
-        unset($_SESSION['error']);
-    }
-    ?>
+    <?php include('../error_messages.php')?>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary justify-content-end" data-bs-toggle="modal" data-bs-target="#exampleModal">

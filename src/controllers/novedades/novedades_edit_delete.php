@@ -11,18 +11,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-        // Establecer variable de sesión para indicar que la novedad se ha eliminado con éxito
         session_start();
-        $_SESSION['deleted'] = true;
+        $_SESSION['success'] = 'Novedad eliminada correctamente.';
     } else {
-        // Si hay un error en la consulta
         session_start();
-        $_SESSION['failed'] = true;
+        $_SESSION['error'] = 'Error al eliminar la novedad';
     }
-
-    // Redirigir de vuelta a la página principal de novedades
-    header("Location: /bajorosario-shopping/admin/novedades");
-    exit();
 }
 
 // Manejo de la acción para editar una novedad

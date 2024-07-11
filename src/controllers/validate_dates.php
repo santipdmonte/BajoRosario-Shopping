@@ -8,6 +8,10 @@ function validate_dates($fecha_desde_promo, $fecha_hasta_promo){
             if ($fecha_desde_promo < date("Y-m-d")) {
                 return "Error: La fecha de inicio debe ser mayor a la fecha actual";
             }
+
+            if ($fecha_hasta_promo < date("Y-m-d")) {
+                return "Error: La fecha de fin debe ser mayor a la fecha actual";
+            }
             
             if ($fecha_desde_promo > $fecha_hasta_promo){
                 return "Error: La fecha de inicio debe ser menor a la fecha de fin";
