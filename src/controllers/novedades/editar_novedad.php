@@ -1,13 +1,14 @@
 <?php
-include("../../../config/db.php");
 include("../../../src/views/header.php");
 // Verificar si se ha pasado un parámetro cod_novedad por GET
 if (isset($_GET['cod_novedad'])) {
     $cod_novedad = $_GET['cod_novedad'];
 
     // Consulta para obtener los datos actuales de la novedad
+    include("../../../config/db.php");
     $query = "SELECT * FROM novedades WHERE cod_novedad = $cod_novedad";
     $result = mysqli_query($conn, $query);
+    $conn->close();
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -46,6 +47,8 @@ if (isset($_GET['cod_novedad'])) {
                     <label for="" class="form-label">Novedad</label>
                     <input type="text" class="form-control"  name="texto_novedad"  value="<?php echo $texto_novedad; ?>" autofocus required>
                 </div>
+
+                <input type="date" name="fecha_desde_vieja" value="<?php echo $fecha_desde;?>" hidden>
 
                 <!-- Input Fecha Desde -->
                 <div class="mb-3" style="max-width: 200px;">

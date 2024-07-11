@@ -7,11 +7,12 @@ if (isset($_POST['edit_novedad'])) {
     $cod_novedad = $_POST['cod_novedad'];
     $texto_novedad = $_POST['texto_novedad'];
     $fecha_desde = $_POST['fecha_desde'];
+    $fecha_desde_vieja = $_POST['fecha_desde_vieja'];
     $fecha_hasta = $_POST['fecha_hasta'];
     $categoria_cliente = $_POST['categoria_cliente'];
 
     $current_date = date('Y-m-d');
-    if ($fecha_desde < $current_date) {
+    if ($fecha_desde_vieja < $current_date) {
         $_SESSION['error'] = validate_dates($current_date, $fecha_hasta);
     } else {
         $_SESSION['error'] = validate_dates($fecha_desde, $fecha_hasta);
@@ -32,6 +33,7 @@ if (isset($_POST['edit_novedad'])) {
 
     // Ejecutar la consulta
     $result = mysqli_query($conn, $query);
+    $conn->close();
 
     if ($result) {
         $_SESSION['success'] = "Novedad editada correctamente.";
