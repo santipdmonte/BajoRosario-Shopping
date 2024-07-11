@@ -70,6 +70,8 @@ if (isset($_GET['cod_novedad'])) {
                 </div>
                 
                 <input type="submit" class="btn btn-primary" name="edit_novedad" value="Guardar Cambios">
+                <button href="javascript:history.back()" class="btn btn-secondary">Cancelar</button>
+                
 
             </form>
 

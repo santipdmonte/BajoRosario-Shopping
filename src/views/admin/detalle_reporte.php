@@ -20,6 +20,8 @@ $result_local = mysqli_fetch_array (mysqli_query($conn, $query_local))
 
 <section class="section">
 
+    <a class="p-4" href="javascript:history.back()">< Volver</a>
+
     <h2 class="title">Reportes Promociones <?php echo $result_local['nombre_local']?></h2>
 
     <div class="container pt-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">

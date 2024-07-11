@@ -90,6 +90,7 @@ $categoryResult = mysqli_query($conn, $categoryQuery);
                 </div>
                 
                 <input type="submit" class="btn btn-primary" name="edit_local" value="Guardar Cambios"> 
+                <button href="javascript:history.back()" class="btn btn-secondary">Cancelar</button>
 
             </form>
 

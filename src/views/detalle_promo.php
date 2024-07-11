@@ -15,6 +15,8 @@
 
 <div class="container p-4" >
         
+    <a class='m-2' href="javascript:history.back()">< Volver</a>
+
     <?php
     // Si no se encuentra la promoción, mostrar un mensaje de error
     if (!$promo){
