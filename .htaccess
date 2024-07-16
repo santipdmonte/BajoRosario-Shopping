@@ -59,3 +59,6 @@ RewriteRule ^mapa_sitio$ src/views/mapa_sitio.php [L]
 
 # Redirigir /cuenta a /src/views/cuenta.php
 RewriteRule ^cuenta$ src/views/cuenta.php [L]
+
+# Redirigir /mapa_sitio a /src/views/mapadesitio.php
+RewriteRule ^mapa_sitio$ src/views/mapa_sitio.php [L]
