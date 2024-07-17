@@ -17,6 +17,11 @@ include "../../config/db.php";
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   
   <link rel="stylesheet" href="/bajorosario-shopping/styles/index.css"> 
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
   </head>
 
 
@@ -30,22 +35,25 @@ include "../../config/db.php";
   $admin = isset($_SESSION['user']) && $_SESSION['user'] == 'admin';
   ?>
 
- 
-  <ul>
+<div class="">
+  
   <?php if ($cliente){ ?>
-      <li><h1>CLIENTE</h1></li>
+      <h1 style="margin-left: 10px;" >CLIENTE</h1>
       <?php } else if ($dueno_local) { ?>
-        <li><h1>DUENO LOCAL</h1></li> <?php
+        <h1 style="margin-left: 10px;">DUENO LOCAL</h1> <?php
       }
       else  if ($admin){ ?>
-        <li><h1>ADMIN</h1></li>
+        <h1 style="margin-left: 10px;">ADMIN</h1>
         <?php }
          ?>
 
-    
+  
+  <ul>
     <li>
       <a href="/bajorosario-shopping/">Inicio</a>
     </li>
+  </ul>
+  <ul style="margin-left: 10px;">
     <li>
       <a href="/bajorosario-shopping/promociones">Promociones</a>
     </li>
@@ -80,8 +88,11 @@ include "../../config/db.php";
       <li><a href="/bajorosario-shopping/admin/duenos"> Gestionar Dueños</a></li>
 
       <li><a href="/bajorosario-shopping/admin/novedades">Novedades</a></li>
+
       <li><a href="/bajorosario-shopping/admin/locales">Locales</a></li>
+
       <li><a href="/bajorosario-shopping/admin/categorias_cliente">Categorias Cliente</a></li>
+      
       <li><a href="/bajorosario-shopping/admin/reportes">Reportes</a></li>
     </ul>
     </div>
@@ -89,8 +100,8 @@ include "../../config/db.php";
   <?php } ?>
   <!-- End Admin -->
 
-</ul>
-
+  </ul>
+</div>
     
 
 
