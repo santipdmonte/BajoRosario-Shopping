@@ -6,7 +6,11 @@ include("../validate_dates.php");
 if (isset($_POST['edit_novedad'])) {
     $cod_novedad = $_POST['cod_novedad'];
     $texto_novedad = $_POST['texto_novedad'];
-    $fecha_desde = $_POST['fecha_desde'];
+    if (isset($_POST['fecha_desde'])){
+        $fecha_desde = $_POST['fecha_desde'];
+    } else {
+        $fecha_desde = $_POST['fecha_desde_vieja'];
+    };
     $fecha_desde_vieja = $_POST['fecha_desde_vieja'];
     $fecha_hasta = $_POST['fecha_hasta'];
     $categoria_cliente = $_POST['categoria_cliente'];
