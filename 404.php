@@ -13,4 +13,4 @@
 </section>
 
     
-<?php include("src/views/footer.html")?>
+<?php include("src/views/footer.php")?>
