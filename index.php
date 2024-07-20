@@ -22,4 +22,4 @@
 
 <?php include 'src/views/whatsapp_float.html'?>
 
-<?php include("src/views/footer.html")?>
+<?php include("src/views/footer.php")?>

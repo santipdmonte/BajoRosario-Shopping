@@ -91,4 +91,4 @@ $email = isset($_GET['email'])? $_GET['email'] : '';
 
 </div>
 
-<?php include __DIR__ . "/footer.html" ?>
+<?php include __DIR__ . "/footer.php" ?>

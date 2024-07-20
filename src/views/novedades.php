@@ -68,5 +68,5 @@ if (!$result){
     </div>
 </section>
     
-<?php include __DIR__ . "/footer.html"?>
+<?php include __DIR__ . "/footer.php"?>
 

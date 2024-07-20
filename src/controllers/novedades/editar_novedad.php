@@ -89,4 +89,4 @@ if (isset($_GET['cod_novedad'])) {
 
 </div>
 
-<?php include("../../../src/views/footer.html"); ?>
+<?php include("../../../src/views/footer.php"); ?>

@@ -71,6 +71,6 @@ if (!$usuario){
 <?php
 
 
-include ("footer.html")
+include ("footer.php")
 
 ?>

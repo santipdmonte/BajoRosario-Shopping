@@ -22,7 +22,7 @@
     // Si no se encuentra la promoción, mostrar un mensaje de error
     if (!$promo){
         echo "<p>La promoción no existe o no está disponible.</p>";
-        include __DIR__ . '/footer.html';
+        include __DIR__ . '/footer.php';
         exit();
     }
 
@@ -34,7 +34,7 @@
         } else {
             echo "<p>Para acceder a las promociones debes <a href='/bajorosario-shopping/inicio_sesion'>Iniciar Sesion</a></p>";
         }
-        include __DIR__ . '/footer.html';
+        include __DIR__ . '/footer.php';
         exit();
     } 
     ?>
@@ -71,6 +71,6 @@
     
 <?php
 
-include __DIR__ . '/footer.html';
+include __DIR__ . '/footer.php';
 ?>
 

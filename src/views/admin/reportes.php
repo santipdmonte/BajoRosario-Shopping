@@ -86,5 +86,5 @@ $conn->close();
     </div>
 </section>
 
-<?php include '../footer.html' ?>
+<?php include '../footer.php' ?>
 

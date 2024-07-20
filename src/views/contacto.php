@@ -58,6 +58,6 @@ $consulta_saved = isset($_SESSION['consulta_saved']) && $_SESSION['consulta_save
 
 <?php
 
-include ("footer.html")
+include ("footer.php")
 
 ?>

@@ -119,5 +119,5 @@
 
     <?php } ?>
 
-<?php include __DIR__ . '/footer.html'; ?>
+<?php include __DIR__ . '/footer.php'; ?>
 <?php $conn->close();?>

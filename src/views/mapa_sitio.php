@@ -107,4 +107,4 @@ include "../../config/db.php";
 
   </div>
   </div>
-  <?php include ("footer.html") ?>
+  <?php include ("footer.php") ?>

@@ -97,6 +97,6 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
 
 <?php 
     include '../../src/views/whatsapp_float.html';
-    include __DIR__ . "/footer.html";
+    include __DIR__ . "/footer.php";
 ?>
 

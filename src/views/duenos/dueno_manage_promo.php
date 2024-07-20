@@ -81,5 +81,5 @@ style="
     
 <?php 
 }
-include ("../footer.html")?>
+include ("../footer.php")?>
 

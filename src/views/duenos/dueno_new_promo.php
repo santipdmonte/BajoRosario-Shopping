@@ -144,4 +144,4 @@ if (mysqli_num_rows($result) == 0) {
 
 <?php }
 
-include ("../footer.html")?>
+include ("../footer.php")?>

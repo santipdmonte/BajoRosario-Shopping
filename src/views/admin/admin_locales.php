@@ -187,4 +187,4 @@ $userResult = mysqli_query($conn, $userQuery);
     </div>
 </div>
 
-<?php include ("../footer.html")?>
+<?php include ("../footer.php")?>

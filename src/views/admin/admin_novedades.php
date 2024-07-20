@@ -121,5 +121,5 @@ $novedades = get_novedades_active();
     </div>
 </div>
 
-<?php include ("../footer.html")?>
+<?php include ("../footer.php")?>
 

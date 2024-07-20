@@ -104,4 +104,4 @@ $nombre_usuario = isset($_GET['error'])? $_GET['error'] : '';
 
 </div>
 
-<?php include __DIR__ . "/footer.html" ?>
+<?php include __DIR__ . "/footer.php" ?>
