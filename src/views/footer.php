@@ -24,9 +24,9 @@
         <li class="nav-item"><a href="/bajorosario-shopping/mapa_sitio" class="nav-link px-2 text-body-secondary">Mapa de sitio</a></li>
         <?php if (isset($_SESSION['user'])){ ?>
             <li class="nav-item"><a href="/bajorosario-shopping/cuenta" class="nav-link px-2 text-body-secondary">Cuenta</a></li>
-            <li class="nav-item"><a href="/bajorosario-shopping/logout" class="nav-link px-2 text-danger">Cerrar sesión</a></li>
+            <li class="nav-item"><a href="/bajorosario-shopping/src/controllers/cerrar_sesion.php" class="nav-link px-2 text-danger">Cerrar sesión</a></li>
         <?php } else { ?>
-            <li class="nav-item"><a href="/bajorosario-shopping/login" class="nav-link px-2 text-body-secondary">Iniciar sesión</a></li>
+            <li class="nav-item"><a href="/bajorosario-shopping/inicio_sesion" class="nav-link px-2 text-body-secondary">Iniciar sesión</a></li>
         <?php } ?>
         </ul>
     </div>
