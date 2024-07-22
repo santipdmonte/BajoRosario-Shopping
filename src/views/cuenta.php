@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include("header.php");
 include("../../config/db.php");
 
@@ -35,6 +36,7 @@ if (!$usuario) {
 }
 
 $conn->close();
+ob_end_flush();
 ?>
 
 <div class="container py-4 section" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
