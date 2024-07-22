@@ -15,6 +15,12 @@ if (isset($_POST['local'])) {
     $local = ucfirst($_POST['local']);
     $sql = "SELECT * FROM locales WHERE nombre_local LIKE '$local'";
     $result = $conn->query($sql);
+    
+    if ($result->num_rows < 1) {
+        header("Location: /bajorosario-shopping/404.php");
+        exit();
+    };
+
     $row = $result->fetch_assoc();
     $cod_local = $row['cod_local'];
     header("Location: /bajorosario-shopping/src/controllers/locales/local_search.php?local=$cod_local");
