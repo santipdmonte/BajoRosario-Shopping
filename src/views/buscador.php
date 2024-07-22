@@ -18,6 +18,7 @@ if (isset($_POST['local'])) {
     
     if ($result->num_rows < 1) {
         header("Location: /bajorosario-shopping/404.php");
+        exit();
     };
 
     $row = $result->fetch_assoc();
