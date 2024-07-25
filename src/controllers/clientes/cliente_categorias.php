@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 include("../../../config/db.php");
 
 session_start();
@@ -22,11 +22,12 @@ if (isset($_POST['save_changes'])) {
 
 } 
 
-if (!$result){
-    $_SESSION['error'] = true;
-    exit();
-}
+// if (!$result){
+//     $_SESSION['error'] = true;
+//     exit();
+// }
 
+ob_end_flush();
 $_SESSION['save_changes'] = true;
 $conn->close();
 header("Location: /bajorosario-shopping/admin/categorias_cliente");
