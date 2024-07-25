@@ -5,7 +5,7 @@ include "../models/promocion.php";
 include "../../config/db.php";
 
 // Número de elementos por página
-$elementos_por_pagina = 4;
+$elementos_por_pagina = 8;
 
 // Determinar la página actual a partir de la URL
 $pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
