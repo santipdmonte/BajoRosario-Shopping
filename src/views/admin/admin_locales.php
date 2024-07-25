@@ -81,7 +81,7 @@ $userResult = mysqli_query($conn, $userQuery);
             </thead>
 
             <?php 
-            $query = "SELECT * FROM locales";
+            $query = "SELECT * FROM locales INNER JOIN usuarios ON locales.cod_usuario = usuarios.cod_usuario";
             $result = mysqli_query($conn, $query); 
             $conn->close();
 
@@ -94,7 +94,7 @@ $userResult = mysqli_query($conn, $userQuery);
                     <td><?php echo ($row['nombre_local'])?></td>
                     <td><?php echo $row['ubicacion_local']?></td>
                     <td><?php echo $row['rubro_local']?></td>
-                    <td><?php echo $row['cod_usuario']?></td>
+                    <td><?php echo $row['cod_usuario'] .' - ' . $row['nombre_usuario']?></td>
                     <td>
                         
                         <form action="/bajorosario-shopping/src/controllers/locales/local_edit_delete.php" method="POST">
