@@ -16,7 +16,7 @@ ob_start();
                 unset($_SESSION['save_changes']);
             }
         if (isset($_SESSION['error']) && $_SESSION['error']) {
-            echo '<div class="alert alert-alert" role="alert"> Error al guardar los cambios </div>';
+            echo '<div class="alert alert-danger" role="alert">'.$_SESSION['error'].'</div>';
             unset($_SESSION['error']);
         }
         ?>
