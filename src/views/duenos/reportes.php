@@ -73,4 +73,4 @@ while ($row = mysqli_fetch_assoc($resultLocales)) {
     </div>
 </section>
 
-<?php include '../footer.html' ?>
+<?php include '../footer.php' ?>
