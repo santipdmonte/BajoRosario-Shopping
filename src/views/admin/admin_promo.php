@@ -50,7 +50,11 @@ include __DIR__ . "/../../../config/db.php";
             </thead>
     
             <?php 
-            $query = "SELECT * FROM promociones WHERE estado_promo = 'pendiente'";
+            $query = "
+                SELECT * 
+                FROM promociones 
+                INNER JOIN locales  ON promociones.cod_local = locales.cod_local  
+                WHERE estado_promo = 'pendiente'";
             $promociones_pendientes = mysqli_query($conn, $query);
             $conn->close();
     
@@ -62,7 +66,7 @@ include __DIR__ . "/../../../config/db.php";
                 <tbody>
                     <tr>
                     <td><?php echo $promocion['texto_promo']?></td>
-                    <td><?php echo $promocion['cod_local']?></td>
+                    <td><?php echo $promocion['nombre_local']?></td>
                     <td><?php echo ($promocion['fecha_desde_promo'] . ' | ' . $promocion['fecha_hasta_promo'])?></td>
                     <td><?php echo $promocion['categoria_cliente']?></td>
                     <td>
