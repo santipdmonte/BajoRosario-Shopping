@@ -27,10 +27,12 @@ if (isset($_POST['save_changes'])) {
 //     exit();
 // }
 
-ob_end_flush();
+
 $_SESSION['save_changes'] = true;
 $conn->close();
 header("Location: /bajorosario-shopping/admin/categorias_cliente");
 exit();
+
+ob_end_flush();
 
 ?>
