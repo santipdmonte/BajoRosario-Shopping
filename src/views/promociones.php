@@ -78,7 +78,7 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
         <nav aria-label="Page navigation">
             <ul class="pagination d-flex justify-content-center">
                 <li class="page-item <?php echo ($pagina_actual <= 1) ? 'disabled' : ''; ?>">
-                    <a class="page-link" href="?pagina=<?php echo max(1, $pagina_actual - 1); ?>">Previous</a>
+                    <a class="page-link" href="?pagina=<?php echo max(1, $pagina_actual - 1); ?>">Anterior</a>
                 </li>
     
                 <?php for ($i = 1; $i <= $total_paginas; $i++) {
@@ -87,7 +87,7 @@ $get_rubro = (isset($_GET['rubro']))?  $_GET['rubro'] : '';
                 } ?>
     
                 <li class="page-item <?php echo ($pagina_actual >= $total_paginas) ? 'disabled' : ''; ?>">
-                    <a class="page-link" href="?pagina=<?php echo min($total_paginas, $pagina_actual + 1); ?>">Next</a>
+                    <a class="page-link" href="?pagina=<?php echo min($total_paginas, $pagina_actual + 1); ?>">Siguiente</a>
                 </li>
             </ul>
         </nav>
