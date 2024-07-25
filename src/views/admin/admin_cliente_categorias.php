@@ -1,6 +1,7 @@
 <?php 
 include '../header.php';
 include __DIR__ . "/../../../config/db.php";
+ob_start();
 ?>
 
 <div class="section">
@@ -62,5 +63,9 @@ include __DIR__ . "/../../../config/db.php";
 </div>
 
     
-<?php include ("../footer.php")?>
+<?php 
+ob_end_flush();
+include ("../footer.php")
+
+?>
 
